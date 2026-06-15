@@ -1,0 +1,14 @@
+{
+  "name": "codex-project-manual-bot",
+  "version": "0.1.0",
+  "description": "Telegram bot manual for learning Codex by building 20 small apps.",
+  "main": "src/bot.js",
+  "scripts": {
+    "start": "node src/bot.js",
+    "check": "node -c src/bot.js && node scripts/validate-content.js"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,12 @@
+services:
+  codex-project-manual-bot:
+    build: .
+    restart: unless-stopped
+    environment:
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      BUY_ME_A_COFFEE_URL: ${BUY_ME_A_COFFEE_URL:-}
+      ADMIN_USER_IDS: ${ADMIN_USER_IDS:-}
+      UNLOCKED_USER_IDS: ${UNLOCKED_USER_IDS:-}
+    volumes:
+      - ./data:/app/data
+

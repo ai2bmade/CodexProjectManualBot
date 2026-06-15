@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "id": "what_is_codex",
+      "keywords": {
+        "en": ["codex", "what is codex", "coding agent"],
+        "ko": ["코덱스", "codex", "코딩 에이전트"],
+        "es_419": ["codex", "que es codex", "agente"]
+      },
+      "answer": {
+        "en": "Codex is a coding agent. You describe what you want to build, and it can read files, edit code, run commands, and help verify the result. In this course, you practice giving Codex clear, step-by-step instructions.",
+        "ko": "Codex는 코딩 에이전트입니다. 만들고 싶은 것을 말하면 파일을 읽고, 코드를 수정하고, 명령어를 실행하고, 결과 확인을 도와줄 수 있어요. 이 과정에서는 Codex에게 일을 차근차근 잘 시키는 법을 연습합니다.",
+        "es_419": "Codex es un agente de programacion. Le explicas que quieres crear y puede leer archivos, editar codigo, ejecutar comandos y ayudarte a verificar el resultado. En este curso practicas como darle instrucciones claras paso a paso."
+      }
+    },
+    {
+      "id": "bot_token",
+      "keywords": {
+        "en": ["token", "bot token", "telegram token", "botfather"],
+        "ko": ["토큰", "봇토큰", "봇 토큰", "botfather", "봇파더"],
+        "es_419": ["token", "botfather", "token del bot"]
+      },
+      "answer": {
+        "en": "A Telegram bot token is the secret key BotFather gives you when you create a bot. Treat it like a password. Do not paste it into GitHub, README files, screenshots, or public chat. Put it in Coolify as TELEGRAM_BOT_TOKEN.",
+        "ko": "Telegram 봇 토큰은 BotFather가 새 봇을 만들 때 주는 비밀키입니다. 비밀번호처럼 다뤄야 해요. GitHub, README, 스크린샷, 공개 채팅에 올리면 안 됩니다. Coolify 환경변수에 TELEGRAM_BOT_TOKEN으로 넣으세요.",
+        "es_419": "Un token de bot de Telegram es la clave secreta que BotFather te da cuando creas un bot. Tratalo como una contrasena. No lo subas a GitHub, README, capturas ni chats publicos. Ponelo en Coolify como TELEGRAM_BOT_TOKEN."
+      }
+    },
+    {
+      "id": "coolify_port",
+      "keywords": {
+        "en": ["port", "domain", "coolify port", "web server"],
+        "ko": ["포트", "도메인", "쿨리파이 포트", "웹서버"],
+        "es_419": ["puerto", "dominio", "coolify", "servidor web"]
+      },
+      "answer": {
+        "en": "For these Telegram long polling bots, you usually do not need a public port or domain. The bot runs on the server and keeps asking Telegram for new messages. You only need the app process to stay running and TELEGRAM_BOT_TOKEN to be set.",
+        "ko": "이 챌린지의 Telegram long polling 봇은 보통 공개 포트나 도메인이 필요 없습니다. 봇이 서버에서 계속 실행되면서 Telegram에 새 메시지가 있는지 물어봅니다. 중요한 것은 앱 프로세스가 계속 실행되고 TELEGRAM_BOT_TOKEN이 설정되어 있는 것입니다.",
+        "es_419": "Para estos bots de Telegram con long polling, normalmente no necesitas puerto publico ni dominio. El bot corre en el servidor y consulta a Telegram si hay mensajes nuevos. Solo necesitas que el proceso siga corriendo y que TELEGRAM_BOT_TOKEN este configurado."
+      }
+    },
+    {
+      "id": "environment_variable",
+      "keywords": {
+        "en": ["environment variable", "env", "telegraph_bot_token", "telegram_bot_token"],
+        "ko": ["환경변수", "env", "텔레그램봇토큰", "telegram_bot_token"],
+        "es_419": ["variable de entorno", "env", "telegram_bot_token"]
+      },
+      "answer": {
+        "en": "An environment variable is a setting passed to the app from outside the code. We use it for secrets. The code reads process.env.TELEGRAM_BOT_TOKEN, and Coolify stores the real token value.",
+        "ko": "환경변수는 코드 밖에서 앱에게 전달하는 설정값입니다. 비밀값을 저장할 때 사용합니다. 코드는 process.env.TELEGRAM_BOT_TOKEN을 읽고, 실제 토큰 값은 Coolify에 저장합니다.",
+        "es_419": "Una variable de entorno es una configuracion que se pasa a la app desde fuera del codigo. La usamos para secretos. El codigo lee process.env.TELEGRAM_BOT_TOKEN y Coolify guarda el valor real."
+      }
+    },
+    {
+      "id": "github",
+      "keywords": {
+        "en": ["github", "repo", "repository", "push"],
+        "ko": ["깃허브", "github", "레포", "저장소", "푸시", "push"],
+        "es_419": ["github", "repo", "repositorio", "push"]
+      },
+      "answer": {
+        "en": "GitHub is where your project files are stored online. After Codex creates or edits files locally, you commit and push them to GitHub. Coolify can then pull the GitHub repo and run the bot on your VPS.",
+        "ko": "GitHub는 프로젝트 파일을 온라인에 보관하는 곳입니다. Codex가 로컬에서 파일을 만들거나 수정한 뒤 commit/push를 하면, Coolify가 GitHub 저장소를 가져와 VPS에서 봇을 실행할 수 있습니다.",
+        "es_419": "GitHub es donde se guardan online los archivos del proyecto. Despues de que Codex crea o edita archivos localmente, haces commit y push a GitHub. Luego Coolify puede tomar el repositorio y ejecutar el bot en tu VPS."
+      }
+    },
+    {
+      "id": "error_help",
+      "keywords": {
+        "en": ["error", "not working", "failed", "problem"],
+        "ko": ["에러", "오류", "안돼", "안 됩니다", "문제", "실패"],
+        "es_419": ["error", "no funciona", "fallo", "problema"]
+      },
+      "answer": {
+        "en": "When something fails, copy the exact error message and ask Codex like this: 'This is the exact error. Please explain what it means, identify the likely cause, and give me one safe fix to try first.' Exact error text is much more useful than saying 'it does not work.'",
+        "ko": "무언가 실패하면 정확한 에러 문장을 복사해서 Codex에게 이렇게 물어보세요: '이것이 정확한 에러 메시지야. 무슨 뜻인지 설명하고, 가장 가능성 높은 원인을 찾고, 먼저 시도할 안전한 해결책 하나를 알려줘.' '안 돼요'보다 정확한 에러 문장이 훨씬 중요합니다.",
+        "es_419": "Cuando algo falla, copia el mensaje exacto de error y preguntale a Codex asi: 'Este es el error exacto. Explicame que significa, identifica la causa mas probable y dame una solucion segura para probar primero.' El texto exacto del error ayuda mucho mas que decir 'no funciona'."
+      }
+    },
+    {
+      "id": "why_no_ai_answers",
+      "keywords": {
+        "en": ["ai answer", "chatgpt", "why not answer", "ask ai", "token cost"],
+        "ko": ["ai 답변", "챗지피티", "chatgpt", "왜 답", "토큰", "비용", "질문"],
+        "es_419": ["respuesta ai", "chatgpt", "por que no responde", "costo", "tokens", "pregunta"]
+      },
+      "answer": {
+        "en": "This bot uses built-in lesson text instead of calling AI for every question. That keeps the course inexpensive and easy to run. Since Codex learners usually already have ChatGPT/Codex access, copy this prompt into ChatGPT or Codex:\n\n'I am following a Telegram course about building bots with Codex. Please answer like a patient beginner tutor. My question is: [paste your question]. Give me one small next step, not a long lecture.'",
+        "ko": "이 봇은 모든 질문마다 AI를 호출하지 않고, 미리 준비한 레슨과 FAQ로 답합니다. 그래야 운영 비용을 낮게 유지하고 $3짜리 저렴한 매뉴얼로 만들 수 있어요. Codex를 쓰는 학습자는 보통 ChatGPT/Codex 계정이 있으니, 아래 프롬프트를 ChatGPT나 Codex에 붙여넣어 보세요:\n\n'나는 Codex로 Telegram 봇을 만드는 강의를 따라가는 중이야. 초보자를 가르치는 친절한 튜터처럼 답해줘. 내 질문은 이것이야: [여기에 질문 붙여넣기]. 긴 설명보다 지금 바로 할 수 있는 작은 다음 단계 하나를 알려줘.'",
+        "es_419": "Este bot usa lecciones y FAQ preparadas en vez de llamar a AI para cada pregunta. Asi el curso se mantiene barato y facil de operar. Como los estudiantes de Codex normalmente ya tienen acceso a ChatGPT/Codex, copia este prompt en ChatGPT o Codex:\n\n'Estoy siguiendo un curso de Telegram para crear bots con Codex. Respondeme como un tutor paciente para principiantes. Mi pregunta es: [pega tu pregunta]. Dame un siguiente paso pequeno, no una explicacion larga.'"
+      }
+    }
+  ],
+  "fallback": {
+    "en": "I can answer basic course questions, but I do not call AI for every message. This keeps the manual bot inexpensive to run.\n\nCopy this into ChatGPT or Codex:\n\n'I am following a Telegram course about building bots with Codex. Please answer like a patient beginner tutor.\n\nWhat I was trying to do: [write it]\nWhat step or command I ran: [write it]\nExact error or confusing message: [paste it]\nWhat I expected to happen: [write it]\n\nGive me one small next step.'",
+    "ko": "기본적인 강의 질문에는 답할 수 있지만, 이 봇은 모든 메시지마다 AI를 호출하지 않습니다. 그래야 저렴하게 운영할 수 있어요.\n\nChatGPT 또는 Codex에 아래 프롬프트를 붙여넣어 보세요:\n\n'나는 Codex로 Telegram 봇을 만드는 강의를 따라가는 중이야. 초보자를 가르치는 친절한 튜터처럼 답해줘.\n\n내가 하려던 일: [적기]\n실행한 단계 또는 명령어: [적기]\n정확한 에러 또는 헷갈린 메시지: [붙여넣기]\n원래 기대했던 결과: [적기]\n\n지금 바로 할 수 있는 작은 다음 단계 하나를 알려줘.'",
+    "es_419": "Puedo responder preguntas basicas del curso, pero no llamo a AI por cada mensaje. Asi el bot se mantiene barato de operar.\n\nCopia esto en ChatGPT o Codex:\n\n'Estoy siguiendo un curso de Telegram para crear bots con Codex. Respondeme como un tutor paciente para principiantes.\n\nQue intentaba hacer: [escribe]\nQue paso o comando ejecute: [escribe]\nError exacto o mensaje confuso: [pega]\nQue esperaba que pasara: [escribe]\n\nDame un siguiente paso pequeno.'"
+  }
+}

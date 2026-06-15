@@ -1,0 +1,233 @@
+{
+  "product": {
+    "id": "codex_project_manual_bot",
+    "priceUsd": 3,
+    "freeLessons": [1, 2],
+    "supportedLanguages": ["en", "ko", "es_419"],
+    "comingSoonLanguages": ["pt_BR", "ja", "fr"]
+  },
+  "languages": {
+    "en": "English",
+    "ko": "한국어",
+    "es_419": "Español latinoamericano",
+    "pt_BR": "Português do Brasil",
+    "ja": "日本語",
+    "fr": "Français"
+  },
+  "lessons": [
+    {
+      "id": 1,
+      "slug": "setup",
+      "title": {
+        "en": "Setup Mission",
+        "ko": "설치 미션",
+        "es_419": "Mision de instalacion"
+      },
+      "summary": {
+        "en": "Prepare your Codex, GitHub, Telegram, and Coolify learning path slowly, with nothing assumed.",
+        "ko": "Codex, GitHub, Telegram, Coolify 준비 과정을 아무것도 당연하게 여기지 않고 천천히 확인합니다.",
+        "es_419": "Prepara tu camino con Codex, GitHub, Telegram y Coolify lentamente, sin dar nada por hecho."
+      },
+      "blocks": [
+        {
+          "type": "goal",
+          "en": "This lesson does not build an app yet. You learn what each tool is, why it matters, and how to ask Codex to check your setup before touching files.",
+          "ko": "이 레슨에서는 아직 앱을 만들지 않습니다. 각 도구가 무엇인지, 왜 필요한지, 파일을 만들기 전에 Codex에게 준비 상태를 확인시키는 법을 배웁니다.",
+          "es_419": "En esta leccion todavia no creas una app. Aprendes que es cada herramienta, por que importa y como pedirle a Codex que revise tu configuracion antes de tocar archivos."
+        },
+        {
+          "type": "prompt",
+          "en": "I want to learn Codex by building 20 Telegram bots and small apps. I am not comfortable with GitHub, Docker, Coolify, or Telegram BotFather yet. Please treat me as a beginner and do not assume I know the setup steps.\n\nMy first goal is to check my development environment. Tell me how to check whether Git, Node.js, npm, and GitHub CLI are installed. Explain what each command means. Do not create files yet. Only guide me through the checking step first.",
+          "ko": "나는 Telegram 봇을 20개 만들어 보면서 Codex 사용법을 배우고 싶어. 아직 GitHub, Docker, Coolify, Telegram BotFather에 익숙하지 않아. 나를 초보자로 보고, 절대 아무것도 당연하게 여기지 말고 설명해줘.\n\n첫 번째 목표는 개발 준비 상태를 확인하는 거야. 내 컴퓨터에서 Git, Node.js, npm, GitHub CLI가 설치되어 있는지 확인하는 명령어를 알려주고, 각 명령어의 결과가 어떤 의미인지 설명해줘. 아직 파일은 만들지 말고, 먼저 확인 단계만 진행해줘.",
+          "es_419": "Quiero aprender a usar Codex creando 20 bots de Telegram y apps pequenas. Todavia no entiendo bien GitHub, Docker, Coolify ni Telegram BotFather. Tratame como principiante y no asumas que ya conozco los pasos de instalacion.\n\nMi primer objetivo es revisar mi entorno de desarrollo. Decime como comprobar si Git, Node.js, npm y GitHub CLI estan instalados. Explicame que significa cada comando. Todavia no crees archivos. Primero guiame solo por la etapa de comprobacion."
+        }
+      ],
+      "checklist": {
+        "en": [
+          "I understand that Codex is a coding agent.",
+          "I understand that BotFather creates Telegram bot tokens.",
+          "I understand that TELEGRAM_BOT_TOKEN is secret.",
+          "I understand that environment variables keep secrets outside the code.",
+          "I understand that GitHub stores project files.",
+          "I understand that Coolify can deploy code from GitHub to a server."
+        ],
+        "ko": [
+          "Codex가 무엇을 하는 도구인지 대략 이해했다.",
+          "Telegram BotFather가 봇 토큰을 만든다는 것을 이해했다.",
+          "TELEGRAM_BOT_TOKEN은 비밀값이라는 것을 이해했다.",
+          "환경변수가 무엇인지 대략 이해했다.",
+          "GitHub 저장소가 코드 보관소라는 것을 이해했다.",
+          "Coolify가 GitHub 코드를 서버에 배포한다는 것을 이해했다."
+        ],
+        "es_419": [
+          "Entiendo que Codex es un agente de programacion.",
+          "Entiendo que BotFather crea tokens para bots de Telegram.",
+          "Entiendo que TELEGRAM_BOT_TOKEN es secreto.",
+          "Entiendo que las variables de entorno guardan secretos fuera del codigo.",
+          "Entiendo que GitHub guarda los archivos del proyecto.",
+          "Entiendo que Coolify puede desplegar codigo desde GitHub a un servidor."
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "slug": "things-to-do-bot",
+      "title": {
+        "en": "Things To Do Telegram Bot",
+        "ko": "Things To Do 텔레그램 봇",
+        "es_419": "Bot de tareas para Telegram"
+      },
+      "summary": {
+        "en": "Build a simple Telegram task manager with /add, /list, /done, and /delete.",
+        "ko": "/add, /list, /done, /delete를 지원하는 간단한 Telegram 할 일 관리 봇을 만듭니다.",
+        "es_419": "Crea un bot simple de tareas para Telegram con /add, /list, /done y /delete."
+      },
+      "blocks": [
+        {
+          "type": "goal",
+          "en": "You build your first real app: a Telegram bot that stores, lists, completes, and deletes tasks. This is the foundation for later tracker, study, reminder, and game bots.",
+          "ko": "첫 번째 실제 앱을 만듭니다. 할 일을 저장하고, 목록을 보고, 완료 처리하고, 삭제하는 Telegram 봇입니다. 이후 추적 봇, 공부 봇, 알림 봇, 게임 봇의 기초가 됩니다.",
+          "es_419": "Creas tu primera app real: un bot de Telegram que guarda, lista, completa y borra tareas. Es la base para bots de seguimiento, estudio, recordatorios y juegos."
+        },
+        {
+          "type": "prompt",
+          "en": "Create a new Node.js Telegram long polling bot project. The app name is Things To Do Telegram Bot.\n\nI am a beginner, so do not assume I know the setup. First explain the files you will create and what each file does. Then create the files.\n\nRequired commands: /start, /help, /add task, /list, /done number, /delete number.\n\nRequirements: Use Node.js. Use Telegram long polling. Store data in data/tasks.json. Store tasks separately for each Telegram user. Read TELEGRAM_BOT_TOKEN from process.env.TELEGRAM_BOT_TOKEN. Create Dockerfile and docker-compose.yml. Write README.md for local setup and Coolify deployment. Mention that this is not a web server, so no port or domain is required. Add node_modules, .env, and data/tasks.json to .gitignore.\n\nAfter the work, show me the generated file list, local test steps, GitHub push steps, and Coolify deployment steps.",
+          "ko": "새 Node.js Telegram long polling 봇 프로젝트를 만들어줘. 앱 이름은 Things To Do Telegram Bot이야.\n\n나는 초보자이므로 아무것도 당연하게 여기지 말고 설명해줘. 먼저 만들 파일 목록과 각 파일의 역할을 설명한 뒤, 실제 파일을 만들어줘.\n\n필수 기능: /start, /help, /add 할일, /list, /done 번호, /delete 번호.\n\n조건: Node.js를 사용해줘. Telegram long polling 방식을 사용해줘. data/tasks.json 파일에 저장해줘. 사용자별로 할 일을 따로 저장해줘. TELEGRAM_BOT_TOKEN은 process.env.TELEGRAM_BOT_TOKEN에서 읽어줘. Dockerfile과 docker-compose.yml을 만들어줘. 로컬 실행과 Coolify 배포 방법을 README.md에 써줘. 웹서버가 아니므로 포트/도메인이 필요 없다는 점도 적어줘. .gitignore에는 node_modules, .env, data/tasks.json을 넣어줘.\n\n작업 후 생성한 파일 목록, 로컬 테스트 방법, GitHub push 방법, Coolify 배포 순서를 알려줘.",
+          "es_419": "Crea un nuevo proyecto de bot de Telegram con Node.js usando long polling. El nombre de la app es Things To Do Telegram Bot.\n\nSoy principiante, asi que no asumas que conozco la configuracion. Primero explicame que archivos vas a crear y para que sirve cada uno. Luego crea los archivos.\n\nComandos requeridos: /start, /help, /add tarea, /list, /done numero, /delete numero.\n\nRequisitos: Usa Node.js. Usa Telegram long polling. Guarda datos en data/tasks.json. Guarda las tareas separadas por usuario de Telegram. Lee TELEGRAM_BOT_TOKEN desde process.env.TELEGRAM_BOT_TOKEN. Crea Dockerfile y docker-compose.yml. Escribe README.md para ejecucion local y despliegue en Coolify. Menciona que no es servidor web, asi que no necesita puerto ni dominio. Agrega node_modules, .env y data/tasks.json a .gitignore.\n\nDespues del trabajo, mostra la lista de archivos generados, pasos de prueba local, pasos para GitHub push y pasos para desplegar en Coolify."
+        }
+      ],
+      "checklist": {
+        "en": ["/start works.", "/help works.", "/add Buy milk adds a task.", "/list shows tasks.", "/done 1 marks a task done.", "/delete 1 deletes a task.", "The bot token is not hard-coded.", "Coolify logs show that the bot started."],
+        "ko": ["/start가 작동한다.", "/help가 작동한다.", "/add Buy milk로 할 일이 추가된다.", "/list로 목록이 보인다.", "/done 1로 완료 처리된다.", "/delete 1로 삭제된다.", "토큰이 코드에 직접 들어가 있지 않다.", "Coolify 로그에서 봇이 시작된 것을 확인했다."],
+        "es_419": ["/start funciona.", "/help funciona.", "/add Buy milk agrega una tarea.", "/list muestra tareas.", "/done 1 marca una tarea como completada.", "/delete 1 borra una tarea.", "El token no esta escrito directamente en el codigo.", "Los logs de Coolify muestran que el bot inicio."]
+      }
+    },
+    {
+      "id": 3,
+      "slug": "habit-tracker-bot",
+      "title": {"en": "Habit Tracker Bot", "ko": "습관 추적 봇", "es_419": "Bot de habitos"},
+      "summary": {"en": "Track daily habits and streaks.", "ko": "매일 습관과 연속 기록을 추적합니다.", "es_419": "Registra habitos diarios y rachas."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build a habit tracker with daily check-ins.", "ko": "잠금 미리보기: 매일 체크인하는 습관 추적 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de habitos con check-ins diarios."}]
+    },
+    {
+      "id": 4,
+      "slug": "expense-tracker-bot",
+      "title": {"en": "Expense Tracker Bot", "ko": "지출 기록 봇", "es_419": "Bot de gastos"},
+      "summary": {"en": "Log simple expenses by category.", "ko": "카테고리별 간단한 지출을 기록합니다.", "es_419": "Registra gastos simples por categoria."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build an expense tracker.", "ko": "잠금 미리보기: 지출 기록 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de gastos."}]
+    },
+    {
+      "id": 5,
+      "slug": "daily-journal-bot",
+      "title": {"en": "Daily Journal Bot", "ko": "하루 기록 봇", "es_419": "Bot de diario"},
+      "summary": {"en": "Save short private journal entries.", "ko": "짧은 개인 일기를 저장합니다.", "es_419": "Guarda entradas privadas cortas."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build a private journal bot.", "ko": "잠금 미리보기: 개인 일기 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de diario privado."}]
+    },
+    {
+      "id": 6,
+      "slug": "quote-bot",
+      "title": {"en": "Quote Bot", "ko": "랜덤 명언 봇", "es_419": "Bot de frases"},
+      "summary": {"en": "Send random quotes from a local list.", "ko": "로컬 목록에서 랜덤 문장을 보냅니다.", "es_419": "Envia frases aleatorias desde una lista local."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build a random quote bot.", "ko": "잠금 미리보기: 랜덤 명언 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de frases aleatorias."}]
+    },
+    {
+      "id": 7,
+      "slug": "number-guessing-game",
+      "title": {"en": "Number Guessing Game", "ko": "숫자 맞히기 게임", "es_419": "Juego de adivinar numeros"},
+      "summary": {"en": "Create a small Telegram guessing game.", "ko": "Telegram 안에서 하는 작은 숫자 게임을 만듭니다.", "es_419": "Crea un pequeno juego de adivinar en Telegram."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build your first game bot.", "ko": "잠금 미리보기: 첫 게임 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea tu primer bot de juego."}]
+    },
+    {
+      "id": 8,
+      "slug": "rock-paper-scissors",
+      "title": {"en": "Rock Paper Scissors Bot", "ko": "가위바위보 봇", "es_419": "Bot de piedra papel o tijera"},
+      "summary": {"en": "Play a simple game against the bot.", "ko": "봇과 간단한 게임을 합니다.", "es_419": "Juega contra el bot."},
+      "blocks": [{"type": "goal", "en": "Locked preview: add buttons and scoring.", "ko": "잠금 미리보기: 버튼과 점수를 추가합니다.", "es_419": "Vista previa bloqueada: agrega botones y puntaje."}]
+    },
+    {
+      "id": 9,
+      "slug": "vocabulary-quiz-bot",
+      "title": {"en": "Vocabulary Quiz Bot", "ko": "단어 퀴즈 봇", "es_419": "Bot de vocabulario"},
+      "summary": {"en": "Ask multiple-choice study questions.", "ko": "객관식 공부 문제를 냅니다.", "es_419": "Hace preguntas de opcion multiple."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build a quiz bot.", "ko": "잠금 미리보기: 퀴즈 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de quiz."}]
+    },
+    {
+      "id": 10,
+      "slug": "flashcard-bot",
+      "title": {"en": "Flashcard Bot", "ko": "플래시카드 봇", "es_419": "Bot de tarjetas"},
+      "summary": {"en": "Review cards with answer reveal.", "ko": "답 보기 방식의 카드를 복습합니다.", "es_419": "Repasa tarjetas mostrando respuestas."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build a flashcard review bot.", "ko": "잠금 미리보기: 플래시카드 복습 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de tarjetas."}]
+    },
+    {
+      "id": 11,
+      "slug": "pomodoro-bot",
+      "title": {"en": "Pomodoro Bot", "ko": "포모도로 봇", "es_419": "Bot Pomodoro"},
+      "summary": {"en": "Practice timers and study sessions.", "ko": "타이머와 공부 세션을 연습합니다.", "es_419": "Practica temporizadores y sesiones de estudio."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build a timer bot.", "ko": "잠금 미리보기: 타이머 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot temporizador."}]
+    },
+    {
+      "id": 12,
+      "slug": "reminder-bot",
+      "title": {"en": "Reminder Bot", "ko": "리마인더 봇", "es_419": "Bot de recordatorios"},
+      "summary": {"en": "Schedule simple reminders.", "ko": "간단한 알림을 예약합니다.", "es_419": "Programa recordatorios simples."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build scheduled reminders.", "ko": "잠금 미리보기: 예약 알림을 만듭니다.", "es_419": "Vista previa bloqueada: crea recordatorios programados."}]
+    },
+    {
+      "id": 13,
+      "slug": "link-saver-bot",
+      "title": {"en": "Link Saver Bot", "ko": "링크 저장 봇", "es_419": "Bot para guardar links"},
+      "summary": {"en": "Save and search useful links.", "ko": "유용한 링크를 저장하고 찾습니다.", "es_419": "Guarda y busca links utiles."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build a link saver.", "ko": "잠금 미리보기: 링크 저장 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un guardador de links."}]
+    },
+    {
+      "id": 14,
+      "slug": "poll-bot",
+      "title": {"en": "Poll Bot", "ko": "투표 봇", "es_419": "Bot de encuestas"},
+      "summary": {"en": "Create small polls in Telegram.", "ko": "Telegram에서 작은 투표를 만듭니다.", "es_419": "Crea encuestas simples en Telegram."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build a poll bot.", "ko": "잠금 미리보기: 투표 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de encuestas."}]
+    },
+    {
+      "id": 15,
+      "slug": "study-streak-bot",
+      "title": {"en": "Study Streak Bot", "ko": "공부 연속 기록 봇", "es_419": "Bot de racha de estudio"},
+      "summary": {"en": "Track study streaks and progress.", "ko": "공부 연속 기록과 진행률을 추적합니다.", "es_419": "Registra rachas y progreso de estudio."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build a study streak tracker.", "ko": "잠금 미리보기: 공부 연속 기록 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de racha de estudio."}]
+    },
+    {
+      "id": 16,
+      "slug": "admin-broadcast-bot",
+      "title": {"en": "Admin Broadcast Bot", "ko": "관리자 공지 봇", "es_419": "Bot de avisos admin"},
+      "summary": {"en": "Send admin messages to users.", "ko": "관리자가 사용자에게 공지를 보냅니다.", "es_419": "Envia mensajes del admin a usuarios."},
+      "blocks": [{"type": "goal", "en": "Locked preview: add admin-only commands.", "ko": "잠금 미리보기: 관리자 전용 명령어를 추가합니다.", "es_419": "Vista previa bloqueada: agrega comandos solo para admin."}]
+    },
+    {
+      "id": 17,
+      "slug": "simple-crm-bot",
+      "title": {"en": "Simple CRM Bot", "ko": "간단 CRM 봇", "es_419": "Bot CRM simple"},
+      "summary": {"en": "Manage names, notes, and follow-ups.", "ko": "이름, 메모, 후속 연락을 관리합니다.", "es_419": "Gestiona nombres, notas y seguimientos."},
+      "blocks": [{"type": "goal", "en": "Locked preview: build a tiny CRM.", "ko": "잠금 미리보기: 작은 CRM을 만듭니다.", "es_419": "Vista previa bloqueada: crea un mini CRM."}]
+    },
+    {
+      "id": 18,
+      "slug": "weather-bot",
+      "title": {"en": "Weather Bot", "ko": "날씨 봇", "es_419": "Bot del clima"},
+      "summary": {"en": "Practice using an external API.", "ko": "외부 API 사용을 연습합니다.", "es_419": "Practica el uso de una API externa."},
+      "blocks": [{"type": "goal", "en": "Locked preview: connect a safe external API.", "ko": "잠금 미리보기: 안전하게 외부 API를 연결합니다.", "es_419": "Vista previa bloqueada: conecta una API externa segura."}]
+    },
+    {
+      "id": 19,
+      "slug": "github-issue-helper",
+      "title": {"en": "GitHub Issue Helper Bot", "ko": "GitHub 이슈 도우미 봇", "es_419": "Bot ayudante de issues GitHub"},
+      "summary": {"en": "Draft GitHub issue text from a short report.", "ko": "짧은 보고를 GitHub 이슈 글로 정리합니다.", "es_419": "Convierte un reporte corto en texto para un issue de GitHub."},
+      "blocks": [{"type": "goal", "en": "Locked preview: prepare GitHub issue drafts.", "ko": "잠금 미리보기: GitHub 이슈 초안을 만듭니다.", "es_419": "Vista previa bloqueada: prepara borradores de issues."}]
+    },
+    {
+      "id": 20,
+      "slug": "multi-user-challenge",
+      "title": {"en": "Multi-user Challenge Bot", "ko": "다중 사용자 챌린지 봇", "es_419": "Bot de reto multiusuario"},
+      "summary": {"en": "Build a final bot with users, progress, admin tools, and deployment notes.", "ko": "사용자, 진행률, 관리자 기능, 배포 노트를 포함한 최종 봇을 만듭니다.", "es_419": "Crea un bot final con usuarios, progreso, herramientas admin y notas de despliegue."},
+      "blocks": [{"type": "goal", "en": "Locked preview: combine what you learned into a final challenge.", "ko": "잠금 미리보기: 지금까지 배운 것을 합쳐 최종 챌린지를 만듭니다.", "es_419": "Vista previa bloqueada: combina lo aprendido en un reto final."}]
+    }
+  ]
+}
+
