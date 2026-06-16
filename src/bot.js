@@ -13,11 +13,10 @@ const DATA_DIR = path.join(__dirname, "..", "data");
 const USERS_FILE = path.join(DATA_DIR, "users.json");
 const PROGRESS_FILE = path.join(DATA_DIR, "progress.json");
 const UNLOCKED_FILE = path.join(DATA_DIR, "unlocked_users.json");
+const STATE_FILE = path.join(DATA_DIR, "lesson_state.json");
 const CONTENT_FILE = path.join(__dirname, "..", "content", "lessons.json");
-const FAQ_FILE = path.join(__dirname, "..", "content", "faq.json");
 
 const content = readJson(CONTENT_FILE);
-const faq = readJson(FAQ_FILE);
 const supportedLanguages = content.product.supportedLanguages;
 const comingSoonLanguages = content.product.comingSoonLanguages;
 const freeLessons = new Set(content.product.freeLessons);
@@ -27,87 +26,153 @@ const envUnlockedIds = parseIdList(process.env.UNLOCKED_USER_IDS);
 
 ensureDataFiles();
 
-const text = {
+const ui = {
   en: {
-    chooseLanguage: "Welcome to Codex 20 Apps Challenge.\n\nChoose your language:",
-    languageSaved: "Language saved: English",
+    languageName: "English",
+    chooseLanguage: "Welcome to Codex Project Manual Bot.\n\nChoose your lesson language:",
+    saved: "Language saved: English",
     comingSoon: "This language is coming soon. For now, please choose English, Korean, or Latin American Spanish.",
     intro:
-      "You will build 20 small Telegram bots and apps with Codex, one lesson at a time.\n\nLessons 1 and 2 are free. The full 20-lesson manual can be unlocked for $3.\n\nTo keep this manual bot inexpensive, it does not call AI for every question. For deeper questions, it gives you a prompt to paste into ChatGPT or Codex.\n\nUse /lessons to begin.",
-    lessonsHeader: "Lessons",
+      "This bot teaches like a textbook and a step-by-step manual.\n\nFirst it shows the big picture. Then it tells you what this lesson is for. Then it gives you one step at a time.\n\nUse /lessons to begin.",
+    lessonsHeader: "Course Roadmap",
     free: "free",
     locked: "locked",
     unlocked: "unlocked",
-    useLesson: "Open a lesson with /lesson 1 or /lesson 2.",
-    lockedLesson: "This lesson is part of the full 20-lesson manual.\n\nUse /unlock to see how to unlock the remaining lessons.",
-    noLesson: "I could not find that lesson. Use /lessons to see the list.",
-    unlock: "Lessons 1 and 2 are free.\n\nThe remaining lessons are part of the full Codex 20 Apps Challenge. Unlock all 20 lessons for $3.",
-    unlockNoUrl: "The payment link has not been configured yet. Ask the admin to set BUY_ME_A_COFFEE_URL in Coolify.",
+    openLesson: "Open a lesson with /lesson 1.",
+    noLesson: "I could not find that lesson. Use /lessons.",
+    lockedLesson: "This lesson is locked. Lessons 1 and 2 are free. Use /unlock for the full 20-lesson course.",
+    nextUsage: "Open a lesson first with /lesson 1. Then use /next.",
+    repeatUsage: "Open a lesson first with /lesson 1. Then use /repeat.",
+    finalStep: "You reached the last step of this lesson.",
+    help:
+      "Commands:\n/start - choose language\n/lessons - course roadmap\n/lesson 1 - open lesson\n/next - next step\n/repeat - repeat current step\n/done 1 - mark lesson complete\n/status - progress\n/unlock - unlock info\n/help - help\n\nQuestions are welcome. The bot does not pretend to be a live AI tutor. Instead, it gives you a prompt to paste into ChatGPT or Codex.",
+    askTemplate:
+      "Question accepted.\n\nPaste this into ChatGPT or Codex:\n\nI am following a beginner course about ChatGPT and Codex. Please answer like a patient tutor. I am currently on lesson {{lesson}}. My question is: {{question}}\n\nPlease do three things:\n1. Explain simply.\n2. Point out the most likely mistake.\n3. Give me one clear next step.",
+    askNoState:
+      "Question accepted.\n\nPaste this into ChatGPT or Codex:\n\nI am following a beginner course about ChatGPT and Codex. Please answer like a patient tutor. My question is: {{question}}\n\nPlease explain simply and give me one clear next step.",
     status: "Status",
     language: "Language",
-    completed: "Completed",
+    completed: "Completed lessons",
     available: "Available lessons",
-    markedDone: "Lesson marked as completed.",
+    markedDone: "Lesson marked complete.",
     doneUsage: "Use /done 1 after finishing a lesson.",
-    adminOnly: "This command is only for the bot admin.",
+    doneReminder: "Use /done {{lessonId}} when you finish it.",
+    unlock:
+      "Lessons 1 and 2 are free.\n\nThe full 20-lesson practice course can be unlocked for $3. The bot stays inexpensive by teaching through structured steps instead of calling AI for every student message.",
+    unlockNoUrl: "Payment link is not configured yet. Set BUY_ME_A_COFFEE_URL in Coolify.",
+    adminOnly: "Admin only.",
     unlockUserUsage: "Use /unlock_user TELEGRAM_USER_ID",
     userUnlocked: "User unlocked.",
-    help:
-      "Commands:\n/start - choose language\n/lessons - see all lessons\n/lesson 1 - open a lesson\n/done 1 - mark a lesson complete\n/status - see progress\n/unlock - unlock information\n/help - show this help\n\nYou can also send a simple question, such as \"What is a bot token?\""
+    partLabel: "Part",
+    chapterLabel: "Chapter",
+    lessonLabel: "Lesson",
+    stepHeader: "Current step",
+    lessonOutline: "Lesson outline",
+    bigPicture: "Big picture",
+    thisLesson: "In this lesson",
+    taskLabel: "After this lesson",
+    stepPrompt: "Copy this into ChatGPT or Codex",
+    mediaLabel: "Optional media idea",
+    buttonNext: "Done, next step",
+    buttonRepeat: "Repeat step"
   },
   ko: {
-    chooseLanguage: "코덱스 20앱 챌린지에 오신 것을 환영합니다.\n\n사용할 언어를 선택하세요:",
-    languageSaved: "언어가 저장되었습니다: 한국어",
-    comingSoon: "이 언어는 곧 지원될 예정입니다. 지금은 English, 한국어, Español latinoamericano 중에서 선택해주세요.",
+    languageName: "한국어",
+    chooseLanguage: "Codex Project Manual Bot에 오신 것을 환영합니다.\n\n강의 언어를 선택해 주세요:",
+    saved: "언어가 저장되었습니다: 한국어",
+    comingSoon: "이 언어는 곧 추가될 예정입니다. 지금은 English, 한국어, Español latinoamericano 중에서 선택해 주세요.",
     intro:
-      "코덱스와 함께 작은 Telegram 봇과 앱 20개를 하나씩 만들어 봅니다.\n\n레슨 1과 2는 무료입니다. 전체 20개 레슨 매뉴얼은 $3로 열 수 있어요.\n\n이 매뉴얼 봇은 저렴하게 운영하기 위해 모든 질문마다 AI를 호출하지 않습니다. 더 깊은 질문은 ChatGPT나 Codex에 붙여넣을 프롬프트를 안내합니다.\n\n/lessons 로 시작하세요.",
-    lessonsHeader: "레슨 목록",
+      "이 봇은 챗봇처럼 수다를 떠는 봇이 아니라, 교과서와 사용자 매뉴얼처럼 가르치는 봇입니다.\n\n먼저 큰 그림을 보여 주고, 이번 레슨에서 무엇을 하는지 설명한 다음, 한 번에 한 단계씩 안내합니다.\n\n시작하려면 /lessons 를 입력해 주세요.",
+    lessonsHeader: "강의 로드맵",
     free: "무료",
     locked: "잠김",
     unlocked: "열림",
-    useLesson: "/lesson 1 또는 /lesson 2 로 레슨을 열 수 있어요.",
-    lockedLesson: "이 레슨은 전체 20개 레슨 매뉴얼에 포함되어 있습니다.\n\n/unlock 으로 나머지 레슨을 여는 방법을 볼 수 있어요.",
-    noLesson: "해당 레슨을 찾을 수 없습니다. /lessons 로 목록을 확인하세요.",
-    unlock: "레슨 1과 2는 무료입니다.\n\n나머지 레슨은 Codex 20 Apps Challenge 전체 매뉴얼에 포함되어 있습니다. $3로 전체 20개 레슨을 열 수 있어요.",
-    unlockNoUrl: "아직 결제 링크가 설정되지 않았습니다. Coolify에서 BUY_ME_A_COFFEE_URL 환경변수를 설정해주세요.",
+    openLesson: "/lesson 1 처럼 입력해서 레슨을 열어 주세요.",
+    noLesson: "해당 레슨을 찾을 수 없습니다. /lessons 를 확인해 주세요.",
+    lockedLesson: "이 레슨은 잠겨 있습니다. 레슨 1과 2는 무료입니다. 전체 20개 레슨은 /unlock 에서 확인해 주세요.",
+    nextUsage: "먼저 /lesson 1 로 레슨을 연 다음 /next 를 사용해 주세요.",
+    repeatUsage: "먼저 /lesson 1 로 레슨을 연 다음 /repeat 를 사용해 주세요.",
+    finalStep: "이 레슨의 마지막 단계까지 왔습니다.",
+    help:
+      "명령어:\n/start - 언어 선택\n/lessons - 강의 로드맵\n/lesson 1 - 레슨 열기\n/next - 다음 단계\n/repeat - 현재 단계 다시 보기\n/done 1 - 레슨 완료 기록\n/status - 진행 상황\n/unlock - 전체 레슨 안내\n/help - 도움말\n\n질문은 언제든 할 수 있습니다. 다만 이 봇은 실시간 AI 튜터처럼 직접 답하는 대신, ChatGPT나 Codex에 붙여 넣을 프롬프트를 안내합니다.",
+    askTemplate:
+      "좋아요. 아래 문장을 그대로 ChatGPT 또는 Codex에 붙여 넣어 보세요.\n\n저는 ChatGPT와 Codex를 배우는 초보자입니다. 친절한 튜터처럼 답해 주세요. 저는 현재 {{lesson}} 레슨을 진행 중입니다. 제 질문은 이것입니다: {{question}}\n\n다음 세 가지 방식으로 답해 주세요.\n1. 아주 쉽게 설명해 주세요.\n2. 제가 가장 헷갈렸을 법한 부분을 짚어 주세요.\n3. 지금 바로 할 다음 한 단계만 알려 주세요.",
+    askNoState:
+      "좋아요. 아래 문장을 그대로 ChatGPT 또는 Codex에 붙여 넣어 보세요.\n\n저는 ChatGPT와 Codex를 배우는 초보자입니다. 친절한 튜터처럼 답해 주세요. 제 질문은 이것입니다: {{question}}\n\n아주 쉽게 설명하고, 지금 바로 할 다음 한 단계만 알려 주세요.",
     status: "상태",
     language: "언어",
-    completed: "완료",
-    available: "사용 가능한 레슨",
+    completed: "완료한 레슨",
+    available: "이용 가능한 레슨",
     markedDone: "레슨 완료로 기록했습니다.",
-    doneUsage: "레슨을 마친 뒤 /done 1 처럼 입력하세요.",
-    adminOnly: "이 명령어는 봇 관리자만 사용할 수 있습니다.",
-    unlockUserUsage: "/unlock_user TELEGRAM_USER_ID 형식으로 입력하세요.",
-    userUnlocked: "사용자를 언락했습니다.",
-    help:
-      "명령어:\n/start - 언어 선택\n/lessons - 전체 레슨 보기\n/lesson 1 - 레슨 열기\n/done 1 - 레슨 완료 기록\n/status - 진행 상황 보기\n/unlock - 언락 안내\n/help - 도움말\n\n간단한 질문도 보낼 수 있어요. 예: \"봇 토큰이 뭐야?\""
+    doneUsage: "레슨을 마친 뒤 /done 1 처럼 입력해 주세요.",
+    doneReminder: "레슨을 마치면 /done {{lessonId}} 를 입력해 주세요.",
+    unlock:
+      "레슨 1과 2는 무료입니다.\n\n전체 20개 실습 레슨은 $3에 열 수 있습니다. 학생이 질문할 때마다 AI를 호출하지 않고, 구조화된 매뉴얼 방식으로 운영해서 비용을 낮추고 있습니다.",
+    unlockNoUrl: "아직 결제 링크가 설정되지 않았습니다. Coolify에서 BUY_ME_A_COFFEE_URL 을 설정해 주세요.",
+    adminOnly: "관리자만 사용할 수 있습니다.",
+    unlockUserUsage: "/unlock_user TELEGRAM_USER_ID 형식으로 입력해 주세요.",
+    userUnlocked: "사용자를 열어 두었습니다.",
+    partLabel: "파트",
+    chapterLabel: "챕터",
+    lessonLabel: "레슨",
+    stepHeader: "현재 단계",
+    lessonOutline: "이번 레슨 아웃라인",
+    bigPicture: "큰 그림",
+    thisLesson: "이번 레슨에서는",
+    taskLabel: "이 레슨을 마치면",
+    stepPrompt: "ChatGPT 또는 Codex에 붙여 넣기",
+    mediaLabel: "선택 사항 미디어 아이디어",
+    buttonNext: "했고, 다음 단계",
+    buttonRepeat: "이 단계 다시 보기"
   },
   es_419: {
-    chooseLanguage: "Bienvenido a Codex 20 Apps Challenge.\n\nElige tu idioma:",
-    languageSaved: "Idioma guardado: Espanol latinoamericano",
-    comingSoon: "Este idioma estara disponible pronto. Por ahora, elige English, Korean o Espanol latinoamericano.",
+    languageName: "Español latinoamericano",
+    chooseLanguage: "Bienvenido a Codex Project Manual Bot.\n\nElige el idioma del curso:",
+    saved: "Idioma guardado: Español latinoamericano",
+    comingSoon: "Este idioma llegará pronto. Por ahora, elige English, 한국어 o Español latinoamericano.",
     intro:
-      "Vas a crear 20 bots de Telegram y apps pequenas con Codex, una leccion a la vez.\n\nLas lecciones 1 y 2 son gratis. Puedes desbloquear el manual completo de 20 lecciones por $3.\n\nPara mantener este bot barato, no llama a AI por cada pregunta. Para preguntas mas profundas, te da un prompt para pegar en ChatGPT o Codex.\n\nUsa /lessons para empezar.",
-    lessonsHeader: "Lecciones",
+      "Este bot no enseña como un chatbot común. Enseña como un libro de texto y un manual paso a paso.\n\nPrimero muestra el panorama general, luego explica qué harás en esta lección y después te guía con un paso por vez.\n\nUsa /lessons para empezar.",
+    lessonsHeader: "Mapa del curso",
     free: "gratis",
     locked: "bloqueada",
     unlocked: "desbloqueada",
-    useLesson: "Abre una leccion con /lesson 1 o /lesson 2.",
-    lockedLesson: "Esta leccion forma parte del manual completo de 20 lecciones.\n\nUsa /unlock para ver como desbloquear las lecciones restantes.",
-    noLesson: "No encontre esa leccion. Usa /lessons para ver la lista.",
-    unlock: "Las lecciones 1 y 2 son gratis.\n\nLas demas lecciones forman parte del Codex 20 Apps Challenge completo. Desbloquea las 20 lecciones por $3.",
-    unlockNoUrl: "El enlace de pago todavia no esta configurado. Pide al admin que configure BUY_ME_A_COFFEE_URL en Coolify.",
+    openLesson: "Abre una lección con /lesson 1.",
+    noLesson: "No encontré esa lección. Usa /lessons.",
+    lockedLesson: "Esta lección está bloqueada. Las lecciones 1 y 2 son gratis. Usa /unlock para el curso completo de 20 lecciones.",
+    nextUsage: "Primero abre una lección con /lesson 1. Luego usa /next.",
+    repeatUsage: "Primero abre una lección con /lesson 1. Luego usa /repeat.",
+    finalStep: "Llegaste al último paso de esta lección.",
+    help:
+      "Comandos:\n/start - elegir idioma\n/lessons - mapa del curso\n/lesson 1 - abrir lección\n/next - siguiente paso\n/repeat - repetir paso actual\n/done 1 - marcar como completa\n/status - progreso\n/unlock - información para desbloquear\n/help - ayuda\n\nLas preguntas son bienvenidas. El bot no finge ser un tutor AI en vivo. En cambio, te da un prompt para pegar en ChatGPT o Codex.",
+    askTemplate:
+      "Pregunta recibida.\n\nPega esto en ChatGPT o Codex:\n\nEstoy siguiendo un curso para principiantes sobre ChatGPT y Codex. Respóndeme como un tutor paciente. Estoy en la lección {{lesson}}. Mi pregunta es: {{question}}\n\nPor favor haz tres cosas:\n1. Explícalo de forma simple.\n2. Señala el error más probable.\n3. Dame un solo siguiente paso claro.",
+    askNoState:
+      "Pregunta recibida.\n\nPega esto en ChatGPT o Codex:\n\nEstoy siguiendo un curso para principiantes sobre ChatGPT y Codex. Respóndeme como un tutor paciente. Mi pregunta es: {{question}}\n\nExplícalo de forma simple y luego dame un solo siguiente paso claro.",
     status: "Estado",
     language: "Idioma",
-    completed: "Completadas",
+    completed: "Lecciones completadas",
     available: "Lecciones disponibles",
-    markedDone: "Leccion marcada como completada.",
-    doneUsage: "Usa /done 1 despues de terminar una leccion.",
-    adminOnly: "Este comando es solo para el administrador del bot.",
+    markedDone: "Lección marcada como completada.",
+    doneUsage: "Usa /done 1 después de terminar la lección.",
+    doneReminder: "Usa /done {{lessonId}} cuando la termines.",
+    unlock:
+      "Las lecciones 1 y 2 son gratis.\n\nEl curso completo de 20 prácticas se puede desbloquear por $3. El bot se mantiene barato porque enseña con pasos estructurados en lugar de llamar AI por cada mensaje del estudiante.",
+    unlockNoUrl: "El enlace de pago no está configurado. Configura BUY_ME_A_COFFEE_URL en Coolify.",
+    adminOnly: "Solo admin.",
     unlockUserUsage: "Usa /unlock_user TELEGRAM_USER_ID",
     userUnlocked: "Usuario desbloqueado.",
-    help:
-      "Comandos:\n/start - elegir idioma\n/lessons - ver lecciones\n/lesson 1 - abrir una leccion\n/done 1 - marcar leccion completa\n/status - ver progreso\n/unlock - informacion de desbloqueo\n/help - mostrar ayuda\n\nTambien puedes enviar una pregunta simple, por ejemplo: \"Que es un token?\""
+    partLabel: "Parte",
+    chapterLabel: "Capítulo",
+    lessonLabel: "Lección",
+    stepHeader: "Paso actual",
+    lessonOutline: "Esquema de la lección",
+    bigPicture: "Panorama general",
+    thisLesson: "En esta lección",
+    taskLabel: "Al terminar esta lección",
+    stepPrompt: "Pega esto en ChatGPT o Codex",
+    mediaLabel: "Idea opcional de media",
+    buttonNext: "Hecho, siguiente paso",
+    buttonRepeat: "Repetir paso"
   }
 };
 
@@ -141,13 +206,8 @@ async function main() {
 }
 
 async function handleUpdate(update) {
-  if (update.callback_query) {
-    await handleCallback(update.callback_query);
-    return;
-  }
-
-  if (!update.message?.text) return;
-  await handleMessage(update.message);
+  if (update.callback_query) return handleCallback(update.callback_query);
+  if (update.message?.text) return handleMessage(update.message);
 }
 
 async function handleMessage(message) {
@@ -160,9 +220,11 @@ async function handleMessage(message) {
   if (value === "/lessons") return sendMessage(chatId, buildLessonsMessage(userId));
   if (value === "/status") return sendStatus(chatId, userId);
   if (value === "/unlock") return sendUnlock(chatId, userId);
+  if (value === "/next") return sendNextStep(chatId, userId);
+  if (value === "/repeat") return repeatCurrentStep(chatId, userId);
 
   let match = value.match(/^\/lesson(?:\s+(\d+))?$/);
-  if (match) return sendLesson(chatId, userId, Number(match[1]));
+  if (match) return openLesson(chatId, userId, Number(match[1]));
 
   match = value.match(/^\/done(?:\s+(\d+))?$/);
   if (match) return markDone(chatId, userId, Number(match[1]));
@@ -170,8 +232,7 @@ async function handleMessage(message) {
   match = value.match(/^\/unlock_user(?:\s+(\d+))?$/);
   if (match) return unlockUser(chatId, userId, match[1]);
 
-  if (value.startsWith("/")) return sendMessage(chatId, t(userId).help);
-  return sendMessage(chatId, findFaqAnswer(value, getUserLanguage(userId)));
+  return sendQuestionPrompt(chatId, userId, value);
 }
 
 async function handleCallback(query) {
@@ -179,30 +240,33 @@ async function handleCallback(query) {
   const userId = query.from.id;
   const data = query.data || "";
 
-  if (!data.startsWith("lang:")) {
+  if (data === "step:next") {
     await answerCallbackQuery(query.id);
-    return;
+    return sendNextStep(chatId, userId);
   }
+
+  if (data === "step:repeat") {
+    await answerCallbackQuery(query.id);
+    return repeatCurrentStep(chatId, userId);
+  }
+
+  if (!data.startsWith("lang:")) return answerCallbackQuery(query.id);
 
   const lang = data.slice("lang:".length);
   if (comingSoonLanguages.includes(lang)) {
     await answerCallbackQuery(query.id);
-    await sendMessage(chatId, text.en.comingSoon);
-    return;
+    return sendMessage(chatId, ui.en.comingSoon);
   }
 
-  if (!supportedLanguages.includes(lang)) {
-    await answerCallbackQuery(query.id);
-    return;
-  }
+  if (!supportedLanguages.includes(lang)) return answerCallbackQuery(query.id);
 
   setUserLanguage(userId, lang);
   await answerCallbackQuery(query.id);
-  await sendMessage(chatId, `${text[lang].languageSaved}\n\n${text[lang].intro}`);
+  return sendMessage(chatId, `${ui[lang].saved}\n\n${ui[lang].intro}`);
 }
 
 async function sendLanguageMenu(chatId) {
-  return sendMessage(chatId, text.en.chooseLanguage, {
+  return sendMessage(chatId, ui.en.chooseLanguage, {
     reply_markup: {
       inline_keyboard: [
         [
@@ -220,19 +284,100 @@ async function sendLanguageMenu(chatId) {
   });
 }
 
-async function sendLesson(chatId, userId, lessonId) {
+async function openLesson(chatId, userId, lessonId) {
   const copy = t(userId);
   const lang = getUserLanguage(userId);
-
-  if (!lessonId) return sendMessage(chatId, copy.useLesson);
+  if (!lessonId) return sendMessage(chatId, copy.openLesson);
 
   const lesson = lessonsById.get(lessonId);
   if (!lesson) return sendMessage(chatId, copy.noLesson);
   if (!canAccessLesson(userId, lessonId)) return sendMessage(chatId, copy.lockedLesson);
 
-  for (const message of buildLessonMessages(lesson, lang)) {
-    await sendLongMessage(chatId, message);
+  setLessonState(userId, { lessonId, stepIndex: 0 });
+
+  const overview = [
+    `${copy.partLabel} ${lesson.part} / ${copy.chapterLabel} ${lesson.chapter}`,
+    `${copy.lessonLabel} ${lesson.id}. ${lesson.title[lang]}`,
+    "",
+    `${copy.bigPicture}`,
+    `${lesson.bigPicture[lang]}`,
+    "",
+    `${copy.thisLesson}`,
+    `${lesson.summary[lang]}`,
+    "",
+    `${copy.lessonOutline}`,
+    ...lesson.outline[lang].map((item, index) => `${index + 1}. ${item}`),
+    "",
+    `${copy.taskLabel}`,
+    `${lesson.assignment[lang]}`
+  ].join("\n");
+
+  await sendLongMessage(chatId, overview);
+  return sendCurrentStep(chatId, userId);
+}
+
+async function sendCurrentStep(chatId, userId) {
+  const copy = t(userId);
+  const lang = getUserLanguage(userId);
+  const state = getLessonState(userId);
+  if (!state) return sendMessage(chatId, copy.openLesson);
+
+  const lesson = lessonsById.get(state.lessonId);
+  if (!lesson) return sendMessage(chatId, copy.noLesson);
+
+  const step = lesson.steps[state.stepIndex];
+  if (!step) return sendMessage(chatId, copy.noLesson);
+
+  const lines = [
+    `${copy.stepHeader}: ${state.stepIndex + 1} / ${lesson.steps.length}`,
+    `${step.title[lang]}`,
+    "",
+    `${step.body[lang]}`
+  ];
+
+  if (step.prompt?.[lang]) {
+    lines.push("", `${copy.stepPrompt}`, "", `${step.prompt[lang]}`);
   }
+
+  if (step.media?.[lang]) {
+    lines.push("", `${copy.mediaLabel}`, `${step.media[lang]}`);
+  }
+
+  return sendLongMessage(chatId, lines.join("\n"), stepReplyMarkup(userId));
+}
+
+async function sendNextStep(chatId, userId) {
+  const copy = t(userId);
+  const lang = getUserLanguage(userId);
+  const state = getLessonState(userId);
+  if (!state) return sendMessage(chatId, copy.nextUsage);
+
+  const lesson = lessonsById.get(state.lessonId);
+  if (!lesson) return sendMessage(chatId, copy.noLesson);
+
+  if (state.stepIndex >= lesson.steps.length - 1) {
+    const finalText = [
+      copy.finalStep,
+      "",
+      `${copy.taskLabel}`,
+      `${lesson.assignment[lang]}`,
+      "",
+      copy.doneReminder.replace("{{lessonId}}", String(lesson.id))
+    ].join("\n");
+    return sendMessage(chatId, finalText, stepReplyMarkup(userId));
+  }
+
+  setLessonState(userId, {
+    lessonId: state.lessonId,
+    stepIndex: state.stepIndex + 1
+  });
+  return sendCurrentStep(chatId, userId);
+}
+
+async function repeatCurrentStep(chatId, userId) {
+  const copy = t(userId);
+  if (!getLessonState(userId)) return sendMessage(chatId, copy.repeatUsage);
+  return sendCurrentStep(chatId, userId);
 }
 
 async function markDone(chatId, userId, lessonId) {
@@ -257,7 +402,6 @@ async function sendStatus(chatId, userId) {
   const progress = readJson(PROGRESS_FILE, {});
   const completed = progress[String(userId)]?.completedLessons || [];
   const available = canAccessPaidLessons(userId) ? "1-20" : "1-2";
-
   return sendMessage(
     chatId,
     `${copy.status}\n${copy.language}: ${content.languages[lang]}\n${copy.completed}: ${completed.length}/20\n${copy.available}: ${available}`
@@ -267,8 +411,7 @@ async function sendStatus(chatId, userId) {
 async function sendUnlock(chatId, userId) {
   const copy = t(userId);
   const url = process.env.BUY_ME_A_COFFEE_URL;
-  const suffix = url ? `\n\n${url}` : `\n\n${copy.unlockNoUrl}`;
-  return sendMessage(chatId, `${copy.unlock}${suffix}`);
+  return sendMessage(chatId, `${copy.unlock}\n\n${url || copy.unlockNoUrl}`);
 }
 
 async function unlockUser(chatId, adminUserId, targetUserId) {
@@ -284,8 +427,52 @@ async function unlockUser(chatId, adminUserId, targetUserId) {
   return sendMessage(chatId, copy.userUnlocked);
 }
 
+async function sendQuestionPrompt(chatId, userId, question) {
+  const copy = t(userId);
+  const cleanQuestion = question.replace(/^\/+/, "").trim() || "...";
+  const state = getLessonState(userId);
+
+  if (!state) {
+    return sendLongMessage(
+      chatId,
+      copy.askNoState.replace("{{question}}", cleanQuestion)
+    );
+  }
+
+  const lesson = lessonsById.get(state.lessonId);
+  const lang = getUserLanguage(userId);
+  const lessonLabel = `${lesson.id}. ${lesson.title[lang]}`;
+  const prompt = copy.askTemplate
+    .replace("{{lesson}}", lessonLabel)
+    .replace("{{question}}", cleanQuestion);
+  return sendLongMessage(chatId, prompt);
+}
+
+function buildLessonsMessage(userId) {
+  const lang = getUserLanguage(userId);
+  const copy = t(userId);
+  const lines = [`${copy.lessonsHeader}`, ""];
+
+  for (const part of content.curriculum[lang]) {
+    lines.push(`${copy.partLabel} ${part.part}. ${part.title}`);
+    for (const lessonId of part.lessonIds) {
+      const lesson = lessonsById.get(lessonId);
+      const status = canAccessLesson(userId, lessonId)
+        ? freeLessons.has(lessonId)
+          ? copy.free
+          : copy.unlocked
+        : copy.locked;
+      lines.push(`${copy.lessonLabel} ${lesson.id}. ${lesson.title[lang]} - ${status}`);
+    }
+    lines.push("");
+  }
+
+  lines.push(copy.openLesson);
+  return lines.join("\n");
+}
+
 function t(userId) {
-  return text[getUserLanguage(userId)] || text.en;
+  return ui[getUserLanguage(userId)] || ui.en;
 }
 
 function getUserLanguage(userId) {
@@ -300,83 +487,15 @@ function setUserLanguage(userId, language) {
   writeJson(USERS_FILE, users);
 }
 
-function buildLessonsMessage(userId) {
-  const lang = getUserLanguage(userId);
-  const copy = t(userId);
-  const lines = [`${copy.lessonsHeader}\n`];
-
-  for (const lesson of content.lessons) {
-    const status = canAccessLesson(userId, lesson.id)
-      ? freeLessons.has(lesson.id)
-        ? copy.free
-        : copy.unlocked
-      : copy.locked;
-    lines.push(`${lesson.id}. ${lesson.title[lang]} - ${status}`);
-  }
-
-  lines.push("", copy.useLesson);
-  return lines.join("\n");
+function getLessonState(userId) {
+  const state = readJson(STATE_FILE, {});
+  return state[String(userId)] || null;
 }
 
-function buildLessonMessages(lesson, lang) {
-  const messages = [`Lesson ${lesson.id}: ${lesson.title[lang]}\n\n${lesson.summary[lang]}`];
-
-  for (const block of lesson.blocks || []) {
-    const label = block.type === "prompt" ? "Codex prompt" : "Mission";
-    messages.push(`${label}\n\n${block[lang]}`);
-  }
-
-  if (lesson.checklist?.[lang]?.length) {
-    messages.push(`Checklist\n\n${lesson.checklist[lang].map((item) => `- ${item}`).join("\n")}`);
-  }
-
-  return messages;
-}
-
-async function sendLongMessage(chatId, message) {
-  for (const chunk of splitMessage(message, 3800)) {
-    await sendMessage(chatId, chunk);
-  }
-}
-
-function splitMessage(message, maxLength) {
-  if (message.length <= maxLength) return [message];
-
-  const chunks = [];
-  let remaining = message;
-  while (remaining.length > maxLength) {
-    const cut = remaining.lastIndexOf("\n", maxLength);
-    const index = cut > 500 ? cut : maxLength;
-    chunks.push(remaining.slice(0, index));
-    remaining = remaining.slice(index).trimStart();
-  }
-  if (remaining) chunks.push(remaining);
-  return chunks;
-}
-
-function findFaqAnswer(question, lang) {
-  const normalizedQuestion = normalizeText(question);
-
-  for (const item of faq.items) {
-    const keywords = item.keywords?.[lang] || item.keywords?.en || [];
-    for (const keyword of keywords) {
-      const normalizedKeyword = normalizeText(keyword);
-      if (normalizedKeyword && normalizedQuestion.includes(normalizedKeyword)) {
-        return item.answer[lang] || item.answer.en;
-      }
-    }
-  }
-
-  return faq.fallback[lang] || faq.fallback.en;
-}
-
-function normalizeText(value) {
-  return String(value || "")
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^\p{L}\p{N}_]+/gu, " ")
-    .trim();
+function setLessonState(userId, value) {
+  const state = readJson(STATE_FILE, {});
+  state[String(userId)] = value;
+  writeJson(STATE_FILE, state);
 }
 
 function canAccessLesson(userId, lessonId) {
@@ -390,12 +509,48 @@ function canAccessPaidLessons(userId) {
   return unlocked.includes(String(userId));
 }
 
+async function sendLongMessage(chatId, message, extra = {}) {
+  const chunks = splitMessage(message, 3800);
+  for (const [index, chunk] of chunks.entries()) {
+    await sendMessage(chatId, chunk, index === chunks.length - 1 ? extra : {});
+  }
+}
+
+function splitMessage(message, maxLength) {
+  if (message.length <= maxLength) return [message];
+  const chunks = [];
+  let remaining = message;
+  while (remaining.length > maxLength) {
+    const cut = remaining.lastIndexOf("\n", maxLength);
+    const index = cut > 500 ? cut : maxLength;
+    chunks.push(remaining.slice(0, index));
+    remaining = remaining.slice(index).trimStart();
+  }
+  if (remaining) chunks.push(remaining);
+  return chunks;
+}
+
+function stepReplyMarkup(userId) {
+  const copy = t(userId);
+  return {
+    reply_markup: {
+      inline_keyboard: [
+        [
+          { text: copy.buttonNext, callback_data: "step:next" },
+          { text: copy.buttonRepeat, callback_data: "step:repeat" }
+        ]
+      ]
+    }
+  };
+}
+
 function ensureDataFiles() {
   fs.mkdirSync(DATA_DIR, { recursive: true });
   for (const [file, fallback] of [
     [USERS_FILE, {}],
     [PROGRESS_FILE, {}],
-    [UNLOCKED_FILE, []]
+    [UNLOCKED_FILE, []],
+    [STATE_FILE, {}]
   ]) {
     if (!fs.existsSync(file)) writeJson(file, fallback);
   }
@@ -416,16 +571,13 @@ async function telegram(method, payload) {
     body: JSON.stringify(payload)
   });
   const data = await response.json();
-  if (!data.ok) {
-    throw new Error(`${method} failed: ${data.description || response.statusText}`);
-  }
+  if (!data.ok) throw new Error(`${method} failed: ${data.description || response.statusText}`);
   return data.result;
 }
 
 function readJson(filePath, fallback = null) {
   try {
-    const raw = fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, "");
-    return JSON.parse(raw);
+    return JSON.parse(fs.readFileSync(filePath, "utf8").replace(/^\uFEFF/, ""));
   } catch (error) {
     if (fallback !== null && error.code === "ENOENT") return fallback;
     throw error;
@@ -434,7 +586,7 @@ function readJson(filePath, fallback = null) {
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
 function parseIdList(value) {
@@ -449,4 +601,3 @@ function parseIdList(value) {
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-

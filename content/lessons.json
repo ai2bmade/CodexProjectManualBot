@@ -14,220 +14,519 @@
     "ja": "日本語",
     "fr": "Français"
   },
+  "curriculum": {
+    "en": [
+      { "part": 1, "title": "Starter Bots", "lessonIds": [1, 2, 3, 4, 5] },
+      { "part": 2, "title": "Thinking and Planning", "lessonIds": [6, 7, 8] },
+      { "part": 3, "title": "Codex and Deployment", "lessonIds": [9, 10] },
+      { "part": 4, "title": "Business Automation Bots", "lessonIds": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20] }
+    ],
+    "ko": [
+      { "part": 1, "title": "입문 실습 봇", "lessonIds": [1, 2, 3, 4, 5] },
+      { "part": 2, "title": "생각과 기획", "lessonIds": [6, 7, 8] },
+      { "part": 3, "title": "Codex와 배포", "lessonIds": [9, 10] },
+      { "part": 4, "title": "업무 자동화 봇", "lessonIds": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20] }
+    ],
+    "es_419": [
+      { "part": 1, "title": "Bots iniciales", "lessonIds": [1, 2, 3, 4, 5] },
+      { "part": 2, "title": "Pensar y planear", "lessonIds": [6, 7, 8] },
+      { "part": 3, "title": "Codex y despliegue", "lessonIds": [9, 10] },
+      { "part": 4, "title": "Bots de automatización de negocio", "lessonIds": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20] }
+    ]
+  },
   "lessons": [
     {
       "id": 1,
-      "slug": "setup",
+      "part": 1,
+      "chapter": 1,
+      "slug": "things-to-do-bot",
       "title": {
-        "en": "Setup Mission",
-        "ko": "설치 미션",
-        "es_419": "Mision de instalacion"
+        "en": "Things To Do Bot",
+        "ko": "할 일 봇",
+        "es_419": "Bot de tareas"
+      },
+      "bigPicture": {
+        "en": "You are learning the first reusable bot pattern: add something, list it, finish it, and remove it.",
+        "ko": "가장 처음 배우는 재사용 가능한 봇 패턴입니다. 추가하고, 목록으로 보고, 완료하고, 지우는 흐름을 익힙니다.",
+        "es_419": "Aprendes el primer patrón reutilizable: agregar algo, verlo en lista, marcarlo hecho y borrarlo."
       },
       "summary": {
-        "en": "Prepare your Codex, GitHub, Telegram, and Coolify learning path slowly, with nothing assumed.",
-        "ko": "Codex, GitHub, Telegram, Coolify 준비 과정을 아무것도 당연하게 여기지 않고 천천히 확인합니다.",
-        "es_419": "Prepara tu camino con Codex, GitHub, Telegram y Coolify lentamente, sin dar nada por hecho."
+        "en": "In this lesson, you build your first small Telegram productivity bot.",
+        "ko": "이번 레슨에서는 아주 작은 첫 번째 Telegram 생산성 봇을 만듭니다.",
+        "es_419": "En esta lección construyes tu primer bot pequeño de productividad para Telegram."
       },
-      "blocks": [
-        {
-          "type": "goal",
-          "en": "This lesson does not build an app yet. You learn what each tool is, why it matters, and how to ask Codex to check your setup before touching files.",
-          "ko": "이 레슨에서는 아직 앱을 만들지 않습니다. 각 도구가 무엇인지, 왜 필요한지, 파일을 만들기 전에 Codex에게 준비 상태를 확인시키는 법을 배웁니다.",
-          "es_419": "En esta leccion todavia no creas una app. Aprendes que es cada herramienta, por que importa y como pedirle a Codex que revise tu configuracion antes de tocar archivos."
-        },
-        {
-          "type": "prompt",
-          "en": "I want to learn Codex by building 20 Telegram bots and small apps. I am not comfortable with GitHub, Docker, Coolify, or Telegram BotFather yet. Please treat me as a beginner and do not assume I know the setup steps.\n\nMy first goal is to check my development environment. Tell me how to check whether Git, Node.js, npm, and GitHub CLI are installed. Explain what each command means. Do not create files yet. Only guide me through the checking step first.",
-          "ko": "나는 Telegram 봇을 20개 만들어 보면서 Codex 사용법을 배우고 싶어. 아직 GitHub, Docker, Coolify, Telegram BotFather에 익숙하지 않아. 나를 초보자로 보고, 절대 아무것도 당연하게 여기지 말고 설명해줘.\n\n첫 번째 목표는 개발 준비 상태를 확인하는 거야. 내 컴퓨터에서 Git, Node.js, npm, GitHub CLI가 설치되어 있는지 확인하는 명령어를 알려주고, 각 명령어의 결과가 어떤 의미인지 설명해줘. 아직 파일은 만들지 말고, 먼저 확인 단계만 진행해줘.",
-          "es_419": "Quiero aprender a usar Codex creando 20 bots de Telegram y apps pequenas. Todavia no entiendo bien GitHub, Docker, Coolify ni Telegram BotFather. Tratame como principiante y no asumas que ya conozco los pasos de instalacion.\n\nMi primer objetivo es revisar mi entorno de desarrollo. Decime como comprobar si Git, Node.js, npm y GitHub CLI estan instalados. Explicame que significa cada comando. Todavia no crees archivos. Primero guiame solo por la etapa de comprobacion."
-        }
-      ],
-      "checklist": {
+      "outline": {
         "en": [
-          "I understand that Codex is a coding agent.",
-          "I understand that BotFather creates Telegram bot tokens.",
-          "I understand that TELEGRAM_BOT_TOKEN is secret.",
-          "I understand that environment variables keep secrets outside the code.",
-          "I understand that GitHub stores project files.",
-          "I understand that Coolify can deploy code from GitHub to a server."
+          "Define the bot in one simple sentence",
+          "Ask ChatGPT to organize the minimum commands",
+          "Turn that into a build prompt for Codex",
+          "Build only the core flow and test it"
         ],
         "ko": [
-          "Codex가 무엇을 하는 도구인지 대략 이해했다.",
-          "Telegram BotFather가 봇 토큰을 만든다는 것을 이해했다.",
-          "TELEGRAM_BOT_TOKEN은 비밀값이라는 것을 이해했다.",
-          "환경변수가 무엇인지 대략 이해했다.",
-          "GitHub 저장소가 코드 보관소라는 것을 이해했다.",
-          "Coolify가 GitHub 코드를 서버에 배포한다는 것을 이해했다."
+          "봇을 한 문장으로 정의하기",
+          "ChatGPT에게 최소 명령어를 정리시키기",
+          "그 내용을 Codex용 빌드 프롬프트로 바꾸기",
+          "핵심 흐름만 먼저 만들고 테스트하기"
         ],
         "es_419": [
-          "Entiendo que Codex es un agente de programacion.",
-          "Entiendo que BotFather crea tokens para bots de Telegram.",
-          "Entiendo que TELEGRAM_BOT_TOKEN es secreto.",
-          "Entiendo que las variables de entorno guardan secretos fuera del codigo.",
-          "Entiendo que GitHub guarda los archivos del proyecto.",
-          "Entiendo que Coolify puede desplegar codigo desde GitHub a un servidor."
+          "Definir el bot con una sola frase",
+          "Pedir a ChatGPT que organice los comandos mínimos",
+          "Convertir eso en un prompt para Codex",
+          "Construir solo el flujo principal y probarlo"
         ]
+      },
+      "steps": [
+        {
+          "title": {
+            "en": "Describe the result before the code",
+            "ko": "코드보다 결과를 먼저 설명합니다",
+            "es_419": "Describe el resultado antes del código"
+          },
+          "body": {
+            "en": "Write a plain sentence about what the bot should help a person do. Keep it small. Example: This bot helps me add tasks, see tasks, finish tasks, and delete tasks.",
+            "ko": "이 봇이 사람을 어떻게 도와주는지 아주 평범한 문장으로 적어 보세요. 작게 시작하는 것이 중요합니다. 예: 이 봇은 할 일을 추가하고, 보고, 완료하고, 지우는 일을 도와준다.",
+            "es_419": "Escribe una frase simple sobre lo que el bot debe ayudar a hacer. Empieza en pequeño. Ejemplo: Este bot me ayuda a agregar tareas, verlas, completarlas y borrarlas."
+          }
+        },
+        {
+          "title": {
+            "en": "Ask ChatGPT for the smallest useful command set",
+            "ko": "ChatGPT에게 가장 작은 명령어 세트를 묻습니다",
+            "es_419": "Pide a ChatGPT el conjunto mínimo de comandos útiles"
+          },
+          "body": {
+            "en": "Do not jump into coding yet. First ask ChatGPT which commands a beginner version really needs. The goal is to avoid building too much too early.",
+            "ko": "아직 바로 코딩으로 뛰어들지 마세요. 먼저 ChatGPT에게 초보자 버전에 꼭 필요한 명령어가 무엇인지 물어보세요. 초반에 너무 많이 만드는 실수를 줄이기 위한 단계입니다.",
+            "es_419": "Todavía no saltes al código. Primero pregúntale a ChatGPT qué comandos necesita de verdad una versión para principiantes. La meta es no construir demasiado al inicio."
+          },
+          "prompt": {
+            "en": "Act as a patient beginner tutor. Help me define a Telegram Things To Do bot. Give me the minimum useful commands, explain what each command does, and show one example for each command.",
+            "ko": "친절한 초보자 튜터처럼 행동해 주세요. Telegram 할 일 봇을 정의하도록 도와주세요. 꼭 필요한 최소 명령어를 알려 주고, 각 명령어가 무엇을 하는지 설명하고, 명령어마다 예시를 하나씩 보여 주세요.",
+            "es_419": "Actúa como un tutor paciente para principiantes. Ayúdame a definir un bot de tareas para Telegram. Dame los comandos mínimos útiles, explica qué hace cada uno y muestra un ejemplo por comando."
+          }
+        },
+        {
+          "title": {
+            "en": "Turn the plan into a Codex prompt",
+            "ko": "계획을 Codex 프롬프트로 바꿉니다",
+            "es_419": "Convierte el plan en un prompt para Codex"
+          },
+          "body": {
+            "en": "Now use ChatGPT as a planning assistant. Ask it to write a clean prompt that you can paste into Codex. Tell it that the prompt must stay beginner-friendly and explain files.",
+            "ko": "이제 ChatGPT를 기획 보조 도구처럼 사용합니다. Codex에 바로 붙여 넣을 수 있는 깔끔한 프롬프트를 써 달라고 하세요. 초보자 친화적이어야 하고, 파일 설명도 포함해 달라고 분명히 말해 주세요.",
+            "es_419": "Ahora usa ChatGPT como asistente de planeación. Pídele un prompt limpio para pegar en Codex. Dile que debe ser apto para principiantes y que explique los archivos."
+          },
+          "prompt": {
+            "en": "Write a detailed Codex prompt for building a Telegram Things To Do bot with /start, /add, /list, /done, and /delete. Keep it beginner-friendly. Ask Codex to explain the files it creates and give test steps.",
+            "ko": "/start, /add, /list, /done, /delete 명령어가 있는 Telegram 할 일 봇을 만들기 위한 자세한 Codex 프롬프트를 작성해 주세요. 초보자 친화적으로 써 주세요. Codex가 만든 파일을 설명하고 테스트 방법도 알려 주도록 넣어 주세요.",
+            "es_419": "Escribe un prompt detallado para Codex para construir un bot de tareas de Telegram con /start, /add, /list, /done y /delete. Debe ser apto para principiantes. Pide que explique los archivos y dé pasos de prueba."
+          }
+        },
+        {
+          "title": {
+            "en": "Build only the core flow",
+            "ko": "핵심 흐름만 먼저 만듭니다",
+            "es_419": "Construye primero solo el flujo principal"
+          },
+          "body": {
+            "en": "Paste the prompt into Codex and focus only on the core actions. Do not add user accounts, categories, reminders, or extras yet. Small wins matter more than feature quantity.",
+            "ko": "프롬프트를 Codex에 붙여 넣고 핵심 동작만 먼저 만드세요. 아직은 사용자 계정, 카테고리, 알림 같은 기능을 넣지 마세요. 기능 수보다 작은 성공 경험이 더 중요합니다.",
+            "es_419": "Pega el prompt en Codex y concéntrate solo en las acciones principales. Todavía no agregues cuentas, categorías, recordatorios ni extras. Importan más las pequeñas victorias que la cantidad de funciones."
+          },
+          "media": {
+            "en": "Optional image idea: a four-box diagram showing add -> list -> done -> delete.",
+            "ko": "선택 이미지 아이디어: add -> list -> done -> delete 흐름을 보여 주는 네 칸짜리 그림.",
+            "es_419": "Idea opcional de imagen: un diagrama de cuatro cajas con add -> list -> done -> delete."
+          }
+        },
+        {
+          "title": {
+            "en": "Test like a beginner, not like a developer trying to be clever",
+            "ko": "똑똑한 개발자처럼이 아니라 초보자처럼 테스트합니다",
+            "es_419": "Prueba como principiante, no como alguien que quiere complicarlo"
+          },
+          "body": {
+            "en": "Open Telegram and test one action at a time. Add one task. List tasks. Finish one task. Delete one task. If something breaks, write down exactly which command failed and what message you saw.",
+            "ko": "Telegram을 열고 한 번에 한 동작씩 테스트해 보세요. 할 일 하나 추가, 목록 보기, 하나 완료, 하나 삭제. 문제가 생기면 어떤 명령어에서 어떤 메시지가 나왔는지 정확히 적어 두세요.",
+            "es_419": "Abre Telegram y prueba una acción por vez. Agrega una tarea. Mira la lista. Completa una. Borra una. Si algo falla, anota exactamente qué comando falló y qué mensaje viste."
+          }
+        }
+      ],
+      "assignment": {
+        "en": "Finish when your bot can add, list, complete, and delete tasks.",
+        "ko": "봇이 할 일을 추가하고, 목록으로 보여 주고, 완료하고, 삭제하면 완료입니다.",
+        "es_419": "Termina cuando tu bot pueda agregar, listar, completar y borrar tareas."
       }
     },
     {
       "id": 2,
-      "slug": "things-to-do-bot",
+      "part": 1,
+      "chapter": 2,
+      "slug": "reminder-bot",
       "title": {
-        "en": "Things To Do Telegram Bot",
-        "ko": "Things To Do 텔레그램 봇",
-        "es_419": "Bot de tareas para Telegram"
+        "en": "Reminder Bot",
+        "ko": "리마인더 봇",
+        "es_419": "Bot de recordatorios"
+      },
+      "bigPicture": {
+        "en": "This lesson repeats the first app pattern so beginners can feel the rhythm, not just memorize commands.",
+        "ko": "첫 번째 앱 패턴을 한 번 더 반복해서, 명령어를 외우는 것이 아니라 만드는 리듬을 익히게 합니다.",
+        "es_419": "Esta lección repite el patrón de la primera app para que principiantes sientan el ritmo, no solo memoricen comandos."
       },
       "summary": {
-        "en": "Build a simple Telegram task manager with /add, /list, /done, and /delete.",
-        "ko": "/add, /list, /done, /delete를 지원하는 간단한 Telegram 할 일 관리 봇을 만듭니다.",
-        "es_419": "Crea un bot simple de tareas para Telegram con /add, /list, /done y /delete."
+        "en": "In this lesson, you build a second simple productivity bot with a familiar structure.",
+        "ko": "이번 레슨에서는 구조가 익숙한 두 번째 생산성 봇을 만듭니다.",
+        "es_419": "En esta lección construyes un segundo bot simple de productividad con una estructura familiar."
       },
-      "blocks": [
+      "outline": {
+        "en": [
+          "Define what kind of reminder the bot handles",
+          "Ask for the smallest useful command set",
+          "Prepare the Codex prompt",
+          "Compare the repeated pattern with lesson 1"
+        ],
+        "ko": [
+          "어떤 리마인더를 다룰지 정하기",
+          "최소 명령어 세트 정리하기",
+          "Codex 프롬프트 준비하기",
+          "1번 레슨과 반복 패턴 비교하기"
+        ],
+        "es_419": [
+          "Definir qué tipo de recordatorio manejará el bot",
+          "Pedir el conjunto mínimo de comandos útiles",
+          "Preparar el prompt para Codex",
+          "Comparar el patrón repetido con la lección 1"
+        ]
+      },
+      "steps": [
         {
-          "type": "goal",
-          "en": "You build your first real app: a Telegram bot that stores, lists, completes, and deletes tasks. This is the foundation for later tracker, study, reminder, and game bots.",
-          "ko": "첫 번째 실제 앱을 만듭니다. 할 일을 저장하고, 목록을 보고, 완료 처리하고, 삭제하는 Telegram 봇입니다. 이후 추적 봇, 공부 봇, 알림 봇, 게임 봇의 기초가 됩니다.",
-          "es_419": "Creas tu primera app real: un bot de Telegram que guarda, lista, completa y borra tareas. Es la base para bots de seguimiento, estudio, recordatorios y juegos."
+          "title": {
+            "en": "Choose a tiny use case",
+            "ko": "아주 작은 사용 예시를 고릅니다",
+            "es_419": "Elige un caso de uso pequeño"
+          },
+          "body": {
+            "en": "Do not say this bot reminds me of everything. Pick one narrow case. Example: remind me to send one message later today, or remind me to check one task tomorrow morning.",
+            "ko": "이 봇이 모든 것을 다 기억해 준다고 말하지 마세요. 아주 좁은 사례 하나를 고르세요. 예: 오늘 나중에 메시지 하나 보내라고 알려 주기, 내일 아침 할 일 하나 확인하라고 알려 주기.",
+            "es_419": "No digas que este bot recuerda todo. Elige un caso pequeño. Ejemplo: recordarme enviar un mensaje más tarde hoy, o recordarme revisar una tarea mañana por la mañana."
+          }
         },
         {
-          "type": "prompt",
-          "en": "Create a new Node.js Telegram long polling bot project. The app name is Things To Do Telegram Bot.\n\nI am a beginner, so do not assume I know the setup. First explain the files you will create and what each file does. Then create the files.\n\nRequired commands: /start, /help, /add task, /list, /done number, /delete number.\n\nRequirements: Use Node.js. Use Telegram long polling. Store data in data/tasks.json. Store tasks separately for each Telegram user. Read TELEGRAM_BOT_TOKEN from process.env.TELEGRAM_BOT_TOKEN. Create Dockerfile and docker-compose.yml. Write README.md for local setup and Coolify deployment. Mention that this is not a web server, so no port or domain is required. Add node_modules, .env, and data/tasks.json to .gitignore.\n\nAfter the work, show me the generated file list, local test steps, GitHub push steps, and Coolify deployment steps.",
-          "ko": "새 Node.js Telegram long polling 봇 프로젝트를 만들어줘. 앱 이름은 Things To Do Telegram Bot이야.\n\n나는 초보자이므로 아무것도 당연하게 여기지 말고 설명해줘. 먼저 만들 파일 목록과 각 파일의 역할을 설명한 뒤, 실제 파일을 만들어줘.\n\n필수 기능: /start, /help, /add 할일, /list, /done 번호, /delete 번호.\n\n조건: Node.js를 사용해줘. Telegram long polling 방식을 사용해줘. data/tasks.json 파일에 저장해줘. 사용자별로 할 일을 따로 저장해줘. TELEGRAM_BOT_TOKEN은 process.env.TELEGRAM_BOT_TOKEN에서 읽어줘. Dockerfile과 docker-compose.yml을 만들어줘. 로컬 실행과 Coolify 배포 방법을 README.md에 써줘. 웹서버가 아니므로 포트/도메인이 필요 없다는 점도 적어줘. .gitignore에는 node_modules, .env, data/tasks.json을 넣어줘.\n\n작업 후 생성한 파일 목록, 로컬 테스트 방법, GitHub push 방법, Coolify 배포 순서를 알려줘.",
-          "es_419": "Crea un nuevo proyecto de bot de Telegram con Node.js usando long polling. El nombre de la app es Things To Do Telegram Bot.\n\nSoy principiante, asi que no asumas que conozco la configuracion. Primero explicame que archivos vas a crear y para que sirve cada uno. Luego crea los archivos.\n\nComandos requeridos: /start, /help, /add tarea, /list, /done numero, /delete numero.\n\nRequisitos: Usa Node.js. Usa Telegram long polling. Guarda datos en data/tasks.json. Guarda las tareas separadas por usuario de Telegram. Lee TELEGRAM_BOT_TOKEN desde process.env.TELEGRAM_BOT_TOKEN. Crea Dockerfile y docker-compose.yml. Escribe README.md para ejecucion local y despliegue en Coolify. Menciona que no es servidor web, asi que no necesita puerto ni dominio. Agrega node_modules, .env y data/tasks.json a .gitignore.\n\nDespues del trabajo, mostra la lista de archivos generados, pasos de prueba local, pasos para GitHub push y pasos para desplegar en Coolify."
+          "title": {
+            "en": "Ask ChatGPT for the command flow",
+            "ko": "ChatGPT에게 명령어 흐름을 묻습니다",
+            "es_419": "Pide a ChatGPT el flujo de comandos"
+          },
+          "body": {
+            "en": "Again, do planning before coding. Ask for the smallest version that is still useful. You want a bot that works, not a giant idea that never ships.",
+            "ko": "이번에도 코딩 전에 기획을 먼저 합니다. 작지만 쓸모 있는 버전을 물어보세요. 중요한 것은 거대한 아이디어가 아니라 실제로 작동하는 봇입니다.",
+            "es_419": "Otra vez, plan primero y código después. Pide la versión más pequeña que siga siendo útil. Lo importante es un bot que funcione, no una idea gigante que nunca se publica."
+          },
+          "prompt": {
+            "en": "Help me define a beginner-friendly Telegram Reminder bot. Suggest the smallest useful commands, explain the user flow, and show simple examples.",
+            "ko": "초보자 친화적인 Telegram 리마인더 봇을 정의하도록 도와주세요. 가장 작은 명령어 세트를 제안하고, 사용자 흐름을 설명하고, 간단한 예시를 보여 주세요.",
+            "es_419": "Ayúdame a definir un bot de recordatorios para Telegram apto para principiantes. Sugiere el conjunto mínimo de comandos, explica el flujo del usuario y muestra ejemplos simples."
+          }
+        },
+        {
+          "title": {
+            "en": "Convert the plan into a Codex prompt",
+            "ko": "기획을 Codex 프롬프트로 바꿉니다",
+            "es_419": "Convierte el plan en un prompt para Codex"
+          },
+          "body": {
+            "en": "Use the same habit from lesson 1. Let ChatGPT prepare a better instruction for Codex. You are training a workflow, not just finishing one app.",
+            "ko": "1번 레슨의 습관을 그대로 반복하세요. ChatGPT가 Codex용 지시문을 더 잘 정리하게 하세요. 우리는 앱 하나만 만드는 것이 아니라 작업 흐름을 훈련하는 중입니다.",
+            "es_419": "Usa el mismo hábito de la lección 1. Deja que ChatGPT prepare una mejor instrucción para Codex. No solo terminas una app; estás entrenando un flujo de trabajo."
+          },
+          "prompt": {
+            "en": "Write a detailed Codex prompt for a beginner-friendly Telegram Reminder bot with /start, /add, /list, /done, and /delete. Explain files and give test steps.",
+            "ko": "/start, /add, /list, /done, /delete 명령어가 있는 초보자 친화적인 Telegram 리마인더 봇용 자세한 Codex 프롬프트를 작성해 주세요. 파일 설명과 테스트 단계도 넣어 주세요.",
+            "es_419": "Escribe un prompt detallado para un bot de recordatorios de Telegram, apto para principiantes, con /start, /add, /list, /done y /delete. Incluye explicación de archivos y pasos de prueba."
+          }
+        },
+        {
+          "title": {
+            "en": "Notice the repeated builder pattern",
+            "ko": "반복되는 제작 패턴을 확인합니다",
+            "es_419": "Observa el patrón repetido de construcción"
+          },
+          "body": {
+            "en": "This matters a lot. You are not just making two bots. You are learning a reusable way to think: define, simplify, prompt, build, test, improve.",
+            "ko": "이 부분이 아주 중요합니다. 두 개의 봇을 만드는 데서 끝나는 것이 아닙니다. 정의하고, 단순화하고, 프롬프트를 만들고, 빌드하고, 테스트하고, 개선하는 재사용 가능한 사고 흐름을 배우는 것입니다.",
+            "es_419": "Esto importa mucho. No solo estás creando dos bots. Estás aprendiendo una manera reutilizable de pensar: definir, simplificar, crear prompt, construir, probar y mejorar."
+          }
+        },
+        {
+          "title": {
+            "en": "Write one short lesson note",
+            "ko": "짧은 레슨 메모를 남깁니다",
+            "es_419": "Escribe una nota corta de la lección"
+          },
+          "body": {
+            "en": "Write down one sentence: What felt easier this time than in lesson 1? This reflection matters because your confidence should become visible to you.",
+            "ko": "문장 하나만 적어 보세요. 1번 레슨보다 이번에 더 쉬웠던 것은 무엇인가요? 이런 짧은 회고가 중요한 이유는, 스스로의 성장과 자신감이 눈에 보여야 하기 때문입니다.",
+            "es_419": "Escribe una sola frase: ¿Qué se sintió más fácil esta vez que en la lección 1? Esta reflexión importa porque tu avance debe volverse visible para ti."
+          }
         }
       ],
-      "checklist": {
-        "en": ["/start works.", "/help works.", "/add Buy milk adds a task.", "/list shows tasks.", "/done 1 marks a task done.", "/delete 1 deletes a task.", "The bot token is not hard-coded.", "Coolify logs show that the bot started."],
-        "ko": ["/start가 작동한다.", "/help가 작동한다.", "/add Buy milk로 할 일이 추가된다.", "/list로 목록이 보인다.", "/done 1로 완료 처리된다.", "/delete 1로 삭제된다.", "토큰이 코드에 직접 들어가 있지 않다.", "Coolify 로그에서 봇이 시작된 것을 확인했다."],
-        "es_419": ["/start funciona.", "/help funciona.", "/add Buy milk agrega una tarea.", "/list muestra tareas.", "/done 1 marca una tarea como completada.", "/delete 1 borra una tarea.", "El token no esta escrito directamente en el codigo.", "Los logs de Coolify muestran que el bot inicio."]
+      "assignment": {
+        "en": "Finish when the reminder bot can add, list, complete, and delete reminders.",
+        "ko": "리마인더를 추가하고, 목록으로 보고, 완료하고, 삭제할 수 있으면 완료입니다.",
+        "es_419": "Termina cuando el bot pueda agregar, listar, completar y borrar recordatorios."
       }
     },
     {
       "id": 3,
-      "slug": "habit-tracker-bot",
-      "title": {"en": "Habit Tracker Bot", "ko": "습관 추적 봇", "es_419": "Bot de habitos"},
-      "summary": {"en": "Track daily habits and streaks.", "ko": "매일 습관과 연속 기록을 추적합니다.", "es_419": "Registra habitos diarios y rachas."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build a habit tracker with daily check-ins.", "ko": "잠금 미리보기: 매일 체크인하는 습관 추적 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de habitos con check-ins diarios."}]
+      "part": 1,
+      "chapter": 3,
+      "slug": "expense-tracker-bot",
+      "title": { "en": "Expense Tracker Bot", "ko": "지출 기록 봇", "es_419": "Bot de gastos" },
+      "bigPicture": { "en": "The same CRUD pattern now becomes money tracking.", "ko": "같은 CRUD 패턴을 돈 기록에 적용합니다.", "es_419": "El mismo patrón CRUD ahora se convierte en registro de dinero." },
+      "summary": { "en": "Build a simple money log bot.", "ko": "간단한 지출 기록 봇을 만듭니다.", "es_419": "Construye un bot simple de gastos." },
+      "outline": { "en": ["Define fields", "Ask for commands", "Build", "Test summary"], "ko": ["기록 항목 정하기", "명령어 정리하기", "빌드하기", "요약 테스트하기"], "es_419": ["Definir campos", "Pedir comandos", "Construir", "Probar resumen"] },
+      "steps": [
+        { "title": { "en": "Start with amount, category, and note", "ko": "금액, 카테고리, 메모부터 시작합니다", "es_419": "Empieza con monto, categoría y nota" }, "body": { "en": "Keep version 1 extremely small.", "ko": "1차 버전은 아주 작게 유지하세요.", "es_419": "Mantén la versión 1 muy pequeña." } }
+      ],
+      "assignment": { "en": "Finish when the bot can record expenses and show a small summary.", "ko": "지출을 기록하고 간단한 요약을 보여 주면 완료입니다.", "es_419": "Termina cuando el bot registre gastos y muestre un pequeño resumen." }
     },
     {
       "id": 4,
-      "slug": "expense-tracker-bot",
-      "title": {"en": "Expense Tracker Bot", "ko": "지출 기록 봇", "es_419": "Bot de gastos"},
-      "summary": {"en": "Log simple expenses by category.", "ko": "카테고리별 간단한 지출을 기록합니다.", "es_419": "Registra gastos simples por categoria."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build an expense tracker.", "ko": "잠금 미리보기: 지출 기록 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de gastos."}]
+      "part": 1,
+      "chapter": 4,
+      "slug": "daily-journal-bot",
+      "title": { "en": "Daily Journal Bot", "ko": "하루 기록 봇", "es_419": "Bot de diario" },
+      "bigPicture": { "en": "Now the bot stores thoughts instead of tasks.", "ko": "이제는 할 일 대신 생각과 하루 기록을 저장합니다.", "es_419": "Ahora el bot guarda pensamientos en lugar de tareas." },
+      "summary": { "en": "Build a calm personal journal bot.", "ko": "차분한 개인 기록 봇을 만듭니다.", "es_419": "Construye un bot personal de diario." },
+      "outline": { "en": ["Define tone", "Write commands", "Build", "Check privacy note"], "ko": ["톤 정하기", "명령어 쓰기", "빌드하기", "개인정보 안내 점검"], "es_419": ["Definir tono", "Escribir comandos", "Construir", "Revisar privacidad"] },
+      "steps": [
+        { "title": { "en": "Make it feel private", "ko": "개인적인 도구처럼 느껴지게 합니다", "es_419": "Haz que se sienta privado" }, "body": { "en": "This app should feel personal, not mechanical.", "ko": "이 앱은 기계적인 도구보다 개인적인 기록장처럼 느껴져야 합니다.", "es_419": "Esta app debe sentirse personal, no mecánica." } }
+      ],
+      "assignment": { "en": "Finish when the bot can save and show daily entries.", "ko": "하루 기록을 저장하고 다시 보여 주면 완료입니다.", "es_419": "Termina cuando el bot guarde y muestre entradas diarias." }
     },
     {
       "id": 5,
-      "slug": "daily-journal-bot",
-      "title": {"en": "Daily Journal Bot", "ko": "하루 기록 봇", "es_419": "Bot de diario"},
-      "summary": {"en": "Save short private journal entries.", "ko": "짧은 개인 일기를 저장합니다.", "es_419": "Guarda entradas privadas cortas."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build a private journal bot.", "ko": "잠금 미리보기: 개인 일기 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de diario privado."}]
+      "part": 1,
+      "chapter": 5,
+      "slug": "link-saver-bot",
+      "title": { "en": "Link Saver Bot", "ko": "링크 저장 봇", "es_419": "Bot para guardar links" },
+      "bigPicture": { "en": "This lesson adds search and retrieval.", "ko": "이번에는 저장뿐 아니라 검색과 다시 찾기까지 배웁니다.", "es_419": "Esta lección agrega búsqueda y recuperación." },
+      "summary": { "en": "Build a bot that saves links, tags, and notes.", "ko": "링크와 태그와 메모를 저장하는 봇을 만듭니다.", "es_419": "Construye un bot que guarde links, etiquetas y notas." },
+      "outline": { "en": ["Define saved fields", "Add search", "Build", "Test retrieval"], "ko": ["저장 항목 정하기", "검색 추가하기", "빌드하기", "다시 찾기 테스트"], "es_419": ["Definir campos", "Agregar búsqueda", "Construir", "Probar recuperación"] },
+      "steps": [
+        { "title": { "en": "Add a tag and a note", "ko": "태그와 메모를 함께 저장합니다", "es_419": "Agrega etiqueta y nota" }, "body": { "en": "A saved link without context is much less useful later.", "ko": "맥락 없는 링크는 나중에 다시 찾을 때 가치가 크게 떨어집니다.", "es_419": "Un link guardado sin contexto vale mucho menos después." } }
+      ],
+      "assignment": { "en": "Finish when the bot can save links and search them later.", "ko": "링크를 저장하고 나중에 검색할 수 있으면 완료입니다.", "es_419": "Termina cuando el bot guarde links y pueda buscarlos después." }
     },
     {
       "id": 6,
-      "slug": "quote-bot",
-      "title": {"en": "Quote Bot", "ko": "랜덤 명언 봇", "es_419": "Bot de frases"},
-      "summary": {"en": "Send random quotes from a local list.", "ko": "로컬 목록에서 랜덤 문장을 보냅니다.", "es_419": "Envia frases aleatorias desde una lista local."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build a random quote bot.", "ko": "잠금 미리보기: 랜덤 명언 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de frases aleatorias."}]
+      "part": 2,
+      "chapter": 1,
+      "slug": "personal-newsletter",
+      "title": { "en": "Personal AI Newsletter", "ko": "개인 AI 뉴스레터", "es_419": "Newsletter personal con AI" },
+      "bigPicture": { "en": "You are designing your own information flow.", "ko": "자기만의 정보 흐름을 설계하는 단계입니다.", "es_419": "Estás diseñando tu propio flujo de información." },
+      "summary": { "en": "Use ChatGPT to gather, shape, and improve a recurring briefing.", "ko": "ChatGPT로 반복형 브리핑을 수집하고, 정리하고, 개선합니다.", "es_419": "Usa ChatGPT para reunir, estructurar y mejorar un briefing recurrente." },
+      "outline": { "en": ["Choose a topic", "Explain your use case", "Improve the prompt", "Make it recurring"], "ko": ["주제 고르기", "사용 목적 설명하기", "프롬프트 개선하기", "반복 루틴 만들기"], "es_419": ["Elegir tema", "Explicar el uso", "Mejorar prompt", "Volverlo recurrente"] },
+      "steps": [
+        { "title": { "en": "Choose a topic that changes your day", "ko": "하루를 바꿀 주제를 고릅니다", "es_419": "Elige un tema que cambie tu día" }, "body": { "en": "Pick a topic you will actually use every week.", "ko": "매주 실제로 다시 보고 싶은 주제를 고르세요.", "es_419": "Elige un tema que realmente usarás cada semana." } }
+      ],
+      "assignment": { "en": "Finish when you have a reusable newsletter prompt.", "ko": "반복해서 쓸 수 있는 뉴스레터 프롬프트가 생기면 완료입니다.", "es_419": "Termina cuando tengas un prompt reutilizable para newsletter." }
     },
     {
       "id": 7,
-      "slug": "number-guessing-game",
-      "title": {"en": "Number Guessing Game", "ko": "숫자 맞히기 게임", "es_419": "Juego de adivinar numeros"},
-      "summary": {"en": "Create a small Telegram guessing game.", "ko": "Telegram 안에서 하는 작은 숫자 게임을 만듭니다.", "es_419": "Crea un pequeno juego de adivinar en Telegram."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build your first game bot.", "ko": "잠금 미리보기: 첫 게임 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea tu primer bot de juego."}]
+      "part": 2,
+      "chapter": 2,
+      "slug": "deep-research-report",
+      "title": { "en": "Deep Research Report", "ko": "심층 리서치 리포트", "es_419": "Reporte de investigación profunda" },
+      "bigPicture": { "en": "Now you are shaping research output instead of casual answers.", "ko": "가벼운 답변이 아니라 구조화된 리서치 결과를 만드는 단계입니다.", "es_419": "Ahora das forma a un resultado de investigación, no a respuestas casuales." },
+      "summary": { "en": "Learn how to ask for a useful research report.", "ko": "쓸모 있는 리서치 리포트를 요청하는 법을 배웁니다.", "es_419": "Aprende a pedir un reporte de investigación útil." },
+      "outline": { "en": ["Define the question", "Define the output shape", "Ask for sources", "Revise once"], "ko": ["질문 정의하기", "출력 형식 정하기", "출처 요청하기", "한 번 수정하기"], "es_419": ["Definir pregunta", "Definir formato", "Pedir fuentes", "Revisar una vez"] },
+      "steps": [
+        { "title": { "en": "Ask for structure, not just content", "ko": "내용뿐 아니라 구조도 요구합니다", "es_419": "Pide estructura, no solo contenido" }, "body": { "en": "A report becomes useful when sections and comparisons are explicit.", "ko": "리포트는 섹션과 비교 기준이 분명할 때 훨씬 쓸모 있어집니다.", "es_419": "Un reporte se vuelve útil cuando las secciones y comparaciones son explícitas." } }
+      ],
+      "assignment": { "en": "Finish when you have a reusable report prompt with a clear structure.", "ko": "명확한 구조를 가진 재사용 가능한 리포트 프롬프트가 생기면 완료입니다.", "es_419": "Termina cuando tengas un prompt reutilizable con estructura clara." }
     },
     {
       "id": 8,
-      "slug": "rock-paper-scissors",
-      "title": {"en": "Rock Paper Scissors Bot", "ko": "가위바위보 봇", "es_419": "Bot de piedra papel o tijera"},
-      "summary": {"en": "Play a simple game against the bot.", "ko": "봇과 간단한 게임을 합니다.", "es_419": "Juega contra el bot."},
-      "blocks": [{"type": "goal", "en": "Locked preview: add buttons and scoring.", "ko": "잠금 미리보기: 버튼과 점수를 추가합니다.", "es_419": "Vista previa bloqueada: agrega botones y puntaje."}]
+      "part": 2,
+      "chapter": 3,
+      "slug": "ai-prd",
+      "title": { "en": "AI PRD", "ko": "AI PRD", "es_419": "PRD con AI" },
+      "bigPicture": { "en": "You are moving from ideas to product planning documents.", "ko": "아이디어를 제품 기획 문서로 바꾸는 단계입니다.", "es_419": "Pasas de ideas a documentos de planificación de producto." },
+      "summary": { "en": "Turn messy ideas into a structured PRD.", "ko": "정리되지 않은 아이디어를 구조화된 PRD로 바꿉니다.", "es_419": "Convierte ideas desordenadas en un PRD estructurado." },
+      "outline": { "en": ["State the problem", "Define the user", "Write requirements", "Write success criteria"], "ko": ["문제 정의하기", "사용자 정의하기", "요구사항 쓰기", "성공 기준 쓰기"], "es_419": ["Definir problema", "Definir usuario", "Escribir requisitos", "Escribir éxito"] },
+      "steps": [
+        { "title": { "en": "Make the problem statement short", "ko": "문제 정의를 짧게 씁니다", "es_419": "Haz corta la definición del problema" }, "body": { "en": "A vague problem creates a vague PRD.", "ko": "문제가 흐리면 PRD도 흐려집니다.", "es_419": "Un problema vago produce un PRD vago." } }
+      ],
+      "assignment": { "en": "Finish when you can generate a PRD outline from a plain idea.", "ko": "평범한 아이디어에서 PRD 아웃라인을 만들 수 있으면 완료입니다.", "es_419": "Termina cuando puedas generar un esquema PRD desde una idea simple." }
     },
     {
       "id": 9,
-      "slug": "vocabulary-quiz-bot",
-      "title": {"en": "Vocabulary Quiz Bot", "ko": "단어 퀴즈 봇", "es_419": "Bot de vocabulario"},
-      "summary": {"en": "Ask multiple-choice study questions.", "ko": "객관식 공부 문제를 냅니다.", "es_419": "Hace preguntas de opcion multiple."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build a quiz bot.", "ko": "잠금 미리보기: 퀴즈 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de quiz."}]
+      "part": 3,
+      "chapter": 1,
+      "slug": "connect-codex-github-vercel",
+      "title": { "en": "Connect Codex, GitHub, and Vercel", "ko": "Codex, GitHub, Vercel 연결", "es_419": "Conectar Codex, GitHub y Vercel" },
+      "bigPicture": { "en": "You are connecting the build workflow, not just one app.", "ko": "앱 하나가 아니라 제작 워크플로를 연결하는 단계입니다.", "es_419": "Estás conectando el flujo de trabajo, no solo una app." },
+      "summary": { "en": "Set up the handoff path from Codex to repo to deploy.", "ko": "Codex에서 저장소를 거쳐 배포까지 이어지는 흐름을 설정합니다.", "es_419": "Configura el camino desde Codex al repo y luego al despliegue." },
+      "outline": { "en": ["Check accounts", "Connect repo", "Connect deploy", "Verify one update"], "ko": ["계정 확인하기", "저장소 연결하기", "배포 연결하기", "업데이트 하나 검증하기"], "es_419": ["Revisar cuentas", "Conectar repo", "Conectar despliegue", "Verificar un cambio"] },
+      "steps": [
+        { "title": { "en": "Treat setup as a lesson, not as a boring prerequisite", "ko": "설치를 지루한 준비가 아니라 레슨으로 다룹니다", "es_419": "Trata la configuración como lección, no como requisito aburrido" }, "body": { "en": "The beginner wins here by making the path visible.", "ko": "초보자에게는 경로가 눈에 보여야 자신감이 생깁니다.", "es_419": "El principiante gana aquí cuando el camino se vuelve visible." } }
+      ],
+      "assignment": { "en": "Finish when one project can move from Codex to GitHub to Vercel.", "ko": "프로젝트 하나가 Codex에서 GitHub를 거쳐 Vercel까지 가면 완료입니다.", "es_419": "Termina cuando un proyecto pueda pasar de Codex a GitHub y luego a Vercel." }
     },
     {
       "id": 10,
-      "slug": "flashcard-bot",
-      "title": {"en": "Flashcard Bot", "ko": "플래시카드 봇", "es_419": "Bot de tarjetas"},
-      "summary": {"en": "Review cards with answer reveal.", "ko": "답 보기 방식의 카드를 복습합니다.", "es_419": "Repasa tarjetas mostrando respuestas."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build a flashcard review bot.", "ko": "잠금 미리보기: 플래시카드 복습 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de tarjetas."}]
+      "part": 3,
+      "chapter": 2,
+      "slug": "first-web-page-with-codex",
+      "title": { "en": "First Web Page With Codex", "ko": "Codex로 첫 웹페이지 만들기", "es_419": "Primera web con Codex" },
+      "bigPicture": { "en": "Now you move from bots to a visible web result.", "ko": "이제 봇에서 눈에 보이는 웹 결과물로 넘어갑니다.", "es_419": "Ahora pasas de bots a un resultado web visible." },
+      "summary": { "en": "Build and deploy a simple page with Codex.", "ko": "Codex로 간단한 페이지를 만들고 배포합니다.", "es_419": "Construye y publica una página simple con Codex." },
+      "outline": { "en": ["Describe the page", "Build", "Deploy", "Improve once"], "ko": ["페이지 설명하기", "빌드하기", "배포하기", "한 번 개선하기"], "es_419": ["Describir página", "Construir", "Desplegar", "Mejorar una vez"] },
+      "steps": [
+        { "title": { "en": "Say the page must work on mobile", "ko": "모바일에서도 잘 보여야 한다고 먼저 말합니다", "es_419": "Dile desde el inicio que debe funcionar en móvil" }, "body": { "en": "Deployment context changes code choices. Mention it early.", "ko": "배포 환경과 기기 조건은 코드 선택을 바꿉니다. 초반에 분명히 말해 주세요.", "es_419": "El contexto de despliegue cambia decisiones de código. Menciónalo desde el principio." } }
+      ],
+      "assignment": { "en": "Finish when one page is deployed and improved once.", "ko": "페이지 하나가 배포되고 한 번 개선되면 완료입니다.", "es_419": "Termina cuando una página esté publicada y mejorada una vez." }
     },
     {
       "id": 11,
-      "slug": "pomodoro-bot",
-      "title": {"en": "Pomodoro Bot", "ko": "포모도로 봇", "es_419": "Bot Pomodoro"},
-      "summary": {"en": "Practice timers and study sessions.", "ko": "타이머와 공부 세션을 연습합니다.", "es_419": "Practica temporizadores y sesiones de estudio."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build a timer bot.", "ko": "잠금 미리보기: 타이머 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot temporizador."}]
+      "part": 4,
+      "chapter": 1,
+      "slug": "electronic-contract-bot",
+      "title": { "en": "Electronic Contract Bot", "ko": "전자 계약서 봇", "es_419": "Bot de contrato electrónico" },
+      "bigPicture": { "en": "Now the course moves into business automation that a company could actually pay for.", "ko": "이제 실제 회사가 돈을 내고 쓸 수 있는 업무 자동화 영역으로 들어갑니다.", "es_419": "Ahora el curso entra en automatización de negocio por la que una empresa sí podría pagar." },
+      "summary": { "en": "Generate a standard contract draft from deal terms.", "ko": "거래 조건을 입력받아 표준 계약서 초안을 만드는 봇입니다.", "es_419": "Genera un borrador de contrato estándar a partir de condiciones del trato." },
+      "outline": { "en": ["Define inputs", "Define template", "Generate draft", "Prepare signature handoff"], "ko": ["입력값 정의", "양식 정의", "초안 생성", "서명 연동 준비"], "es_419": ["Definir entradas", "Definir plantilla", "Generar borrador", "Preparar firma"] },
+      "steps": [
+        { "title": { "en": "List only the minimum legal fields first", "ko": "먼저 최소 법률 항목만 정리합니다", "es_419": "Lista primero solo los campos legales mínimos" }, "body": { "en": "Version 1 should focus on names, dates, amounts, and essential terms.", "ko": "1차 버전은 이름, 날짜, 금액, 핵심 조건에 집중하세요.", "es_419": "La versión 1 debe enfocarse en nombres, fechas, montos y términos esenciales." } }
+      ],
+      "assignment": { "en": "Finish when you have a contract draft flow and a document-generation prompt.", "ko": "계약서 초안 흐름과 문서 생성 프롬프트가 준비되면 완료입니다.", "es_419": "Termina cuando tengas un flujo de borrador y un prompt de generación de documento." }
     },
     {
       "id": 12,
-      "slug": "reminder-bot",
-      "title": {"en": "Reminder Bot", "ko": "리마인더 봇", "es_419": "Bot de recordatorios"},
-      "summary": {"en": "Schedule simple reminders.", "ko": "간단한 알림을 예약합니다.", "es_419": "Programa recordatorios simples."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build scheduled reminders.", "ko": "잠금 미리보기: 예약 알림을 만듭니다.", "es_419": "Vista previa bloqueada: crea recordatorios programados."}]
+      "part": 4,
+      "chapter": 2,
+      "slug": "meal-follower-bot",
+      "title": { "en": "Meal Follower Bot", "ko": "식단 팔로워 봇", "es_419": "Bot de seguimiento de comidas" },
+      "bigPicture": { "en": "This lesson turns text input into health feedback.", "ko": "텍스트 입력을 건강 피드백으로 바꾸는 구조를 배웁니다.", "es_419": "Esta lección convierte texto en feedback de salud." },
+      "summary": { "en": "Track meals, calories, and light exercise notes.", "ko": "식단과 칼로리와 가벼운 운동 기록을 추적하는 봇입니다.", "es_419": "Registra comidas, calorías y notas simples de ejercicio." },
+      "outline": { "en": ["Define meal input", "Define calorie summary", "Add exercise note", "Show daily report"], "ko": ["식단 입력 정의", "칼로리 요약 정의", "운동 메모 추가", "하루 리포트 보기"], "es_419": ["Definir comida", "Definir resumen calórico", "Agregar ejercicio", "Mostrar reporte diario"] },
+      "steps": [
+        { "title": { "en": "Keep health logic modest", "ko": "건강 로직을 과장하지 않습니다", "es_419": "Mantén modesta la lógica de salud" }, "body": { "en": "Version 1 should avoid pretending to be a medical app.", "ko": "1차 버전은 의료 앱인 척하지 않도록 단순하게 가야 합니다.", "es_419": "La versión 1 debe evitar parecer una app médica." } }
+      ],
+      "assignment": { "en": "Finish when the bot can log meals and show a daily summary.", "ko": "식단을 기록하고 하루 요약을 보여 주면 완료입니다.", "es_419": "Termina cuando el bot registre comidas y muestre un resumen diario." }
     },
     {
       "id": 13,
-      "slug": "link-saver-bot",
-      "title": {"en": "Link Saver Bot", "ko": "링크 저장 봇", "es_419": "Bot para guardar links"},
-      "summary": {"en": "Save and search useful links.", "ko": "유용한 링크를 저장하고 찾습니다.", "es_419": "Guarda y busca links utiles."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build a link saver.", "ko": "잠금 미리보기: 링크 저장 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un guardador de links."}]
+      "part": 4,
+      "chapter": 3,
+      "slug": "quote-contract-generator",
+      "title": { "en": "Quote and Contract Generator Bot", "ko": "견적서 계약서 생성 봇", "es_419": "Bot generador de cotización y contrato" },
+      "bigPicture": { "en": "You are combining structured input and document output.", "ko": "구조화된 입력과 문서 출력이 만나는 단계입니다.", "es_419": "Combinas entrada estructurada y salida de documento." },
+      "summary": { "en": "Generate quote and contract drafts from structured deal data.", "ko": "구조화된 거래 데이터로 견적서와 계약서 초안을 만듭니다.", "es_419": "Genera cotización y contrato desde datos estructurados." },
+      "outline": { "en": ["Collect terms", "Generate quote", "Generate contract", "Prepare PDF flow"], "ko": ["조건 수집", "견적서 생성", "계약서 생성", "PDF 흐름 준비"], "es_419": ["Recoger términos", "Generar cotización", "Generar contrato", "Preparar PDF"] },
+      "steps": [
+        { "title": { "en": "Separate quote fields from contract fields", "ko": "견적 항목과 계약 항목을 나눕니다", "es_419": "Separa campos de cotización y contrato" }, "body": { "en": "This keeps sales summary and legal language from getting mixed up.", "ko": "그래야 영업 정보와 법률 문구가 뒤섞이지 않습니다.", "es_419": "Así evitas mezclar resumen comercial con lenguaje legal." } }
+      ],
+      "assignment": { "en": "Finish when you have a structured input model and two document prompts.", "ko": "구조화된 입력 모델과 두 개의 문서 프롬프트가 준비되면 완료입니다.", "es_419": "Termina cuando tengas un modelo de entrada estructurado y dos prompts de documento." }
     },
     {
       "id": 14,
-      "slug": "poll-bot",
-      "title": {"en": "Poll Bot", "ko": "투표 봇", "es_419": "Bot de encuestas"},
-      "summary": {"en": "Create small polls in Telegram.", "ko": "Telegram에서 작은 투표를 만듭니다.", "es_419": "Crea encuestas simples en Telegram."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build a poll bot.", "ko": "잠금 미리보기: 투표 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de encuestas."}]
+      "part": 4,
+      "chapter": 4,
+      "slug": "tax-and-sales-bot",
+      "title": { "en": "Tax and Sales Summary Bot", "ko": "전자세금계산서 매출 정리 봇", "es_419": "Bot de impuestos y resumen de ventas" },
+      "bigPicture": { "en": "This bot connects transaction input to accounting-style output.", "ko": "거래 입력을 회계형 출력으로 연결하는 구조입니다.", "es_419": "Este bot conecta transacciones con una salida tipo contable." },
+      "summary": { "en": "Record deals and prepare monthly sales and expense summaries.", "ko": "거래를 기록하고 월간 매출과 지출 요약을 준비합니다.", "es_419": "Registra operaciones y prepara resumen mensual de ventas y gastos." },
+      "outline": { "en": ["Define fields", "Store records", "Summarize month", "Prepare invoicing hook"], "ko": ["필드 정의", "기록 저장", "월간 요약", "세금계산서 연결 준비"], "es_419": ["Definir campos", "Guardar registros", "Resumir mes", "Preparar facturación"] },
+      "steps": [
+        { "title": { "en": "Design for clean bookkeeping", "ko": "정리된 장부 구조를 먼저 만듭니다", "es_419": "Diseña para una contabilidad limpia" }, "body": { "en": "Keep categories and amounts consistent from the start.", "ko": "카테고리와 금액 체계를 처음부터 일관되게 잡아야 합니다.", "es_419": "Mantén categorías y montos consistentes desde el inicio." } }
+      ],
+      "assignment": { "en": "Finish when monthly income and expense summaries can be produced.", "ko": "월간 수입 지출 요약을 만들 수 있으면 완료입니다.", "es_419": "Termina cuando puedas generar resúmenes mensuales de ingresos y gastos." }
     },
     {
       "id": 15,
-      "slug": "study-streak-bot",
-      "title": {"en": "Study Streak Bot", "ko": "공부 연속 기록 봇", "es_419": "Bot de racha de estudio"},
-      "summary": {"en": "Track study streaks and progress.", "ko": "공부 연속 기록과 진행률을 추적합니다.", "es_419": "Registra rachas y progreso de estudio."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build a study streak tracker.", "ko": "잠금 미리보기: 공부 연속 기록 봇을 만듭니다.", "es_419": "Vista previa bloqueada: crea un bot de racha de estudio."}]
+      "part": 4,
+      "chapter": 5,
+      "slug": "inventory-reorder-bot",
+      "title": { "en": "Inventory Alert and Reorder Bot", "ko": "재고 부족 자동 발주 봇", "es_419": "Bot de alerta y reposición de inventario" },
+      "bigPicture": { "en": "Now the bot reacts to thresholds instead of only storing records.", "ko": "기록만 하는 수준을 넘어 임계치에 반응하는 자동화를 다룹니다.", "es_419": "Ahora el bot reacciona a umbrales, no solo guarda registros." },
+      "summary": { "en": "Detect low inventory and prepare reorder actions.", "ko": "재고 부족을 감지하고 자동 발주 흐름을 준비합니다.", "es_419": "Detecta bajo inventario y prepara acciones de reposición." },
+      "outline": { "en": ["Track stock", "Set threshold", "Trigger message", "Prepare reorder format"], "ko": ["재고 추적", "임계치 설정", "메시지 트리거", "발주 형식 준비"], "es_419": ["Seguir stock", "Definir umbral", "Disparar mensaje", "Preparar pedido"] },
+      "steps": [
+        { "title": { "en": "Start with one supplier workflow", "ko": "거래처 하나 기준으로 시작합니다", "es_419": "Empieza con un solo flujo de proveedor" }, "body": { "en": "Version 1 should not support every vendor format.", "ko": "1차 버전은 모든 거래처 형식을 다 지원하려고 하지 마세요.", "es_419": "La versión 1 no debe soportar todos los formatos de proveedor." } }
+      ],
+      "assignment": { "en": "Finish when low-stock alerts and reorder draft messages work.", "ko": "재고 부족 알림과 발주 초안 메시지가 동작하면 완료입니다.", "es_419": "Termina cuando funcionen las alertas y los borradores de reposición." }
     },
     {
       "id": 16,
-      "slug": "admin-broadcast-bot",
-      "title": {"en": "Admin Broadcast Bot", "ko": "관리자 공지 봇", "es_419": "Bot de avisos admin"},
-      "summary": {"en": "Send admin messages to users.", "ko": "관리자가 사용자에게 공지를 보냅니다.", "es_419": "Envia mensajes del admin a usuarios."},
-      "blocks": [{"type": "goal", "en": "Locked preview: add admin-only commands.", "ko": "잠금 미리보기: 관리자 전용 명령어를 추가합니다.", "es_419": "Vista previa bloqueada: agrega comandos solo para admin."}]
+      "part": 4,
+      "chapter": 6,
+      "slug": "inquiry-booking-bot",
+      "title": { "en": "Inquiry Classification and Booking Bot", "ko": "문의 자동 분류 예약 연동 봇", "es_419": "Bot de clasificación de consultas y reserva" },
+      "bigPicture": { "en": "This bot saves staff time by routing messages.", "ko": "메시지를 분류하고 연결해서 직원 시간을 줄이는 구조입니다.", "es_419": "Este bot ahorra tiempo del personal al enrutar mensajes." },
+      "summary": { "en": "Classify incoming inquiries and send them into a booking flow.", "ko": "들어오는 문의를 분류해서 예약 흐름으로 넘깁니다.", "es_419": "Clasifica consultas entrantes y las pasa a un flujo de reserva." },
+      "outline": { "en": ["Define categories", "Define triggers", "Route messages", "Review examples"], "ko": ["카테고리 정의", "트리거 정의", "메시지 라우팅", "예시 점검"], "es_419": ["Definir categorías", "Definir disparadores", "Enrutar mensajes", "Revisar ejemplos"] },
+      "steps": [
+        { "title": { "en": "Begin with rules, not complex AI", "ko": "복잡한 AI보다 규칙부터 시작합니다", "es_419": "Empieza con reglas, no con AI compleja" }, "body": { "en": "Obvious categories and escalation rules are enough for version 1.", "ko": "1차 버전은 명확한 분류와 전달 규칙만 있어도 충분합니다.", "es_419": "Categorías obvias y reglas de escalado bastan para la versión 1." } }
+      ],
+      "assignment": { "en": "Finish when inquiries can be sorted into clear paths.", "ko": "문의가 분명한 흐름으로 나뉘면 완료입니다.", "es_419": "Termina cuando las consultas puedan ordenarse en rutas claras." }
     },
     {
       "id": 17,
-      "slug": "simple-crm-bot",
-      "title": {"en": "Simple CRM Bot", "ko": "간단 CRM 봇", "es_419": "Bot CRM simple"},
-      "summary": {"en": "Manage names, notes, and follow-ups.", "ko": "이름, 메모, 후속 연락을 관리합니다.", "es_419": "Gestiona nombres, notas y seguimientos."},
-      "blocks": [{"type": "goal", "en": "Locked preview: build a tiny CRM.", "ko": "잠금 미리보기: 작은 CRM을 만듭니다.", "es_419": "Vista previa bloqueada: crea un mini CRM."}]
+      "part": 4,
+      "chapter": 7,
+      "slug": "meeting-action-bot",
+      "title": { "en": "Meeting to Action Bot", "ko": "회의록 액션아이템 봇", "es_419": "Bot de actas a acciones" },
+      "bigPicture": { "en": "This lesson turns conversation into tasks and ownership.", "ko": "대화를 할 일과 담당자로 바꾸는 구조를 배웁니다.", "es_419": "Esta lección convierte conversación en tareas y responsables." },
+      "summary": { "en": "Turn meeting text into summaries, owners, and next actions.", "ko": "회의 텍스트를 요약과 담당자와 다음 액션으로 바꿉니다.", "es_419": "Convierte texto de reunión en resumen, responsables y siguientes acciones." },
+      "outline": { "en": ["Define input", "Define action format", "Assign owners", "Prepare notifications"], "ko": ["입력 정의", "액션 형식 정의", "담당자 배정", "알림 준비"], "es_419": ["Definir entrada", "Definir formato de acción", "Asignar responsables", "Preparar avisos"] },
+      "steps": [
+        { "title": { "en": "Separate summary from action items", "ko": "요약과 액션아이템을 분리합니다", "es_419": "Separa resumen de acciones" }, "body": { "en": "That keeps the result useful instead of becoming one giant block of text.", "ko": "그래야 결과가 커다란 텍스트 덩어리가 아니라 실제로 쓰이는 도구가 됩니다.", "es_419": "Así el resultado no se vuelve un bloque gigante de texto sino algo útil." } }
+      ],
+      "assignment": { "en": "Finish when the bot can extract a summary and clear action items.", "ko": "요약과 액션아이템을 분리해서 뽑아내면 완료입니다.", "es_419": "Termina cuando el bot extraiga un resumen y acciones claras." }
     },
     {
       "id": 18,
-      "slug": "weather-bot",
-      "title": {"en": "Weather Bot", "ko": "날씨 봇", "es_419": "Bot del clima"},
-      "summary": {"en": "Practice using an external API.", "ko": "외부 API 사용을 연습합니다.", "es_419": "Practica el uso de una API externa."},
-      "blocks": [{"type": "goal", "en": "Locked preview: connect a safe external API.", "ko": "잠금 미리보기: 안전하게 외부 API를 연결합니다.", "es_419": "Vista previa bloqueada: conecta una API externa segura."}]
+      "part": 4,
+      "chapter": 8,
+      "slug": "quote-comparison-bot",
+      "title": { "en": "Quote Comparison Automation Bot", "ko": "다중 견적 비교 자동화 봇", "es_419": "Bot de comparación de cotizaciones" },
+      "bigPicture": { "en": "This lesson moves from a single input to multi-document comparison.", "ko": "하나의 입력에서 여러 문서를 비교하는 수준으로 넘어갑니다.", "es_419": "Esta lección pasa de una entrada simple a comparar varios documentos." },
+      "summary": { "en": "Compare multiple quotes and create a side-by-side decision table.", "ko": "여러 견적서를 비교해서 항목별 비교표를 만듭니다.", "es_419": "Compara varias cotizaciones y crea una tabla comparativa." },
+      "outline": { "en": ["Normalize fields", "Compare line items", "Highlight gaps", "Generate table"], "ko": ["항목 정규화", "라인아이템 비교", "차이 강조", "표 생성"], "es_419": ["Normalizar campos", "Comparar ítems", "Resaltar diferencias", "Generar tabla"] },
+      "steps": [
+        { "title": { "en": "Create one shared comparison schema first", "ko": "공통 비교 스키마를 먼저 만듭니다", "es_419": "Crea primero un esquema compartido" }, "body": { "en": "Without one schema, messy documents stay messy.", "ko": "공통 스키마가 없으면 복잡한 문서는 끝까지 복잡합니다.", "es_419": "Sin un esquema común, los documentos desordenados siguen desordenados." } }
+      ],
+      "assignment": { "en": "Finish when you have a comparison schema and an output table format.", "ko": "비교 스키마와 출력 표 형식이 준비되면 완료입니다.", "es_419": "Termina cuando tengas un esquema y un formato de tabla de salida." }
     },
     {
       "id": 19,
-      "slug": "github-issue-helper",
-      "title": {"en": "GitHub Issue Helper Bot", "ko": "GitHub 이슈 도우미 봇", "es_419": "Bot ayudante de issues GitHub"},
-      "summary": {"en": "Draft GitHub issue text from a short report.", "ko": "짧은 보고를 GitHub 이슈 글로 정리합니다.", "es_419": "Convierte un reporte corto en texto para un issue de GitHub."},
-      "blocks": [{"type": "goal", "en": "Locked preview: prepare GitHub issue drafts.", "ko": "잠금 미리보기: GitHub 이슈 초안을 만듭니다.", "es_419": "Vista previa bloqueada: prepara borradores de issues."}]
+      "part": 4,
+      "chapter": 9,
+      "slug": "multi-user-admin-bot",
+      "title": { "en": "Multi-user Admin Bot", "ko": "다중 사용자 관리자 봇", "es_419": "Bot multiusuario con admin" },
+      "bigPicture": { "en": "Now your bot must manage different roles, not just one user.", "ko": "이제는 한 명이 아니라 여러 역할을 관리해야 합니다.", "es_419": "Ahora tu bot debe manejar varios roles, no solo un usuario." },
+      "summary": { "en": "Add admin rules, role separation, and safer operations.", "ko": "관리자 규칙과 역할 분리와 더 안전한 운영을 넣습니다.", "es_419": "Agrega reglas de admin, separación de roles y operaciones más seguras." },
+      "outline": { "en": ["Define roles", "Separate commands", "Protect data", "Review admin actions"], "ko": ["역할 정의", "명령어 분리", "데이터 보호", "관리자 액션 점검"], "es_419": ["Definir roles", "Separar comandos", "Proteger datos", "Revisar acciones admin"] },
+      "steps": [
+        { "title": { "en": "Write down who can do what", "ko": "누가 무엇을 할 수 있는지 적습니다", "es_419": "Escribe quién puede hacer qué" }, "body": { "en": "Vague rules become real bugs here. Be explicit.", "ko": "이 단계에서는 애매한 규칙이 바로 버그가 됩니다. 명확하게 적으세요.", "es_419": "Aquí las reglas vagas se convierten en errores reales. Sé explícito." } }
+      ],
+      "assignment": { "en": "Finish when your bot has clear user and admin boundaries.", "ko": "사용자와 관리자 경계가 분명해지면 완료입니다.", "es_419": "Termina cuando tu bot tenga límites claros entre usuario y admin." }
     },
     {
       "id": 20,
-      "slug": "multi-user-challenge",
-      "title": {"en": "Multi-user Challenge Bot", "ko": "다중 사용자 챌린지 봇", "es_419": "Bot de reto multiusuario"},
-      "summary": {"en": "Build a final bot with users, progress, admin tools, and deployment notes.", "ko": "사용자, 진행률, 관리자 기능, 배포 노트를 포함한 최종 봇을 만듭니다.", "es_419": "Crea un bot final con usuarios, progreso, herramientas admin y notas de despliegue."},
-      "blocks": [{"type": "goal", "en": "Locked preview: combine what you learned into a final challenge.", "ko": "잠금 미리보기: 지금까지 배운 것을 합쳐 최종 챌린지를 만듭니다.", "es_419": "Vista previa bloqueada: combina lo aprendido en un reto final."}]
+      "part": 4,
+      "chapter": 10,
+      "slug": "vps-production-lesson",
+      "title": { "en": "VPS and Production Deployment", "ko": "VPS와 실전 배포", "es_419": "VPS y despliegue real" },
+      "bigPicture": { "en": "The final lesson is harder on purpose. You move from demo thinking to production thinking.", "ko": "마지막 레슨은 일부러 어렵게 구성합니다. 데모 수준에서 실전 운영 수준의 사고로 넘어갑니다.", "es_419": "La última lección es difícil a propósito. Pasas de pensar en demos a pensar en producción." },
+      "summary": { "en": "Deploy one project to a VPS-style environment and think about logs, secrets, and uptime.", "ko": "프로젝트 하나를 VPS 계열 환경에 배포하고 로그, 비밀값, 가동시간을 생각합니다.", "es_419": "Despliega un proyecto a un entorno tipo VPS y piensa en logs, secretos y uptime." },
+      "outline": { "en": ["Choose target", "Prepare env vars", "Run service", "Check logs and recovery"], "ko": ["대상 고르기", "환경변수 준비", "서비스 실행", "로그와 복구 점검"], "es_419": ["Elegir destino", "Preparar variables", "Ejecutar servicio", "Revisar logs y recuperación"] },
+      "steps": [
+        { "title": { "en": "Treat deployment as operations, not magic", "ko": "배포를 마법이 아니라 운영으로 봅니다", "es_419": "Ve el despliegue como operación, no magia" }, "body": { "en": "At this stage you care about what happens after the app launches.", "ko": "이 단계에서는 앱이 켜진 뒤 무슨 일이 일어나는지까지 신경 써야 합니다.", "es_419": "En esta etapa te importa qué pasa después de lanzar la app." } }
+      ],
+      "assignment": { "en": "Finish when one project runs in a more production-like environment and you can explain logs, secrets, and restart flow.", "ko": "프로젝트 하나가 더 실전 같은 환경에서 돌아가고 로그, 비밀값, 재시작 흐름을 설명할 수 있으면 완료입니다.", "es_419": "Termina cuando un proyecto corra en un entorno más real y puedas explicar logs, secretos y reinicio." }
     }
   ]
 }
-
