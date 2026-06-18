@@ -339,9 +339,6 @@ async function openLesson(chatId, userId, lessonId) {
     `${copy.thisLesson}`,
     `${lesson.summary[lang]}`,
     "",
-    `${copy.lessonOutline}`,
-    ...lesson.outline[lang].map((item, index) => `${index + 1}. ${item}`),
-    "",
     `${copy.taskLabel}`,
     `${lesson.assignment[lang]}`
   ].join("\n");

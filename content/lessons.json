@@ -181,164 +181,281 @@
         "es_419": "Instalaci?n y preparaci?n"
       },
       "bigPicture": {
-        "en": "Lesson 0 prepares the tools used in this course. You will confirm your ChatGPT account, install the Codex app by following the official OpenAI guide, prepare GitHub and Telegram, and create one working folder.",
-        "ko": "?? 0? ? ???? ??? ??? ???? ?????. ChatGPT ??? ????, OpenAI ?? ??? ?? Codex ?? ????, GitHub? Telegram? ????, ?? ??? ?? ????.",
-        "es_419": "La lecci?n 0 prepara las herramientas que usar?s en este curso. Confirmar?s tu cuenta de ChatGPT, instalar?s la app de Codex siguiendo la gu?a oficial de OpenAI, preparar?s GitHub y Telegram, y crear?s una carpeta de trabajo."
+        "en": "Lesson 0 prepares the tools used in this course. The goal is not to master every setup detail. The goal is to prepare just enough to start lesson 1 without getting lost.",
+        "ko": "?? 0? ? ???? ??? ??? ???? ?????. ?? ?? ?? ??? ??? ??? ?? ??? ????. ?? 1? ??? ? ?? ??? ???? ?? ?????.",
+        "es_419": "La lecci?n 0 prepara las herramientas de este curso. La meta no es dominar todos los detalles de instalaci?n. La meta es preparar lo suficiente para empezar la lecci?n 1 sin perderte."
       },
       "summary": {
-        "en": "In this lesson, you set up the minimum environment needed before starting lesson 1.",
-        "ko": "?? ????? ?? 1? ???? ?? ??? ?? ??? ?????.",
-        "es_419": "En esta lecci?n preparas el entorno m?nimo necesario antes de empezar la lecci?n 1."
+        "en": "In this lesson, you prepare ChatGPT, Codex, GitHub, Telegram, and one course folder.",
+        "ko": "?? ????? ChatGPT, Codex, GitHub, Telegram, ??? ??? ?? ??? ?????.",
+        "es_419": "En esta lecci?n preparas ChatGPT, Codex, GitHub, Telegram y una carpeta para el curso."
       },
       "outline": {
         "en": [
-          "Check your ChatGPT account",
-          "Install Codex on Windows",
-          "Install Codex on Mac",
-          "Open Codex and sign in",
-          "Create or log in to GitHub",
-          "Understand what a repo is",
-          "Install Telegram and sign in",
-          "Create your course work folder",
-          "If installation fails, use the fallback guidance"
+          "Check ChatGPT",
+          "Install Codex",
+          "Open Codex",
+          "Prepare GitHub",
+          "Understand repo",
+          "Prepare Telegram",
+          "Make one folder",
+          "Use fallback help if stuck"
         ],
         "ko": [
-          "ChatGPT ?? ??",
-          "Windows?? Codex ??",
-          "Mac?? Codex ??",
-          "Codex ??? ???",
-          "GitHub ?? ?? ???",
-          "repo ? ????",
-          "Telegram ??? ???",
-          "?? ?? ?? ???",
-          "??? ??? ?? ?? ????"
+          "ChatGPT ??",
+          "Codex ??",
+          "Codex ??",
+          "GitHub ??",
+          "repo ??",
+          "Telegram ??",
+          "?? ???",
+          "??? ?? ?? ??"
         ],
         "es_419": [
-          "Confirmar tu cuenta de ChatGPT",
-          "Instalar Codex en Windows",
-          "Instalar Codex en Mac",
-          "Abrir Codex e iniciar sesi?n",
-          "Crear o abrir tu cuenta de GitHub",
-          "Entender qu? es un repo",
-          "Instalar Telegram e iniciar sesi?n",
-          "Crear tu carpeta de trabajo del curso",
-          "Usar la gu?a alternativa si falla la instalaci?n"
+          "Revisar ChatGPT",
+          "Instalar Codex",
+          "Abrir Codex",
+          "Preparar GitHub",
+          "Entender repo",
+          "Preparar Telegram",
+          "Crear una carpeta",
+          "Usar ayuda alternativa si te atoras"
         ]
       },
       "steps": [
         {
           "title": {
-            "en": "Step 1. Check your ChatGPT account",
-            "ko": "1??. ChatGPT ??? ?????",
-            "es_419": "Paso 1. Revisa tu cuenta de ChatGPT"
+            "en": "Step 1. What this lesson is for",
+            "ko": "1??. ? ??? ??",
+            "es_419": "Paso 1. Para qu? sirve esta lecci?n"
           },
           "body": {
-            "en": "Open https://chatgpt.com and sign in. This course is written for learners who use a paid ChatGPT account, because the class assumes steady access and fewer usage interruptions. If you use a free account, some screens or limits may differ. Do not move on until you can sign in normally.",
-            "ko": "https://chatgpt.com ? ?? ??????. ? ??? ??? ??? ??? ?? ??? ???? ?? ChatGPT ??? ???? ?????. ?? ??? ???? ?? ??? ?? ? ????. ????? ????? ?? ??? ? ???? ?????.",
-            "es_419": "Abre https://chatgpt.com e inicia sesi?n. Este curso est? escrito pensando en personas que usan una cuenta paga de ChatGPT, porque la clase asume un acceso m?s estable y menos interrupciones por l?mites de uso. Si usas una cuenta gratuita, algunas pantallas o l?mites pueden ser distintos. No sigas hasta poder iniciar sesi?n con normalidad."
+            "en": "This lesson is a preparation lesson. You do not build a bot yet. You only prepare the accounts, apps, and folder you will need soon.",
+            "ko": "? ??? ?? ?????. ?? ?? ??? ????. ? ???? ? ??, ?, ??? ?????.",
+            "es_419": "Esta es una lecci?n de preparaci?n. Todav?a no construyes un bot. Solo preparas las cuentas, apps y carpeta que vas a necesitar pronto."
           }
         },
         {
           "title": {
-            "en": "Step 2. If you use Windows, install Codex",
-            "ko": "2??. Windows ???? Codex? ?????",
-            "es_419": "Paso 2. Si usas Windows, instala Codex"
+            "en": "Step 2. Open ChatGPT",
+            "ko": "2??. ChatGPT? ???",
+            "es_419": "Paso 2. Abre ChatGPT"
           },
           "body": {
-            "en": "Follow the official OpenAI Codex app guide: https://developers.openai.com/codex/app/ . On Windows, you can also install from Microsoft Store or use the official command shown in the docs: winget install Codex -s msstore . Install the app first. You do not need to create a project yet.",
-            "ko": "OpenAI ?? Codex ? ??? ????: https://developers.openai.com/codex/app/ . Windows??? Microsoft Store?? ?????, ?? ??? ?? ???? winget install Codex -s msstore ? ??? ? ????. ?? ? ??? ??? ???. ?? ????? ?? ??? ????.",
-            "es_419": "Sigue la gu?a oficial de la app Codex de OpenAI: https://developers.openai.com/codex/app/ . En Windows tambi?n puedes instalar desde Microsoft Store o usar el comando oficial que aparece en la documentaci?n: winget install Codex -s msstore . Primero completa la instalaci?n de la app. Todav?a no necesitas crear un proyecto."
+            "en": "Open https://chatgpt.com in your browser.",
+            "ko": "?????? https://chatgpt.com ? ???.",
+            "es_419": "Abre https://chatgpt.com en tu navegador."
           }
         },
         {
           "title": {
-            "en": "Step 3. If you use Mac, install Codex",
-            "ko": "3??. Mac ???? Codex? ?????",
-            "es_419": "Paso 3. Si usas Mac, instala Codex"
+            "en": "Step 3. Check your ChatGPT login",
+            "ko": "3??. ChatGPT ???? ?????",
+            "es_419": "Paso 3. Revisa tu inicio de sesi?n en ChatGPT"
           },
           "body": {
-            "en": "Follow the same official guide: https://developers.openai.com/codex/app/ . Download the Mac version of the Codex app. If your Mac uses an Intel chip, choose the Intel build. If your Mac uses Apple Silicon, choose the standard Mac build shown on the download page.",
-            "ko": "?? ?? ?? ???? ?????: https://developers.openai.com/codex/app/ . Mac? Codex ?? ??????. Intel Mac?? Intel ??? ????, Apple Silicon Mac?? ???? ???? ??? ?? Mac ??? ?????.",
-            "es_419": "Usa la misma gu?a oficial: https://developers.openai.com/codex/app/ . Descarga la versi?n para Mac de la app Codex. Si tu Mac usa chip Intel, elige la compilaci?n Intel. Si tu Mac usa Apple Silicon, elige la versi?n est?ndar para Mac que aparezca en la p?gina de descarga."
+            "en": "This course is written mainly for paid ChatGPT users. If you can sign in normally, this step is complete.",
+            "ko": "? ??? ?? ?? ChatGPT ???? ???? ?????. ????? ???? ? ??? ? ??? ????.",
+            "es_419": "Este curso est? escrito principalmente para usuarios de ChatGPT pago. Si puedes iniciar sesi?n con normalidad, este paso est? completo."
           }
         },
         {
           "title": {
-            "en": "Step 4. Open Codex and sign in",
-            "ko": "4??. Codex? ?? ??????",
-            "es_419": "Paso 4. Abre Codex e inicia sesi?n"
+            "en": "Step 4. Open the official Codex guide",
+            "ko": "4??. ?? Codex ??? ???",
+            "es_419": "Paso 4. Abre la gu?a oficial de Codex"
           },
           "body": {
-            "en": "After installation, open Codex. Sign in with your ChatGPT account. For this course, that is the preferred path. If the app asks you to choose a workspace or project folder, you can do that after step 7. Right now, the goal is simple: make sure Codex opens and the sign-in succeeds.",
-            "ko": "??? ??? Codex? ???. ? ????? ChatGPT ???? ????? ??? ???? ?????. ?? ?? ??? ???? ??? ???? ?? 7?? ??? ?? ???. ?? ??? ?????. Codex? ??? ???? ??? ???? ???.",
-            "es_419": "Despu?s de instalar, abre Codex. Inicia sesi?n con tu cuenta de ChatGPT. En este curso esa es la ruta recomendada. Si la app te pide elegir una carpeta de trabajo o proyecto, puedes hacerlo despu?s del paso 7. Ahora el objetivo es simple: confirmar que Codex abre y que el inicio de sesi?n funciona."
+            "en": "Open the official page: https://developers.openai.com/codex/app/",
+            "ko": "?? ?? ???? ???: https://developers.openai.com/codex/app/",
+            "es_419": "Abre la p?gina oficial: https://developers.openai.com/codex/app/"
           }
         },
         {
           "title": {
-            "en": "Step 5. Create or log in to GitHub",
-            "ko": "5??. GitHub? ????? ??????",
-            "es_419": "Paso 5. Crea tu cuenta de GitHub o inicia sesi?n"
+            "en": "Step 5. If you use Windows, install Codex",
+            "ko": "5??. Windows ???? Codex? ?????",
+            "es_419": "Paso 5. Si usas Windows, instala Codex"
           },
           "body": {
-            "en": "Open https://github.com . If you do not have an account yet, click Sign up. Enter your email address, create a password, choose a username, pass the security check, and finish email verification. If you already have an account, sign in instead. You do not need to create a repository yet. In this lesson, creating the account and confirming that you can log in is enough.",
-            "ko": "https://github.com ? ???. ?? ??? ??? Sign up? ????. ??? ??? ????, ????? ???, ??? ??? ???, ?? ??? ???, ??? ???? ????. ?? ??? ??? ?? ???? ?? ????? ???. ??? ?? ???? ?? ??? ????. ? ????? ??? ???? ??????? ???? ?????.",
-            "es_419": "Abre https://github.com . Si todav?a no tienes cuenta, haz clic en Sign up. Ingresa tu correo, crea una contrase?a, elige un nombre de usuario, pasa la verificaci?n de seguridad y termina la verificaci?n del correo. Si ya tienes cuenta, inicia sesi?n. Todav?a no necesitas crear un repositorio. En este paso basta con tener la cuenta lista y confirmar que puedes entrar."
+            "en": "On Windows, you can install the Codex app from Microsoft Store. The docs also show this command: winget install Codex -s msstore",
+            "ko": "Windows??? Microsoft Store?? Codex ?? ??? ? ????. ?? ???? ? ???? ????: winget install Codex -s msstore",
+            "es_419": "En Windows puedes instalar la app Codex desde Microsoft Store. La documentaci?n tambi?n muestra este comando: winget install Codex -s msstore"
           }
         },
         {
           "title": {
-            "en": "Step 6. Understand what a repo is",
-            "ko": "6??. repo? ???? ?????",
-            "es_419": "Paso 6. Entiende qu? es un repo"
+            "en": "Step 6. If you use Mac, install Codex",
+            "ko": "6??. Mac ???? Codex? ?????",
+            "es_419": "Paso 6. Si usas Mac, instala Codex"
           },
           "body": {
-            "en": "Repository is usually shortened to repo. A repo is the project folder that lives inside GitHub. Later, each project in this course will usually have its own repo. Inside a repo, you store code files, settings, images, notes, and change history. For now, remember only this: GitHub is the site where your code is stored, and a repo is one project home inside GitHub.",
-            "ko": "repository? ?? repo?? ??? ????. repo? GitHub ?? ?? ????? ?? ???? ???? ???. ??? ? ???? ??? ????? ?? ??? repo? ??? ??? ???. ? ??? ?? ??, ?? ??, ???, ??, ?? ??? ?????. ??? ? ??? ???? ???. GitHub? ??? ???? ?????, repo? GitHub ?? ?? ???? ? ?? ????.",
-            "es_419": "Repository suele abreviarse como repo. Un repo es la carpeta del proyecto dentro de GitHub. M?s adelante, cada proyecto de este curso normalmente tendr? su propio repo. Dentro de un repo guardas c?digo, configuraciones, im?genes, notas e historial de cambios. Por ahora recuerda solo esto: GitHub es el sitio donde se guarda tu c?digo, y un repo es la casa de un proyecto dentro de GitHub."
+            "en": "Download the Mac version from the same official page. If your Mac uses Intel, choose the Intel build. If your Mac uses Apple Silicon, choose the regular Mac build shown there.",
+            "ko": "?? ?? ????? Mac ??? ??????. Intel Mac?? Intel ??? ???, Apple Silicon Mac?? ? ???? ??? ?? Mac ??? ??? ???.",
+            "es_419": "Descarga la versi?n para Mac desde la misma p?gina oficial. Si tu Mac usa Intel, elige la compilaci?n Intel. Si usa Apple Silicon, elige la versi?n regular para Mac que aparece all?."
           }
         },
         {
           "title": {
-            "en": "Step 7. Prepare Telegram",
-            "ko": "7??. Telegram? ?????",
-            "es_419": "Paso 7. Prepara Telegram"
+            "en": "Step 7. Open Codex",
+            "ko": "7??. Codex? ???",
+            "es_419": "Paso 7. Abre Codex"
           },
           "body": {
-            "en": "Open https://telegram.org . If Telegram is not installed yet, install it on your phone or computer and sign in with your phone number. Because you are receiving this lesson in Telegram, you are probably already using it, so this course explains only the basics here. What matters is simple: later, you will test your finished bot inside Telegram. If you can open Telegram and send messages normally, this step is complete.",
-            "ko": "https://telegram.org ? ???. ?? Telegram? ???? ?? ??? ????? ???? ????, ????? ??????. ?? ? ??? Telegram?? ?? ??? ?? ?? Telegram? ???? ??? ?? ???? ???, ????? ??? ?????. ??? ?? ?????. ??? ??? ?? Telegram ??? ?? ????? ??? ????. Telegram? ? ? ?? ???? ?? ? ??? ? ??? ?????.",
-            "es_419": "Abre https://telegram.org . Si Telegram todav?a no est? instalado, inst?lalo en tu tel?fono o computadora e inicia sesi?n con tu n?mero. Como est?s recibiendo esta lecci?n dentro de Telegram, es probable que ya lo uses, as? que aqu? solo explicamos lo b?sico. Lo importante es esto: m?s adelante probar?s tu bot terminado dentro de Telegram. Si puedes abrir Telegram y enviar mensajes con normalidad, este paso est? completo."
+            "en": "After installation, open the Codex app.",
+            "ko": "??? ??? Codex ?? ???.",
+            "es_419": "Despu?s de instalar, abre la app Codex."
           }
         },
         {
           "title": {
-            "en": "Step 8. Create one folder for this course",
-            "ko": "8??. ? ??? ??? ?? ????",
-            "es_419": "Paso 8. Crea una carpeta para este curso"
+            "en": "Step 8. Sign in to Codex",
+            "ko": "8??. Codex? ??????",
+            "es_419": "Paso 8. Inicia sesi?n en Codex"
           },
           "body": {
-            "en": "Create one folder on your computer for all course work. Example names: CodexCourse, CodexProjects, TelegramBotPractice. Keep the name simple. From lesson 1 onward, you will save files in this folder and choose it when Codex asks for a working location.",
-            "ko": "??? ?? ? ?? ?? ??? ?? ????. ?: CodexCourse, CodexProjects, TelegramBotPractice. ??? ???? ?? ?? ????. ?? 1??? ? ??? ??? ????, Codex? ?? ??? ?? ? ? ??? ???? ???.",
-            "es_419": "Crea una carpeta en tu computadora para todo el trabajo del curso. Ejemplos de nombre: CodexCourse, CodexProjects, TelegramBotPractice. Mant?n el nombre simple. Desde la lecci?n 1 guardar?s archivos en esta carpeta y la elegir?s cuando Codex te pida una ubicaci?n de trabajo."
+            "en": "Sign in with your ChatGPT account. For this course, that is the main path.",
+            "ko": "ChatGPT ???? ??????. ? ????? ? ??? ?? ??? ?????.",
+            "es_419": "Inicia sesi?n con tu cuenta de ChatGPT. En este curso esa es la ruta principal."
           }
         },
         {
           "title": {
-            "en": "Step 9. If installation gets stuck, use the fallback guidance",
-            "ko": "9??. ??? ??? ?? ??? ?????",
-            "es_419": "Paso 9. Si la instalaci?n se complica, usa la gu?a alternativa"
+            "en": "Step 9. Open GitHub",
+            "ko": "9??. GitHub? ???",
+            "es_419": "Paso 9. Abre GitHub"
           },
           "body": {
-            "en": "If a problem happens, search YouTube for \"Codex install\" and learn the detail for your exact computer setup. This course is not mainly about installation itself. Because every PC environment is different, this lesson cannot teach every Windows and Mac error case in detail. The goal here is to get ready for the projects, then move on.",
-            "ko": "?? ??? ???? ????? \"??? ??\" ?? \"Codex install\" ? ???? ??? PC ??? ?? ?? ??? ?????. ? ??? ?? ??? ???? ????. PC ??? ?? ???? ???, ???? ?? Windows? Mac ?? ??? ???? ???? ?????. ? ??? ??? ????? ??? ??? ??? ? ????.",
-            "es_419": "Si aparece alg?n problema, busca en YouTube \"Codex install\" y aprende el detalle que corresponda a tu computadora. Este curso no tiene como objetivo principal ense?ar instalaci?n. Como cada PC es diferente, esta lecci?n no puede cubrir en detalle todos los errores de Windows y Mac. La meta aqu? es quedar listo para empezar los proyectos y seguir adelante."
+            "en": "Open https://github.com",
+            "ko": "https://github.com ? ???.",
+            "es_419": "Abre https://github.com"
+          }
+        },
+        {
+          "title": {
+            "en": "Step 10. Create a GitHub account or sign in",
+            "ko": "10??. GitHub? ????? ??????",
+            "es_419": "Paso 10. Crea tu cuenta de GitHub o inicia sesi?n"
+          },
+          "body": {
+            "en": "If you do not have an account, click Sign up and finish the basic registration. If you already have an account, sign in.",
+            "ko": "??? ??? Sign up? ?? ?? ??? ????. ?? ??? ??? ??????.",
+            "es_419": "Si no tienes cuenta, haz clic en Sign up y termina el registro b?sico. Si ya tienes cuenta, inicia sesi?n."
+          }
+        },
+        {
+          "title": {
+            "en": "Step 11. What GitHub is for",
+            "ko": "11??. GitHub? ???? ?????",
+            "es_419": "Paso 11. Entiende para qu? sirve GitHub"
+          },
+          "body": {
+            "en": "GitHub is the website where you store your project code.",
+            "ko": "GitHub? ???? ??? ???? ??????.",
+            "es_419": "GitHub es el sitio donde guardas el c?digo de tu proyecto."
+          }
+        },
+        {
+          "title": {
+            "en": "Step 12. What a repo is",
+            "ko": "12??. repo? ???? ?????",
+            "es_419": "Paso 12. Entiende qu? es un repo"
+          },
+          "body": {
+            "en": "Repository is usually shortened to repo. A repo is one project folder inside GitHub.",
+            "ko": "repository? ?? repo?? ?? ????. repo? GitHub ?? ?? ???? ? ?? ?????.",
+            "es_419": "Repository suele abreviarse como repo. Un repo es la carpeta de un proyecto dentro de GitHub."
+          }
+        },
+        {
+          "title": {
+            "en": "Step 13. Open Telegram",
+            "ko": "13??. Telegram? ???",
+            "es_419": "Paso 13. Abre Telegram"
+          },
+          "body": {
+            "en": "Open https://telegram.org if you need the official download page.",
+            "ko": "?? ???? ???? ???? https://telegram.org ? ???.",
+            "es_419": "Abre https://telegram.org si necesitas la p?gina oficial de descarga."
+          }
+        },
+        {
+          "title": {
+            "en": "Step 14. Check your Telegram login",
+            "ko": "14??. Telegram ???? ?????",
+            "es_419": "Paso 14. Revisa tu inicio de sesi?n en Telegram"
+          },
+          "body": {
+            "en": "Because you are receiving this lesson in Telegram, you are probably already using it. In this course, that is enough for now.",
+            "ko": "? ??? Telegram?? ?? ????, ?? Telegram? ???? ?? ???? ????. ? ????? ?? ? ??? ?????.",
+            "es_419": "Como est?s recibiendo esta lecci?n en Telegram, probablemente ya lo est?s usando. Para este curso, por ahora eso es suficiente."
+          }
+        },
+        {
+          "title": {
+            "en": "Step 15. Why Telegram matters here",
+            "ko": "15??. ? ???? Telegram? ? ???? ?????",
+            "es_419": "Paso 15. Entiende por qu? Telegram importa aqu?"
+          },
+          "body": {
+            "en": "Later, you will test your finished bots inside Telegram.",
+            "ko": "??? ??? ?? Telegram ??? ?? ????? ???.",
+            "es_419": "M?s adelante probar?s tus bots terminados dentro de Telegram."
+          }
+        },
+        {
+          "title": {
+            "en": "Step 16. Create one course folder",
+            "ko": "16??. ??? ??? ?? ????",
+            "es_419": "Paso 16. Crea una carpeta para el curso"
+          },
+          "body": {
+            "en": "Create one folder on your computer for this course. Example names: CodexCourse, CodexProjects, TelegramBotPractice.",
+            "ko": "??? ?? ? ??? ??? ?? ????. ?: CodexCourse, CodexProjects, TelegramBotPractice",
+            "es_419": "Crea una carpeta en tu computadora para este curso. Ejemplos: CodexCourse, CodexProjects, TelegramBotPractice."
+          }
+        },
+        {
+          "title": {
+            "en": "Step 17. Use the folder later",
+            "ko": "17??. ? ??? ??? ?? ?????",
+            "es_419": "Paso 17. Usar?s esta carpeta despu?s"
+          },
+          "body": {
+            "en": "From lesson 1 onward, you will save your files in that folder.",
+            "ko": "?? 1??? ? ?? ?? ??? ???? ???.",
+            "es_419": "Desde la lecci?n 1 guardar?s tus archivos dentro de esa carpeta."
+          }
+        },
+        {
+          "title": {
+            "en": "Step 18. If installation gets stuck",
+            "ko": "18??. ??? ??? ??? ???",
+            "es_419": "Paso 18. Si la instalaci?n se complica"
+          },
+          "body": {
+            "en": "If a problem happens, search YouTube for \"Codex install\". This course is not mainly about installation, and every PC environment is different.",
+            "ko": "??? ??? ????? \"Codex install\" ?? \"??? ??\"? ?????. ? ??? ?? ??? ???? ???, PC ??? ?? ??? ?????.",
+            "es_419": "Si aparece un problema, busca en YouTube \"Codex install\". Este curso no se centra en la instalaci?n y cada entorno de PC es distinto."
+          }
+        },
+        {
+          "title": {
+            "en": "Step 19. Finish this lesson",
+            "ko": "19??. ? ??? ??? ??",
+            "es_419": "Paso 19. C?mo terminar esta lecci?n"
+          },
+          "body": {
+            "en": "You are done when ChatGPT works, Codex is installed and opens, GitHub is ready, Telegram is ready, and your course folder exists.",
+            "ko": "ChatGPT? ??, Codex? ???? ???, GitHub? Telegram? ???? ??, ??? ??? ?????? ? ??? ????.",
+            "es_419": "Terminas cuando ChatGPT funciona, Codex est? instalado y abre, GitHub est? listo, Telegram est? listo y tu carpeta del curso ya existe."
           }
         }
       ],
       "assignment": {
-        "en": "Finish this lesson when ChatGPT login works, Codex is installed and opens, GitHub is ready, Telegram is ready, and your course folder exists.",
-        "ko": "ChatGPT ???? ??, Codex? ???? ???, GitHub? Telegram? ???? ??, ??? ??? ?????? ? ??? ?????.",
-        "es_419": "Termina esta lecci?n cuando funcione tu inicio de sesi?n en ChatGPT, Codex est? instalado y abra bien, GitHub est? listo, Telegram est? listo y exista tu carpeta del curso."
+        "en": "Finish this lesson when ChatGPT works, Codex is installed and opens, GitHub is ready, Telegram is ready, and your course folder exists.",
+        "ko": "ChatGPT? ??, Codex? ???? ???, GitHub? Telegram? ???? ??, ??? ??? ?????? ? ??? ????.",
+        "es_419": "Termina esta lecci?n cuando ChatGPT funciona, Codex est? instalado y abre, GitHub est? listo, Telegram est? listo y tu carpeta del curso ya existe."
       }
     },
     {
@@ -348,17 +465,17 @@
       "slug": "things-to-do-bot",
       "title": {
         "en": "Things To Do Bot",
-        "ko": "? ? ?",
+        "ko": "할 일 봇",
         "es_419": "Bot de tareas"
       },
       "bigPicture": {
         "en": "You are learning the first reusable bot pattern: add something, list it, finish it, and remove it.",
-        "ko": "?? ??? ??? ?? ?? ? ? ? ??? ??? ??? ?? ????. ??? ?? ?? ??? ?? ?? ?? ???, ??? ??? ??? ??? ?? ?????.",
+        "ko": "가장 처음 배우는 재사용 가능한 봇 패턴입니다. 추가하고, 목록으로 보고, 완료하고, 지우는 흐름을 익힙니다.",
         "es_419": "Aprendes el primer patrón reutilizable: agregar algo, verlo en lista, marcarlo hecho y borrarlo."
       },
       "summary": {
         "en": "In this lesson, you build your first small Telegram productivity bot.",
-        "ko": "?? ????? ChatGPT? Codex? ??? ??? ? ?? Telegram ? ? ?? ????.",
+        "ko": "이번 레슨에서는 아주 작은 첫 번째 Telegram 생산성 봇을 만듭니다.",
         "es_419": "En esta lección construyes tu primer bot pequeño de productividad para Telegram."
       },
       "outline": {
@@ -369,10 +486,10 @@
           "Build only the core flow and test it"
         ],
         "ko": [
-          "ChatGPT? Codex? ??",
-          "ChatGPT? ??? ??? ?? ???",
-          "Codex? ??? ??? ?? ???",
-          "??? ?? Telegram?? ?????"
+          "봇을 한 문장으로 정의하기",
+          "ChatGPT에게 최소 명령어를 정리시키기",
+          "그 내용을 Codex용 빌드 프롬프트로 바꾸기",
+          "핵심 흐름만 먼저 만들고 테스트하기"
         ],
         "es_419": [
           "Definir el bot con una sola frase",
@@ -385,82 +502,82 @@
         {
           "title": {
             "en": "Describe the result before the code",
-            "ko": "?? ChatGPT? Codex? ???",
+            "ko": "코드보다 결과를 먼저 설명합니다",
             "es_419": "Describe el resultado antes del código"
           },
           "body": {
             "en": "Write a plain sentence about what the bot should help a person do. Keep it small. Example: This bot helps me add tasks, see tasks, finish tasks, and delete tasks.",
-            "ko": "?? ChatGPT? ???. ??? ?????? Codex? ???. ?? ? ????? ???? ??? ??, ? ??? ??? ???? ?????. ???? ChatGPT??? ??? ??? ??, Codex??? ?? ??? ?? ???.",
+            "ko": "이 봇이 사람을 어떻게 도와주는지 아주 평범한 문장으로 적어 보세요. 작게 시작하는 것이 중요합니다. 예: 이 봇은 할 일을 추가하고, 보고, 완료하고, 지우는 일을 도와준다.",
             "es_419": "Escribe una frase simple sobre lo que el bot debe ayudar a hacer. Empieza en pequeño. Ejemplo: Este bot me ayuda a agregar tareas, verlas, completarlas y borrarlas."
           }
         },
         {
           "title": {
             "en": "Ask ChatGPT for the smallest useful command set",
-            "ko": "?? ChatGPT? ? ??? ?? ????",
+            "ko": "ChatGPT에게 가장 작은 명령어 세트를 묻습니다",
             "es_419": "Pide a ChatGPT el conjunto mínimo de comandos útiles"
           },
           "body": {
             "en": "Do not jump into coding yet. First ask ChatGPT which commands a beginner version really needs. The goal is to avoid building too much too early.",
-            "ko": "ChatGPT ??? ?? ?? ??? ??? ?? ????. ? ??? ??? ? ? ?? ? ??? ?? ???? ?? ???? ????. ??? ??? ?? ???? ?? ???.",
+            "ko": "아직 바로 코딩으로 뛰어들지 마세요. 먼저 ChatGPT에게 초보자 버전에 꼭 필요한 명령어가 무엇인지 물어보세요. 초반에 너무 많이 만드는 실수를 줄이기 위한 단계입니다.",
             "es_419": "Todavía no saltes al código. Primero pregúntale a ChatGPT qué comandos necesita de verdad una versión para principiantes. La meta es no construir demasiado al inicio."
           },
           "prompt": {
             "en": "Act as a patient beginner tutor. Help me define a Telegram Things To Do bot. Give me the minimum useful commands, explain what each command does, and show one example for each command.",
-            "ko": "??? ??? ???? ?? ???. Telegram ? ? ?? ???? ???. ? ??? ?? ???? ??? ??, ? ???? ?? ??? ??? ??? ??, ??? ??? ?? ???.",
+            "ko": "친절한 초보자 튜터처럼 행동해 주세요. Telegram 할 일 봇을 정의하도록 도와주세요. 꼭 필요한 최소 명령어를 알려 주고, 각 명령어가 무엇을 하는지 설명하고, 명령어마다 예시를 하나씩 보여 주세요.",
             "es_419": "Actúa como un tutor paciente para principiantes. Ayúdame a definir un bot de tareas para Telegram. Dame los comandos mínimos útiles, explica qué hace cada uno y muestra un ejemplo por comando."
           }
         },
         {
           "title": {
             "en": "Turn the plan into a Codex prompt",
-            "ko": "??? Codex? ??? ?????",
+            "ko": "계획을 Codex 프롬프트로 바꿉니다",
             "es_419": "Convierte el plan en un prompt para Codex"
           },
           "body": {
             "en": "Now use ChatGPT as a planning assistant. Ask it to write a clean prompt that you can paste into Codex. Tell it that the prompt must stay beginner-friendly and explain files.",
-            "ko": "?? ?? ChatGPT?? ??, ?? ??? ??? ???? Codex? ?? ??? ??? ??? ??? ???. ? ????? ???? ??? ? ?? ? ??? ??? ??? ?? ?????.",
+            "ko": "이제 ChatGPT를 기획 보조 도구처럼 사용합니다. Codex에 바로 붙여 넣을 수 있는 깔끔한 프롬프트를 써 달라고 하세요. 초보자 친화적이어야 하고, 파일 설명도 포함해 달라고 분명히 말해 주세요.",
             "es_419": "Ahora usa ChatGPT como asistente de planeación. Pídele un prompt limpio para pegar en Codex. Dile que debe ser apto para principiantes y que explique los archivos."
           },
           "prompt": {
             "en": "Write a detailed Codex prompt for building a Telegram Things To Do bot with /start, /add, /list, /done, and /delete. Keep it beginner-friendly. Ask Codex to explain the files it creates and give test steps.",
-            "ko": "/start, /add, /list, /done, /delete ???? ?? Telegram ? ? ?? ??? ?? Codex ????? ??? ??? ???. ???? ??? ? ?? ? ???. ??? ????? ?? ??? ??? ??? ?? ?? ???.",
+            "ko": "/start, /add, /list, /done, /delete 명령어가 있는 Telegram 할 일 봇을 만들기 위한 자세한 Codex 프롬프트를 작성해 주세요. 초보자 친화적으로 써 주세요. Codex가 만든 파일을 설명하고 테스트 방법도 알려 주도록 넣어 주세요.",
             "es_419": "Escribe un prompt detallado para Codex para construir un bot de tareas de Telegram con /start, /add, /list, /done y /delete. Debe ser apto para principiantes. Pide que explique los archivos y dé pasos de prueba."
           }
         },
         {
           "title": {
             "en": "Build only the core flow",
-            "ko": "?? Codex? ?? ?? ??? ???",
+            "ko": "핵심 흐름만 먼저 만듭니다",
             "es_419": "Construye primero solo el flujo principal"
           },
           "body": {
             "en": "Paste the prompt into Codex and focus only on the core actions. Do not add user accounts, categories, reminders, or extras yet. Small wins matter more than feature quantity.",
-            "ko": "?? Codex ??? ?? ?? ?? ??? ?? ????. ??? ? ? ??, ?? ??, ??, ?? ? ? ?? ??? ?? ??? ???. ?? ??? ?? ?? ??? ???.",
+            "ko": "프롬프트를 Codex에 붙여 넣고 핵심 동작만 먼저 만드세요. 아직은 사용자 계정, 카테고리, 알림 같은 기능을 넣지 마세요. 기능 수보다 작은 성공 경험이 더 중요합니다.",
             "es_419": "Pega el prompt en Codex y concéntrate solo en las acciones principales. Todavía no agregues cuentas, categorías, recordatorios ni extras. Importan más las pequeñas victorias que la cantidad de funciones."
           },
           "media": {
             "en": "Optional image idea: a four-box diagram showing add -> list -> done -> delete.",
-            "ko": "?? ?? ????: add -> list -> done -> delete ??? ?? ?? ??? ? ? ??.",
+            "ko": "선택 이미지 아이디어: add -> list -> done -> delete 흐름을 보여 주는 네 칸짜리 그림.",
             "es_419": "Idea opcional de imagen: un diagrama de cuatro cajas con add -> list -> done -> delete."
           }
         },
         {
           "title": {
             "en": "Test like a beginner, not like a developer trying to be clever",
-            "ko": "????? Telegram?? ??? ??????",
+            "ko": "똑똑한 개발자처럼이 아니라 초보자처럼 테스트합니다",
             "es_419": "Prueba como principiante, no como alguien que quiere complicarlo"
           },
           "body": {
             "en": "Open Telegram and test one action at a time. Add one task. List tasks. Finish one task. Delete one task. If something breaks, write down exactly which command failed and what message you saw.",
-            "ko": "?? Telegram?? ???. ? ?? ?? ?????. ??? ???. ??? ?? ?????. ????? ??? ?????. ??? ???, ? ???? ?? ???? ??? ?? ???. ? ??? ?? ??? ???? ???.",
+            "ko": "Telegram을 열고 한 번에 한 동작씩 테스트해 보세요. 할 일 하나 추가, 목록 보기, 하나 완료, 하나 삭제. 문제가 생기면 어떤 명령어에서 어떤 메시지가 나왔는지 정확히 적어 두세요.",
             "es_419": "Abre Telegram y prueba una acción por vez. Agrega una tarea. Mira la lista. Completa una. Borra una. Si algo falla, anota exactamente qué comando falló y qué mensaje viste."
           }
         }
       ],
       "assignment": {
         "en": "Finish when your bot can add, list, complete, and delete tasks.",
-        "ko": "? ??? Telegram?? ? ? ??, ?? ??, ?? ??, ??? ??? ?? ????.",
+        "ko": "봇이 할 일을 추가하고, 목록으로 보여 주고, 완료하고, 삭제하면 완료입니다.",
         "es_419": "Termina cuando tu bot pueda agregar, listar, completar y borrar tareas."
       }
     },
