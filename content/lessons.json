@@ -177,17 +177,17 @@
       "slug": "setup-and-first-steps",
       "title": {
         "en": "Setup and Installation",
-        "ko": "??? ??",
+        "ko": "설치와 준비",
         "es_419": "Instalaci?n y preparaci?n"
       },
       "bigPicture": {
         "en": "Lesson 0 prepares the tools used in this course. The goal is not to master every setup detail. The goal is to prepare just enough to start lesson 1 without getting lost.",
-        "ko": "?? 0? ? ???? ??? ??? ???? ?????. ?? ?? ?? ??? ??? ??? ?? ??? ????. ?? 1? ??? ? ?? ??? ???? ?? ?????.",
+        "ko": "레슨 0은 이 강의에서 사용할 도구를 준비하는 단계입니다. 모든 설치 세부 사항을 완벽히 익히는 것이 목적은 아닙니다. 레슨 1을 시작할 수 있을 만큼만 준비하는 것이 목적입니다.",
         "es_419": "La lecci?n 0 prepara las herramientas de este curso. La meta no es dominar todos los detalles de instalaci?n. La meta es preparar lo suficiente para empezar la lecci?n 1 sin perderte."
       },
       "summary": {
         "en": "In this lesson, you prepare ChatGPT, Codex, GitHub, Telegram, and one course folder.",
-        "ko": "?? ????? ChatGPT, Codex, GitHub, Telegram, ??? ??? ?? ??? ?????.",
+        "ko": "이번 레슨에서는 ChatGPT, Codex, GitHub, Telegram, 그리고 강의용 폴더 하나를 준비합니다.",
         "es_419": "En esta lecci?n preparas ChatGPT, Codex, GitHub, Telegram y una carpeta para el curso."
       },
       "outline": {
@@ -202,14 +202,14 @@
           "Use fallback help if stuck"
         ],
         "ko": [
-          "ChatGPT ??",
-          "Codex ??",
-          "Codex ??",
-          "GitHub ??",
-          "repo ??",
-          "Telegram ??",
-          "?? ???",
-          "??? ?? ?? ??"
+          "ChatGPT 확인",
+          "Codex 설치",
+          "Codex 열기",
+          "GitHub 준비",
+          "repo 이해",
+          "Telegram 준비",
+          "폴더 만들기",
+          "막히면 우회 도움 사용"
         ],
         "es_419": [
           "Revisar ChatGPT",
@@ -226,235 +226,235 @@
         {
           "title": {
             "en": "Step 1. What this lesson is for",
-            "ko": "1??. ? ??? ??",
+            "ko": "1단계. 이 레슨의 목적",
             "es_419": "Paso 1. Para qu? sirve esta lecci?n"
           },
           "body": {
             "en": "This lesson is a preparation lesson. You do not build a bot yet. You only prepare the accounts, apps, and folder you will need soon.",
-            "ko": "? ??? ?? ?????. ?? ?? ??? ????. ? ???? ? ??, ?, ??? ?????.",
+            "ko": "이 레슨은 준비 레슨입니다. 아직 봇을 만들지 않습니다. 곧 필요하게 될 계정, 앱, 폴더만 준비합니다.",
             "es_419": "Esta es una lecci?n de preparaci?n. Todav?a no construyes un bot. Solo preparas las cuentas, apps y carpeta que vas a necesitar pronto."
           }
         },
         {
           "title": {
             "en": "Step 2. Open ChatGPT",
-            "ko": "2??. ChatGPT? ???",
+            "ko": "2단계. ChatGPT를 엽니다",
             "es_419": "Paso 2. Abre ChatGPT"
           },
           "body": {
             "en": "Open https://chatgpt.com in your browser.",
-            "ko": "?????? https://chatgpt.com ? ???.",
+            "ko": "브라우저에서 https://chatgpt.com 을 엽니다.",
             "es_419": "Abre https://chatgpt.com en tu navegador."
           }
         },
         {
           "title": {
             "en": "Step 3. Check your ChatGPT login",
-            "ko": "3??. ChatGPT ???? ?????",
+            "ko": "3단계. ChatGPT 로그인을 확인합니다",
             "es_419": "Paso 3. Revisa tu inicio de sesi?n en ChatGPT"
           },
           "body": {
             "en": "This course is written mainly for paid ChatGPT users. If you can sign in normally, this step is complete.",
-            "ko": "? ??? ?? ?? ChatGPT ???? ???? ?????. ????? ???? ? ??? ? ??? ????.",
+            "ko": "이 강의는 주로 유료 ChatGPT 사용자를 기준으로 설명합니다. 정상적으로 로그인할 수 있으면 이 단계는 끝입니다.",
             "es_419": "Este curso est? escrito principalmente para usuarios de ChatGPT pago. Si puedes iniciar sesi?n con normalidad, este paso est? completo."
           }
         },
         {
           "title": {
             "en": "Step 4. Open the official Codex guide",
-            "ko": "4??. ?? Codex ??? ???",
+            "ko": "4단계. 공식 Codex 안내를 엽니다",
             "es_419": "Paso 4. Abre la gu?a oficial de Codex"
           },
           "body": {
             "en": "Open the official page: https://developers.openai.com/codex/app/",
-            "ko": "?? ?? ???? ???: https://developers.openai.com/codex/app/",
+            "ko": "공식 안내 페이지를 엽니다: https://developers.openai.com/codex/app/",
             "es_419": "Abre la p?gina oficial: https://developers.openai.com/codex/app/"
           }
         },
         {
           "title": {
             "en": "Step 5. If you use Windows, install Codex",
-            "ko": "5??. Windows ???? Codex? ?????",
+            "ko": "5단계. Windows 사용자는 Codex를 설치합니다",
             "es_419": "Paso 5. Si usas Windows, instala Codex"
           },
           "body": {
             "en": "On Windows, you can install the Codex app from Microsoft Store. The docs also show this command: winget install Codex -s msstore",
-            "ko": "Windows??? Microsoft Store?? Codex ?? ??? ? ????. ?? ???? ? ???? ????: winget install Codex -s msstore",
+            "ko": "Windows에서는 Microsoft Store에서 Codex 앱을 설치할 수 있습니다. 공식 문서에는 이 명령어도 나옵니다: winget install Codex -s msstore",
             "es_419": "En Windows puedes instalar la app Codex desde Microsoft Store. La documentaci?n tambi?n muestra este comando: winget install Codex -s msstore"
           }
         },
         {
           "title": {
             "en": "Step 6. If you use Mac, install Codex",
-            "ko": "6??. Mac ???? Codex? ?????",
+            "ko": "6단계. Mac 사용자는 Codex를 설치합니다",
             "es_419": "Paso 6. Si usas Mac, instala Codex"
           },
           "body": {
             "en": "Download the Mac version from the same official page. If your Mac uses Intel, choose the Intel build. If your Mac uses Apple Silicon, choose the regular Mac build shown there.",
-            "ko": "?? ?? ????? Mac ??? ??????. Intel Mac?? Intel ??? ???, Apple Silicon Mac?? ? ???? ??? ?? Mac ??? ??? ???.",
+            "ko": "같은 공식 페이지에서 Mac 버전을 내려받습니다. Intel Mac이면 Intel 빌드를 고르고, Apple Silicon Mac이면 그 페이지에 표시된 일반 Mac 빌드를 고르면 됩니다.",
             "es_419": "Descarga la versi?n para Mac desde la misma p?gina oficial. Si tu Mac usa Intel, elige la compilaci?n Intel. Si usa Apple Silicon, elige la versi?n regular para Mac que aparece all?."
           }
         },
         {
           "title": {
             "en": "Step 7. Open Codex",
-            "ko": "7??. Codex? ???",
+            "ko": "7단계. Codex를 엽니다",
             "es_419": "Paso 7. Abre Codex"
           },
           "body": {
             "en": "After installation, open the Codex app.",
-            "ko": "??? ??? Codex ?? ???.",
+            "ko": "설치가 끝나면 Codex 앱을 엽니다.",
             "es_419": "Despu?s de instalar, abre la app Codex."
           }
         },
         {
           "title": {
             "en": "Step 8. Sign in to Codex",
-            "ko": "8??. Codex? ??????",
+            "ko": "8단계. Codex에 로그인합니다",
             "es_419": "Paso 8. Inicia sesi?n en Codex"
           },
           "body": {
             "en": "Sign in with your ChatGPT account. For this course, that is the main path.",
-            "ko": "ChatGPT ???? ??????. ? ????? ? ??? ?? ??? ?????.",
+            "ko": "ChatGPT 계정으로 로그인합니다. 이 강의에서는 이 방식을 기본 경로로 사용합니다.",
             "es_419": "Inicia sesi?n con tu cuenta de ChatGPT. En este curso esa es la ruta principal."
           }
         },
         {
           "title": {
             "en": "Step 9. Open GitHub",
-            "ko": "9??. GitHub? ???",
+            "ko": "9단계. GitHub를 엽니다",
             "es_419": "Paso 9. Abre GitHub"
           },
           "body": {
             "en": "Open https://github.com",
-            "ko": "https://github.com ? ???.",
+            "ko": "https://github.com 을 엽니다.",
             "es_419": "Abre https://github.com"
           }
         },
         {
           "title": {
             "en": "Step 10. Create a GitHub account or sign in",
-            "ko": "10??. GitHub? ????? ??????",
+            "ko": "10단계. GitHub에 가입하거나 로그인합니다",
             "es_419": "Paso 10. Crea tu cuenta de GitHub o inicia sesi?n"
           },
           "body": {
             "en": "If you do not have an account, click Sign up and finish the basic registration. If you already have an account, sign in.",
-            "ko": "??? ??? Sign up? ?? ?? ??? ????. ?? ??? ??? ??????.",
+            "ko": "계정이 없으면 Sign up을 눌러 기본 가입을 마칩니다. 이미 계정이 있으면 로그인합니다.",
             "es_419": "Si no tienes cuenta, haz clic en Sign up y termina el registro b?sico. Si ya tienes cuenta, inicia sesi?n."
           }
         },
         {
           "title": {
             "en": "Step 11. What GitHub is for",
-            "ko": "11??. GitHub? ???? ?????",
+            "ko": "11단계. GitHub가 무엇인지 이해합니다",
             "es_419": "Paso 11. Entiende para qu? sirve GitHub"
           },
           "body": {
             "en": "GitHub is the website where you store your project code.",
-            "ko": "GitHub? ???? ??? ???? ??????.",
+            "ko": "GitHub는 프로젝트 코드를 저장하는 사이트입니다.",
             "es_419": "GitHub es el sitio donde guardas el c?digo de tu proyecto."
           }
         },
         {
           "title": {
             "en": "Step 12. What a repo is",
-            "ko": "12??. repo? ???? ?????",
+            "ko": "12단계. repo가 무엇인지 이해합니다",
             "es_419": "Paso 12. Entiende qu? es un repo"
           },
           "body": {
             "en": "Repository is usually shortened to repo. A repo is one project folder inside GitHub.",
-            "ko": "repository? ?? repo?? ?? ????. repo? GitHub ?? ?? ???? ? ?? ?????.",
+            "ko": "repository는 보통 repo라고 줄여 부릅니다. repo는 GitHub 안에 있는 프로젝트 한 개의 폴더입니다.",
             "es_419": "Repository suele abreviarse como repo. Un repo es la carpeta de un proyecto dentro de GitHub."
           }
         },
         {
           "title": {
             "en": "Step 13. Open Telegram",
-            "ko": "13??. Telegram? ???",
+            "ko": "13단계. Telegram을 엽니다",
             "es_419": "Paso 13. Abre Telegram"
           },
           "body": {
             "en": "Open https://telegram.org if you need the official download page.",
-            "ko": "?? ???? ???? ???? https://telegram.org ? ???.",
+            "ko": "공식 다운로드 페이지가 필요하면 https://telegram.org 를 엽니다.",
             "es_419": "Abre https://telegram.org si necesitas la p?gina oficial de descarga."
           }
         },
         {
           "title": {
             "en": "Step 14. Check your Telegram login",
-            "ko": "14??. Telegram ???? ?????",
+            "ko": "14단계. Telegram 로그인을 확인합니다",
             "es_419": "Paso 14. Revisa tu inicio de sesi?n en Telegram"
           },
           "body": {
             "en": "Because you are receiving this lesson in Telegram, you are probably already using it. In this course, that is enough for now.",
-            "ko": "? ??? Telegram?? ?? ????, ?? Telegram? ???? ?? ???? ????. ? ????? ?? ? ??? ?????.",
+            "ko": "이 레슨을 Telegram에서 받고 있으므로, 이미 Telegram을 사용하고 있을 가능성이 높습니다. 이 강의에서는 지금 그 정도면 충분합니다.",
             "es_419": "Como est?s recibiendo esta lecci?n en Telegram, probablemente ya lo est?s usando. Para este curso, por ahora eso es suficiente."
           }
         },
         {
           "title": {
             "en": "Step 15. Why Telegram matters here",
-            "ko": "15??. ? ???? Telegram? ? ???? ?????",
+            "ko": "15단계. 이 강의에서 Telegram이 왜 필요한지 이해합니다",
             "es_419": "Paso 15. Entiende por qu? Telegram importa aqu?"
           },
           "body": {
             "en": "Later, you will test your finished bots inside Telegram.",
-            "ko": "??? ??? ?? Telegram ??? ?? ????? ???.",
+            "ko": "나중에 완성된 봇을 Telegram 안에서 직접 테스트하게 됩니다.",
             "es_419": "M?s adelante probar?s tus bots terminados dentro de Telegram."
           }
         },
         {
           "title": {
             "en": "Step 16. Create one course folder",
-            "ko": "16??. ??? ??? ?? ????",
+            "ko": "16단계. 강의용 폴더를 하나 만듭니다",
             "es_419": "Paso 16. Crea una carpeta para el curso"
           },
           "body": {
             "en": "Create one folder on your computer for this course. Example names: CodexCourse, CodexProjects, TelegramBotPractice.",
-            "ko": "??? ?? ? ??? ??? ?? ????. ?: CodexCourse, CodexProjects, TelegramBotPractice",
+            "ko": "컴퓨터 안에 이 강의용 폴더를 하나 만듭니다. 예: CodexCourse, CodexProjects, TelegramBotPractice",
             "es_419": "Crea una carpeta en tu computadora para este curso. Ejemplos: CodexCourse, CodexProjects, TelegramBotPractice."
           }
         },
         {
           "title": {
             "en": "Step 17. Use the folder later",
-            "ko": "17??. ? ??? ??? ?? ?????",
+            "ko": "17단계. 이 폴더는 나중에 계속 사용합니다",
             "es_419": "Paso 17. Usar?s esta carpeta despu?s"
           },
           "body": {
             "en": "From lesson 1 onward, you will save your files in that folder.",
-            "ko": "?? 1??? ? ?? ?? ??? ???? ???.",
+            "ko": "레슨 1부터는 그 폴더 안에 파일을 저장하게 됩니다.",
             "es_419": "Desde la lecci?n 1 guardar?s tus archivos dentro de esa carpeta."
           }
         },
         {
           "title": {
             "en": "Step 18. If installation gets stuck",
-            "ko": "18??. ??? ??? ??? ???",
+            "ko": "18단계. 설치가 막히면 이렇게 합니다",
             "es_419": "Paso 18. Si la instalaci?n se complica"
           },
           "body": {
             "en": "If a problem happens, search YouTube for \"Codex install\". This course is not mainly about installation, and every PC environment is different.",
-            "ko": "??? ??? ????? \"Codex install\" ?? \"??? ??\"? ?????. ? ??? ?? ??? ???? ???, PC ??? ?? ??? ?????.",
+            "ko": "문제가 생기면 유튜브에서 \"Codex install\" 또는 \"코덱스 설치\"를 검색하세요. 이 강의는 설치 자체가 주목적이 아니고, PC 환경도 모두 다르기 때문입니다.",
             "es_419": "Si aparece un problema, busca en YouTube \"Codex install\". Este curso no se centra en la instalaci?n y cada entorno de PC es distinto."
           }
         },
         {
           "title": {
             "en": "Step 19. Finish this lesson",
-            "ko": "19??. ? ??? ??? ??",
+            "ko": "19단계. 이 레슨을 끝내는 기준",
             "es_419": "Paso 19. C?mo terminar esta lecci?n"
           },
           "body": {
             "en": "You are done when ChatGPT works, Codex is installed and opens, GitHub is ready, Telegram is ready, and your course folder exists.",
-            "ko": "ChatGPT? ??, Codex? ???? ???, GitHub? Telegram? ???? ??, ??? ??? ?????? ? ??? ????.",
+            "ko": "ChatGPT가 되고, Codex가 설치되어 열리고, GitHub와 Telegram이 준비되어 있고, 강의용 폴더가 만들어졌다면 이 레슨은 끝입니다.",
             "es_419": "Terminas cuando ChatGPT funciona, Codex est? instalado y abre, GitHub est? listo, Telegram est? listo y tu carpeta del curso ya existe."
           }
         }
       ],
       "assignment": {
         "en": "Finish this lesson when ChatGPT works, Codex is installed and opens, GitHub is ready, Telegram is ready, and your course folder exists.",
-        "ko": "ChatGPT? ??, Codex? ???? ???, GitHub? Telegram? ???? ??, ??? ??? ?????? ? ??? ????.",
+        "ko": "ChatGPT가 되고, Codex가 설치되어 열리고, GitHub와 Telegram이 준비되어 있고, 강의용 폴더가 만들어졌다면 이 레슨은 끝입니다.",
         "es_419": "Termina esta lecci?n cuando ChatGPT funciona, Codex est? instalado y abre, GitHub est? listo, Telegram est? listo y tu carpeta del curso ya existe."
       }
     },
