@@ -33,19 +33,19 @@ const ui = {
     saved: "Language saved: English",
     comingSoon: "This language is coming soon. For now, please choose English, Korean, or Latin American Spanish.",
     intro:
-      "This bot teaches like a textbook and a step-by-step manual.\n\nFirst it shows the big picture. Then it tells you what this lesson is for. Then it gives you one step at a time.\n\nUse /lessons to begin.",
+      "This bot teaches Codex projects like a manual, in lesson order. As you move through the lessons, you will feel your skills improving. To keep this course inexpensive, generative AI question answering is kept to a minimum.\n\nUse /lesson0 or /lessons to begin.",
     lessonsHeader: "Course Roadmap",
     free: "free",
     locked: "locked",
     unlocked: "unlocked",
-    openLesson: "Open a lesson with /lesson 1.",
+    openLesson: "Open a lesson with /lesson0.",
     noLesson: "I could not find that lesson. Use /lessons.",
-    lockedLesson: "This lesson is locked. Lessons 1 and 2 are free. Use /unlock for the full 20-lesson course.",
-    nextUsage: "Open a lesson first with /lesson 1. Then use /next.",
-    repeatUsage: "Open a lesson first with /lesson 1. Then use /repeat.",
+    lockedLesson: "This lesson is locked. Lessons 0, 1, and 2 are free. Use /unlock for the full 20-lesson course.",
+    nextUsage: "Open a lesson first with /lesson0. Then use /next.",
+    repeatUsage: "Open a lesson first with /lesson0. Then use /repeat.",
     finalStep: "You reached the last step of this lesson.",
     help:
-      "Commands:\n/start - choose language\n/lessons - course roadmap\n/lesson 1 - open lesson\n/next - next step\n/repeat - repeat current step\n/done 1 - mark lesson complete\n/status - progress\n/unlock - unlock info\n/help - help\n\nQuestions are welcome. The bot does not pretend to be a live AI tutor. Instead, it gives you a prompt to paste into ChatGPT or Codex.",
+      "Commands:\n/start - choose language\n/lessons - course roadmap\n/lesson0 - open lesson 0\n/next - next step\n/repeat - repeat current step\n/done 0 - mark a lesson complete (replace 0 with the lesson number)\n/status - progress\n/unlock - unlock info\n/help - help\n\nQuestions are welcome. The bot does not pretend to be a live AI tutor. Instead, it gives you a prompt to paste into ChatGPT or Codex.",
     askTemplate:
       "Question accepted.\n\nPaste this into ChatGPT or Codex:\n\nI am following a beginner course about ChatGPT and Codex. Please answer like a patient tutor. I am currently on lesson {{lesson}}. My question is: {{question}}\n\nPlease do three things:\n1. Explain simply.\n2. Point out the most likely mistake.\n3. Give me one clear next step.",
     askNoState:
@@ -55,10 +55,10 @@ const ui = {
     completed: "Completed lessons",
     available: "Available lessons",
     markedDone: "Lesson marked complete.",
-    doneUsage: "Use /done 1 after finishing a lesson.",
+    doneUsage: "Use /done 0 after finishing a lesson. Replace 0 with the lesson number.",
     doneReminder: "Use /done {{lessonId}} when you finish it.",
     unlock:
-      "Lessons 1 and 2 are free.\n\nThe full 20-lesson practice course can be unlocked for $3. The bot stays inexpensive by teaching through structured steps instead of calling AI for every student message.",
+      "Lessons 0, 1, and 2 are free.\n\nThe full 20-lesson practice course can be unlocked for $3. The bot stays inexpensive by teaching through structured steps instead of calling AI for every student message.",
     unlockNoUrl: "Payment link is not configured yet. Set BUY_ME_A_COFFEE_URL in Coolify.",
     adminOnly: "Admin only.",
     unlockUserUsage: "Use /unlock_user TELEGRAM_USER_ID",
@@ -67,112 +67,118 @@ const ui = {
     chapterLabel: "Chapter",
     lessonLabel: "Lesson",
     stepHeader: "Current step",
-    lessonOutline: "Lesson outline",
-    bigPicture: "Big picture",
-    thisLesson: "In this lesson",
-    taskLabel: "After this lesson",
+    lessonOutline: "Lesson flow",
+    bigPicture: "Purpose and background",
+    thisLesson: "What you will do in this lesson",
+    taskLabel: "Check after this lesson",
     stepPrompt: "Copy this into ChatGPT or Codex",
     mediaLabel: "Optional media idea",
     buttonNext: "Done, next step",
-    buttonRepeat: "Repeat step"
+    buttonRepeat: "Repeat step",
+    buttonLessonZero: "Lesson 0",
+    buttonLessons: "Lessons"
   },
   ko: {
-    languageName: "한국어",
-    chooseLanguage: "Codex Project Manual Bot에 오신 것을 환영합니다.\n\n강의 언어를 선택해 주세요:",
-    saved: "언어가 저장되었습니다: 한국어",
-    comingSoon: "이 언어는 곧 추가될 예정입니다. 지금은 English, 한국어, Español latinoamericano 중에서 선택해 주세요.",
+    languageName: "???",
+    chooseLanguage: "Codex Project Manual Bot? ?? ?? ?????.\n\n?? ??? ??? ???:",
+    saved: "??? ???????: ???",
+    comingSoon: "? ??? ? ??? ?????. ??? English, ???, Espa?ol latinoamericano ??? ??? ???.",
     intro:
-      "이 봇은 코덱스로 프로젝트를 하는 레슨을 매뉴얼처럼 차례대로 가르치는 봇입니다. 각 레슨을 하시면서 실력이 향상되는 것을 느끼실 수 있을 것입니다. 이 레슨을 저렴하게 유지하기 위해 생성형 AI 질의응답은 최소화하려고 하오니 양해 바랍니다.",
-    lessonsHeader: "강의 로드맵",
-    free: "무료",
-    locked: "잠김",
-    unlocked: "열림",
-    openLesson: "/lesson 1 처럼 입력해서 레슨을 열어 주세요.",
-    noLesson: "해당 레슨을 찾을 수 없습니다. /lessons 를 확인해 주세요.",
-    lockedLesson: "이 레슨은 잠겨 있습니다. 레슨 1과 2는 무료입니다. 전체 20개 레슨은 /unlock 에서 확인해 주세요.",
-    nextUsage: "먼저 /lesson 1 로 레슨을 연 다음 /next 를 사용해 주세요.",
-    repeatUsage: "먼저 /lesson 1 로 레슨을 연 다음 /repeat 를 사용해 주세요.",
-    finalStep: "이 레슨의 마지막 단계까지 왔습니다.",
+      "? ?? ???? ????? ?? ??? ????? ???? ???? ????. ? ??? ???? ??? ???? ?? ??? ? ?? ????. ? ??? ???? ???? ?? ??? AI ????? ?????? ??? ?? ????.\n\n????? /lesson0 ?? /lessons ? ?????.",
+    lessonsHeader: "?? ???",
+    free: "??",
+    locked: "??",
+    unlocked: "??",
+    openLesson: "/lesson0 ?? ??? ???.",
+    noLesson: "?? ??? ?? ? ????. /lessons ? ??? ???.",
+    lockedLesson: "? ??? ?? ????. ?? 0, 1, 2? ?????. ?? 20? ??? /unlock ?? ??? ???.",
+    nextUsage: "?? /lesson0 ?? ??? ???. ??? /next ? ??? ???.",
+    repeatUsage: "?? /lesson0 ?? ??? ???. ??? /repeat ? ??? ???.",
+    finalStep: "? ??? ??? ???? ????.",
     help:
-      "명령어:\n/start - 언어 선택\n/lessons - 강의 로드맵\n/lesson 1 - 레슨 열기\n/next - 다음 단계\n/repeat - 현재 단계 다시 보기\n/done 1 - 레슨 완료 기록\n/status - 진행 상황\n/unlock - 전체 레슨 안내\n/help - 도움말\n\n질문은 언제든 할 수 있습니다. 다만 이 봇은 실시간 AI 튜터처럼 직접 답하는 대신, ChatGPT나 Codex에 붙여 넣을 프롬프트를 안내합니다.",
+      "???:\n/start - ?? ??\n/lessons - ?? ???\n/lesson0 - ?? 0 ??\n/next - ?? ??\n/repeat - ?? ?? ?? ??\n/done 0 - ?? ?? ?? (0 ??? ?? ?? ??)\n/status - ?? ??\n/unlock - ?? ?? ??\n/help - ???\n\n??? ??? ? ? ????. ?? ? ?? ??? AI ???? ?? ??? ??, ChatGPT? Codex? ?? ?? ????? ?????.",
     askTemplate:
-      "좋아요. 아래 문장을 그대로 ChatGPT 또는 Codex에 붙여 넣어 보세요.\n\n저는 ChatGPT와 Codex를 배우는 초보자입니다. 친절한 튜터처럼 답해 주세요. 저는 현재 {{lesson}} 레슨을 진행 중입니다. 제 질문은 이것입니다: {{question}}\n\n다음 세 가지 방식으로 답해 주세요.\n1. 아주 쉽게 설명해 주세요.\n2. 제가 가장 헷갈렸을 법한 부분을 짚어 주세요.\n3. 지금 바로 할 다음 한 단계만 알려 주세요.",
+      "???. ?? ??? ??? ChatGPT ?? Codex? ?? ?? ???.\n\n?? ChatGPT? Codex? ??? ??????. ??? ???? ?? ???. ?? ?? {{lesson}} ??? ?? ????. ? ??? ?????: {{question}}\n\n?? ? ?? ???? ?? ???.\n1. ?? ?? ??? ???.\n2. ?? ?? ???? ?? ??? ?? ???.\n3. ?? ?? ? ?? ? ??? ?? ???.",
     askNoState:
-      "좋아요. 아래 문장을 그대로 ChatGPT 또는 Codex에 붙여 넣어 보세요.\n\n저는 ChatGPT와 Codex를 배우는 초보자입니다. 친절한 튜터처럼 답해 주세요. 제 질문은 이것입니다: {{question}}\n\n아주 쉽게 설명하고, 지금 바로 할 다음 한 단계만 알려 주세요.",
-    status: "상태",
-    language: "언어",
-    completed: "완료한 레슨",
-    available: "이용 가능한 레슨",
-    markedDone: "레슨 완료로 기록했습니다.",
-    doneUsage: "레슨을 마친 뒤 /done 1 처럼 입력해 주세요.",
-    doneReminder: "레슨을 마치면 /done {{lessonId}} 를 입력해 주세요.",
+      "???. ?? ??? ??? ChatGPT ?? Codex? ?? ?? ???.\n\n?? ChatGPT? Codex? ??? ??????. ??? ???? ?? ???. ? ??? ?????: {{question}}\n\n?? ?? ????, ?? ?? ? ?? ? ??? ?? ???.",
+    status: "??",
+    language: "??",
+    completed: "??? ??",
+    available: "?? ??? ??",
+    markedDone: "?? ??? ???????.",
+    doneUsage: "??? ?? ? /done 0 ???? ??? ???. 0 ??? ?? ??? ??? ???.",
+    doneReminder: "??? ??? /done {{lessonId}} ? ??? ???.",
     unlock:
-      "레슨 1과 2는 무료입니다.\n\n전체 20개 실습 레슨은 $3에 열 수 있습니다. 학생이 질문할 때마다 AI를 호출하지 않고, 구조화된 매뉴얼 방식으로 운영해서 비용을 낮추고 있습니다.",
-    unlockNoUrl: "아직 결제 링크가 설정되지 않았습니다. Coolify에서 BUY_ME_A_COFFEE_URL 을 설정해 주세요.",
-    adminOnly: "관리자만 사용할 수 있습니다.",
-    unlockUserUsage: "/unlock_user TELEGRAM_USER_ID 형식으로 입력해 주세요.",
-    userUnlocked: "사용자를 열어 두었습니다.",
-    partLabel: "파트",
-    chapterLabel: "챕터",
-    lessonLabel: "레슨",
-    stepHeader: "현재 단계",
-    lessonOutline: "이번 레슨 아웃라인",
-    bigPicture: "큰 그림",
-    thisLesson: "이번 레슨에서는",
-    taskLabel: "이 레슨을 마치면",
-    stepPrompt: "ChatGPT 또는 Codex에 붙여 넣기",
-    mediaLabel: "선택 사항 미디어 아이디어",
-    buttonNext: "했고, 다음 단계",
-    buttonRepeat: "이 단계 다시 보기"
+      "?? 0, 1, 2? ?????.\n\n?? 20? ?? ??? $3? ? ? ????. ? ?? ??? ?? ????? AI? ???? ??, ???? ??? ???? ???? ??? ??? ????.",
+    unlockNoUrl: "?? ?? ??? ???? ?????. Coolify?? BUY_ME_A_COFFEE_URL ? ??? ???.",
+    adminOnly: "???? ??? ? ????.",
+    unlockUserUsage: "/unlock_user TELEGRAM_USER_ID ???? ??? ???.",
+    userUnlocked: "???? ?? ?????.",
+    partLabel: "??",
+    chapterLabel: "??",
+    lessonLabel: "??",
+    stepHeader: "?? ??",
+    lessonOutline: "?? ??? ??",
+    bigPicture: "? ??? ??? ??",
+    thisLesson: "?? ???? ? ?",
+    taskLabel: "? ??? ??? ??? ??",
+    stepPrompt: "ChatGPT ?? Codex? ?? ??",
+    mediaLabel: "?? ?? ??? ????",
+    buttonNext: "??/?? ??",
+    buttonRepeat: "?? ?? ?? ??",
+    buttonLessonZero: "?? 0",
+    buttonLessons: "?? ??"
   },
   es_419: {
-    languageName: "Español latinoamericano",
+    languageName: "Espa?ol latinoamericano",
     chooseLanguage: "Bienvenido a Codex Project Manual Bot.\n\nElige el idioma del curso:",
-    saved: "Idioma guardado: Español latinoamericano",
-    comingSoon: "Este idioma llegará pronto. Por ahora, elige English, 한국어 o Español latinoamericano.",
+    saved: "Idioma guardado: Espa?ol latinoamericano",
+    comingSoon: "Este idioma llegar? pronto. Por ahora, elige English, ??? o Espa?ol latinoamericano.",
     intro:
-      "Este bot no enseña como un chatbot común. Enseña como un libro de texto y un manual paso a paso.\n\nPrimero muestra el panorama general, luego explica qué harás en esta lección y después te guía con un paso por vez.\n\nUsa /lessons para empezar.",
+      "Este bot ense?a proyectos con Codex como si fuera un manual, en orden de lecciones. A medida que avances, sentir?s que tu nivel mejora. Para mantener este curso econ?mico, las respuestas de IA generativa se reducen al m?nimo.\n\nUsa /lesson0 o /lessons para empezar.",
     lessonsHeader: "Mapa del curso",
     free: "gratis",
     locked: "bloqueada",
     unlocked: "desbloqueada",
-    openLesson: "Abre una lección con /lesson 1.",
-    noLesson: "No encontré esa lección. Usa /lessons.",
-    lockedLesson: "Esta lección está bloqueada. Las lecciones 1 y 2 son gratis. Usa /unlock para el curso completo de 20 lecciones.",
-    nextUsage: "Primero abre una lección con /lesson 1. Luego usa /next.",
-    repeatUsage: "Primero abre una lección con /lesson 1. Luego usa /repeat.",
-    finalStep: "Llegaste al último paso de esta lección.",
+    openLesson: "Abre una lecci?n con /lesson0.",
+    noLesson: "No encontr? esa lecci?n. Usa /lessons.",
+    lockedLesson: "Esta lecci?n est? bloqueada. Las lecciones 0, 1 y 2 son gratis. Usa /unlock para el curso completo de 20 lecciones.",
+    nextUsage: "Primero abre una lecci?n con /lesson0. Luego usa /next.",
+    repeatUsage: "Primero abre una lecci?n con /lesson0. Luego usa /repeat.",
+    finalStep: "Llegaste al ?ltimo paso de esta lecci?n.",
     help:
-      "Comandos:\n/start - elegir idioma\n/lessons - mapa del curso\n/lesson 1 - abrir lección\n/next - siguiente paso\n/repeat - repetir paso actual\n/done 1 - marcar como completa\n/status - progreso\n/unlock - información para desbloquear\n/help - ayuda\n\nLas preguntas son bienvenidas. El bot no finge ser un tutor AI en vivo. En cambio, te da un prompt para pegar en ChatGPT o Codex.",
+      "Comandos:\n/start - elegir idioma\n/lessons - mapa del curso\n/lesson0 - abrir lecci?n 0\n/next - siguiente paso\n/repeat - repetir paso actual\n/done 0 - marcar una lecci?n como completa (reemplaza 0 por el n?mero de lecci?n)\n/status - progreso\n/unlock - informaci?n para desbloquear\n/help - ayuda\n\nLas preguntas son bienvenidas. El bot no finge ser un tutor AI en vivo. En cambio, te da un prompt para pegar en ChatGPT o Codex.",
     askTemplate:
-      "Pregunta recibida.\n\nPega esto en ChatGPT o Codex:\n\nEstoy siguiendo un curso para principiantes sobre ChatGPT y Codex. Respóndeme como un tutor paciente. Estoy en la lección {{lesson}}. Mi pregunta es: {{question}}\n\nPor favor haz tres cosas:\n1. Explícalo de forma simple.\n2. Señala el error más probable.\n3. Dame un solo siguiente paso claro.",
+      "Pregunta recibida.\n\nPega esto en ChatGPT o Codex:\n\nEstoy siguiendo un curso para principiantes sobre ChatGPT y Codex. Resp?ndeme como un tutor paciente. Estoy en la lecci?n {{lesson}}. Mi pregunta es: {{question}}\n\nPor favor haz tres cosas:\n1. Expl?calo de forma simple.\n2. Se?ala el error m?s probable.\n3. Dame un solo siguiente paso claro.",
     askNoState:
-      "Pregunta recibida.\n\nPega esto en ChatGPT o Codex:\n\nEstoy siguiendo un curso para principiantes sobre ChatGPT y Codex. Respóndeme como un tutor paciente. Mi pregunta es: {{question}}\n\nExplícalo de forma simple y luego dame un solo siguiente paso claro.",
+      "Pregunta recibida.\n\nPega esto en ChatGPT o Codex:\n\nEstoy siguiendo un curso para principiantes sobre ChatGPT y Codex. Resp?ndeme como un tutor paciente. Mi pregunta es: {{question}}\n\nExpl?calo de forma simple y luego dame un solo siguiente paso claro.",
     status: "Estado",
     language: "Idioma",
     completed: "Lecciones completadas",
     available: "Lecciones disponibles",
-    markedDone: "Lección marcada como completada.",
-    doneUsage: "Usa /done 1 después de terminar la lección.",
+    markedDone: "Lecci?n marcada como completada.",
+    doneUsage: "Usa /done 0 despu?s de terminar la lecci?n. Reemplaza 0 por el n?mero de lecci?n.",
     doneReminder: "Usa /done {{lessonId}} cuando la termines.",
     unlock:
-      "Las lecciones 1 y 2 son gratis.\n\nEl curso completo de 20 prácticas se puede desbloquear por $3. El bot se mantiene barato porque enseña con pasos estructurados en lugar de llamar AI por cada mensaje del estudiante.",
-    unlockNoUrl: "El enlace de pago no está configurado. Configura BUY_ME_A_COFFEE_URL en Coolify.",
+      "Las lecciones 0, 1 y 2 son gratis.\n\nEl curso completo de 20 pr?cticas se puede desbloquear por $3. El bot se mantiene barato porque ense?a con pasos estructurados en lugar de llamar AI por cada mensaje del estudiante.",
+    unlockNoUrl: "El enlace de pago no est? configurado. Configura BUY_ME_A_COFFEE_URL en Coolify.",
     adminOnly: "Solo admin.",
     unlockUserUsage: "Usa /unlock_user TELEGRAM_USER_ID",
     userUnlocked: "Usuario desbloqueado.",
     partLabel: "Parte",
-    chapterLabel: "Capítulo",
-    lessonLabel: "Lección",
+    chapterLabel: "Cap?tulo",
+    lessonLabel: "Lecci?n",
     stepHeader: "Paso actual",
-    lessonOutline: "Esquema de la lección",
-    bigPicture: "Panorama general",
-    thisLesson: "En esta lección",
-    taskLabel: "Al terminar esta lección",
+    lessonOutline: "Orden de esta lecci?n",
+    bigPicture: "Prop?sito y contexto",
+    thisLesson: "Qu? har?s en esta lecci?n",
+    taskLabel: "Al terminar esta lecci?n",
     stepPrompt: "Pega esto en ChatGPT o Codex",
     mediaLabel: "Idea opcional de media",
     buttonNext: "Hecho, siguiente paso",
-    buttonRepeat: "Repetir paso"
+    buttonRepeat: "Repetir paso",
+    buttonLessonZero: "Lecci?n 0",
+    buttonLessons: "Lecciones"
   }
 };
 
@@ -226,6 +232,9 @@ async function handleMessage(message) {
   let match = value.match(/^\/lesson(?:\s+(\d+))?$/);
   if (match) return openLesson(chatId, userId, Number(match[1]));
 
+  match = value.match(/^\/lesson(\d+)$/);
+  if (match) return openLesson(chatId, userId, Number(match[1]));
+
   match = value.match(/^\/done(?:\s+(\d+))?$/);
   if (match) return markDone(chatId, userId, Number(match[1]));
 
@@ -250,6 +259,17 @@ async function handleCallback(query) {
     return repeatCurrentStep(chatId, userId);
   }
 
+  if (data === "nav:lessons") {
+    await answerCallbackQuery(query.id);
+    return sendMessage(chatId, buildLessonsMessage(userId), homeReplyMarkup(userId));
+  }
+
+  let match = data.match(/^nav:lesson:(\d+)$/);
+  if (match) {
+    await answerCallbackQuery(query.id);
+    return openLesson(chatId, userId, Number(match[1]));
+  }
+
   if (!data.startsWith("lang:")) return answerCallbackQuery(query.id);
 
   const lang = data.slice("lang:".length);
@@ -262,7 +282,7 @@ async function handleCallback(query) {
 
   setUserLanguage(userId, lang);
   await answerCallbackQuery(query.id);
-  return sendMessage(chatId, `${ui[lang].saved}\n\n${ui[lang].intro}`);
+  return sendMessage(chatId, `${ui[lang].saved}\n\n${ui[lang].intro}`, homeReplyMarkup(userId));
 }
 
 async function sendLanguageMenu(chatId) {
@@ -284,10 +304,24 @@ async function sendLanguageMenu(chatId) {
   });
 }
 
+function homeReplyMarkup(userId) {
+  const copy = t(userId);
+  return {
+    reply_markup: {
+      inline_keyboard: [
+        [
+          { text: copy.buttonLessonZero || "Lesson 0", callback_data: "nav:lesson:0" },
+          { text: copy.buttonLessons || "Lessons", callback_data: "nav:lessons" }
+        ]
+      ]
+    }
+  };
+}
+
 async function openLesson(chatId, userId, lessonId) {
   const copy = t(userId);
   const lang = getUserLanguage(userId);
-  if (!lessonId) return sendMessage(chatId, copy.openLesson);
+  if (lessonId === undefined || Number.isNaN(lessonId)) return sendMessage(chatId, copy.openLesson);
 
   const lesson = lessonsById.get(lessonId);
   if (!lesson) return sendMessage(chatId, copy.noLesson);
@@ -382,7 +416,7 @@ async function repeatCurrentStep(chatId, userId) {
 
 async function markDone(chatId, userId, lessonId) {
   const copy = t(userId);
-  if (!lessonId || !lessonsById.has(lessonId)) return sendMessage(chatId, copy.doneUsage);
+  if (lessonId === undefined || Number.isNaN(lessonId) || !lessonsById.has(lessonId)) return sendMessage(chatId, copy.doneUsage);
   if (!canAccessLesson(userId, lessonId)) return sendMessage(chatId, copy.lockedLesson);
 
   const progress = readJson(PROGRESS_FILE, {});
@@ -401,7 +435,7 @@ async function sendStatus(chatId, userId) {
   const lang = getUserLanguage(userId);
   const progress = readJson(PROGRESS_FILE, {});
   const completed = progress[String(userId)]?.completedLessons || [];
-  const available = canAccessPaidLessons(userId) ? "1-20" : "1-2";
+  const available = canAccessPaidLessons(userId) ? "0-20" : "0-2";
   return sendMessage(
     chatId,
     `${copy.status}\n${copy.language}: ${content.languages[lang]}\n${copy.completed}: ${completed.length}/20\n${copy.available}: ${available}`
@@ -468,6 +502,7 @@ function buildLessonsMessage(userId) {
   }
 
   lines.push(copy.openLesson);
+  lines.push("Quick open: /lesson0");
   return lines.join("\n");
 }
 
